@@ -57,7 +57,6 @@ const observer = new IntersectionObserver((entries) => {
 // Observe elements for animation
 document.addEventListener("DOMContentLoaded", () => {
   const animateElements = document.querySelectorAll(".skill-category, .project-card, .cert-card, .timeline-item")
-
   animateElements.forEach((el) => {
     el.style.opacity = "0"
     el.style.transform = "translateY(30px)"
@@ -70,7 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
 function typeWriter(element, text, speed = 100) {
   let i = 0
   element.innerHTML = ""
-
   function type() {
     if (i < text.length) {
       element.innerHTML += text.charAt(i)
@@ -94,8 +92,8 @@ window.addEventListener("load", () => {
 window.addEventListener("scroll", () => {
   const sections = document.querySelectorAll("section[id]")
   const navLinks = document.querySelectorAll(".nav-link")
-
   let current = ""
+
   sections.forEach((section) => {
     const sectionTop = section.offsetTop
     const sectionHeight = section.clientHeight
@@ -141,7 +139,6 @@ function animateSkills() {
       tag.style.opacity = "0"
       tag.style.transform = "scale(0.8)"
       tag.style.transition = "all 0.3s ease"
-
       setTimeout(() => {
         tag.style.opacity = "1"
         tag.style.transform = "scale(1)"
@@ -165,7 +162,6 @@ document.addEventListener("DOMContentLoaded", () => {
     card.addEventListener("mouseenter", () => {
       card.style.transform = "translateY(-10px) scale(1.02)"
     })
-
     card.addEventListener("mouseleave", () => {
       card.style.transform = "translateY(0) scale(1)"
     })
