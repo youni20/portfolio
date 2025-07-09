@@ -147,14 +147,7 @@ function animateSkills() {
   })
 }
 
-// Contact form functionality (if you want to add a form later)
-function handleContactForm(event) {
-  event.preventDefault()
-  // Add your contact form logic here
-  alert("Thank you for your message! I'll get back to you soon.")
-}
-
-// Add some interactive hover effects
+// Add interactive hover effects
 document.addEventListener("DOMContentLoaded", () => {
   // Add hover effect to project cards
   const projectCards = document.querySelectorAll(".project-card")
@@ -188,40 +181,54 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 })
 
-// Add CSS for ripple effect
-const style = document.createElement("style")
-style.textContent = `
-    .btn {
-        position: relative;
-        overflow: hidden;
+// Enhanced mobile menu functionality
+document.addEventListener("click", (e) => {
+  if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+    hamburger.classList.remove("active")
+    navMenu.classList.remove("active")
+  }
+})
+
+// Smooth reveal animations for sections
+const revealElements = document.querySelectorAll(".section-header, .about-text, .contact-item")
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = "1"
+      entry.target.style.transform = "translateY(0)"
     }
-    
-    .ripple {
-        position: absolute;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.6);
-        transform: scale(0);
-        animation: ripple-animation 0.6s linear;
-        pointer-events: none;
-    }
-    
-    @keyframes ripple-animation {
-        to {
-            transform: scale(4);
-            opacity: 0;
-        }
-    }
-    
-    .nav-link.active {
-        color: #667eea;
-    }
-    
-    .nav-link.active::after {
-        width: 100%;
-    }
-    
-    body.loaded * {
-        transition: all 0.3s ease;
-    }
-`
-document.head.appendChild(style)
+  })
+}, {
+  threshold: 0.1,
+  rootMargin: "0px 0px -50px 0px"
+})
+
+revealElements.forEach((el) => {
+  el.style.opacity = "0"
+  el.style.transform = "translateY(30px)"
+  el.style.transition = "opacity 0.8s ease, transform 0.8s ease"
+  revealObserver.observe(el)
+})
+
+// Contact form functionality placeholder
+function handleContactForm(event) {
+  event.preventDefault()
+  alert("Thank you for your message! I'll get back to you soon.")
+}
+
+// Performance optimization - lazy loading for images
+if ('IntersectionObserver' in window) {
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target
+        img.src = img.dataset.src
+        img.classList.remove('lazy')
+        imageObserver.unobserve(img)
+      }
+    })
+  })
+
+  const lazyImages = document.querySelectorAll('img[data-src]')
+  lazyImages.forEach(img => imageObserver.observe(img))
+}
