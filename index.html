@@ -232,85 +232,33 @@
             </div>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-server"></i>
-                        </div>
-                        <h3>Fully Automated DevOps Pipeline on Mini PC</h3>
-                    </div>
-                    <p class="project-description">
-                        Developed a complete CI/CD pipeline using <strong>GitLab CI</strong> to automate building, testing, and deploying a containerized Flask application to a self-hosted Kubernetes cluster on a mini PC.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">GitLab CI</span>
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">Kubernetes</span>
-                        <span class="tech-tag">Linux</span>
-                        <span class="tech-tag">YAML</span>
-                    </div>
-                    <div class="project-features">
-                        <ul>
-                            <li>Containerized application with Docker and managed images in a private registry</li>
-                            <li>Automated pipeline with stages for build, test, and deploy using GitLab CI/CD</li>
-                            <li>Deployed to a self-hosted Kubernetes cluster running on a mini PC with kubeadm</li>
-                            <li>Configured Kubernetes manifests including Deployments, Services, ConfigMaps, and Secrets</li>
-                            <li>Implemented secure remote access and cluster networking for reliable operations</li>
-                            <li>Integration with Prometheus and Grafana for monitoring cluster and app metrics</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-server"></i>
-                        </div>
-                        <h3>Self-Hosted Server Infrastructure</h3>
-                    </div>
-                    <p class="project-description">
-                        Built and automated a scalable game server on Linux using Ansible and Docker to ensure high availability.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Linux</span>
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">Ansible</span>
-                        <span class="tech-tag">Prometheus</span>
-                    </div>
-                    <div class="project-features">
-                        <ul>
-            <li>Automated provisioning and deployment with Ansible, Terraform, and Kubernetes</li>
-            <li>Containerized game server with Docker and Kubernetes for scalability and resilience</li>
-            <li>Secure secret management via HashiCorp Vault integrated into CI/CD pipelines</li>
-            <li>Load balancing and SSL via Traefik with automated certificate management</li>
-            <li>Monitoring and alerting using Prometheus, Grafana, and Alertmanager</li>
-            <li>Network security with VPNs, firewalls, and SSL encryption</li>
-        </ul>
-                        </ul>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-link"></i>
-                        </div>
-                        <h3>BlockChain-Java</h3>
-                    </div>
-                    <p class="project-description">
-                        Built a simple blockchain prototype in Java to demonstrate core blockchain concepts.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Java</span>
-                        <span class="tech-tag">SHA-256</span>
-                        <span class="tech-tag">JSON</span>
-                        <span class="tech-tag">Gson</span>
-                    </div>
-                    <div class="project-features">
-                        <ul>
-                            <li>Implemented hashing, block linking, and proof-of-work mining</li>
-                            <li>Dynamic mining difficulty and block validation</li>
-                            <li>JSON serialization using Google's Gson library</li>
-                        </ul>
-                    </div>
-                </div>
+        <div class="project-header">
+            <div class="project-icon">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Cloud Monitoring App on Amazon EKS</h3>
+        </div>
+        <p class="project-description">
+            Developed a real-time resource monitoring app using Flask deployed on a production-grade Amazon EKS cluster with container orchestration and autoscaling.
+        </p>
+        <div class="project-tech">
+            <span class="tech-tag">AWS EKS</span>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">Kubernetes</span>
+        </div>
+        <div class="project-features">
+            <ul>
+                <li>Created a RESTful API and dashboard using Flask to expose CPU, memory, and disk usage in real-time</li>
+                <li>Containerized the app using Docker and pushed to AWS ECR</li>
+                <li>Deployed on Amazon EKS with managed node groups and IAM roles for secure access</li>
+                <li>Managed Kubernetes Deployments and Services with YAML manifests</li>
+                <li>Used port-forwarding and LoadBalancer services to expose endpoints</li>
+                <li>Integrated AWS CLI and kubectl to manage infrastructure from local Ubuntu environment</li>
+            </ul>
+        </div>
+    </div>
+                <!-- Removed Self-Hosted Server Infrastructure and BlockChain-Java projects -->
             </div>
         </div>
     </section>
