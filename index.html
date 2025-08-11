@@ -78,7 +78,7 @@
 </p>
 <p>
     My experience spans <strong>infrastructure automation</strong> (Terraform, CloudFormation), <strong>CI/CD pipeline development</strong>, <strong>containerization and orchestration</strong> (Docker, Kubernetes), and <strong>network and system architecture</strong>. 
-    I’m passionate about enabling high-performing engineering teams through <strong>reliable infrastructure, continuous delivery, and operational excellence</strong>.
+    I'm passionate about enabling high-performing engineering teams through <strong>reliable infrastructure, continuous delivery, and operational excellence</strong>.
     I thrive at the intersection of software and infrastructure—building solutions that are not only robust and scalable, but also maintainable and cost-efficient.
 </p>
 
@@ -229,7 +229,7 @@
         </div>
         <ul>
             <li>Led marketing strategy and web presence for a non-profit student society focused on artificial intelligence</li>
-            <li>Designed, developed, and deployed the organization’s website to promote events, research, and collaboration</li>
+            <li>Designed, developed, and deployed the organization's website to promote events, research, and collaboration</li>
             <li>Managed hosting, domain setup, and basic Linux server configuration to serve the static site</li>
             <li>Collaborated with tech and media teams to ensure alignment between branding, outreach, and technical infrastructure</li>
             <li><a href="https://www.lnuais.com/" target="_blank">Visit Website ↗</a></li>
@@ -247,132 +247,90 @@
                 <h2 class="section-title">Featured Projects</h2>
             </div>
             <div class="projects-grid">
-                <!-- Project Card Template - Copy and fill for each new project -->
                 <div class="project-card">
                     <div class="project-header">
                         <div class="project-icon">
-                            <!-- Example: <i class="fas fa-laptop-code"></i> -->
+                            <i class="fas fa-cloud"></i>
                         </div>
-                        <h3><!-- Project Title --></h3>
+                        <h3>Cloud Monitoring App on Amazon EKS</h3>
                     </div>
                     <p class="project-description">
-                        <!-- Brief description of the project -->
+                        Built a real-time system resource monitoring application using Flask, deployed on a containerized infrastructure with Amazon EKS and Kubernetes.
                     </p>
                     <div class="project-tech">
-                        <!-- <span class="tech-tag">Tech 1</span> -->
-                        <!-- <span class="tech-tag">Tech 2</span> -->
+                        <span class="tech-tag">AWS EKS</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Kubernetes</span>
+                        <span class="tech-tag">Python</span>
                     </div>
                     <div class="project-features">
                         <ul>
-                            <!-- <li>Feature or achievement</li> -->
+                            <li>Developed a Flask-based REST API and dashboard to monitor CPU, memory, and disk usage in real-time</li>
+                            <li>Containerized the application with Docker and pushed images to Amazon ECR using secure IAM roles</li>
+                            <li>Provisioned and configured an Amazon EKS cluster with managed node groups for orchestration</li>
+                            <li>Managed Kubernetes Deployments and Services using declarative YAML manifests</li>
+                            <li>Exposed internal services using port-forwarding; explored LoadBalancer configuration for public access</li>
+                            <li>Controlled infrastructure from a local Ubuntu environment via AWS CLI and kubectl</li>
                         </ul>
                     </div>
                 </div>
-                <!-- Add more project-card blocks above as needed -->
-                   <!-- Project Card Template - Copy and fill for each new project -->
                 <div class="project-card">
                     <div class="project-header">
                         <div class="project-icon">
-                            <!-- Example: <i class="fas fa-laptop-code"></i> -->
+                            <i class="fas fa-cogs"></i>
                         </div>
-                        <h3><!-- Project Title --></h3>
+                        <h3>Self-Hosted GitLab CI/CD Pipeline for Flask App</h3>
                     </div>
                     <p class="project-description">
-                        <!-- Brief description of the project -->
+                        Set up a self-hosted GitLab CE instance and GitLab Runner using Docker to automate CI/CD pipelines for a containerized Flask web app.
                     </p>
                     <div class="project-tech">
-                        <!-- <span class="tech-tag">Tech 1</span> -->
-                        <!-- <span class="tech-tag">Tech 2</span> -->
+                        <span class="tech-tag">GitLab CE</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">GitLab Runner</span>
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">CI/CD</span>
                     </div>
                     <div class="project-features">
                         <ul>
-                            <!-- <li>Feature or achievement</li> -->
+                            <li>Deployed GitLab CE and Runner with Docker Compose on a local server</li>
+                            <li>Configured a GitLab CI pipeline to build and test the Dockerized Flask app automatically</li>
+                            <li>Demonstrated containerization, CI/CD automation, and Linux server administration skills</li>
+                            <li>Managed secure handling of persistent GitLab volumes and sensitive configuration files</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <h3>FitNest – Full Stack Fitness App</h3>
+                    </div>
+                    <p class="project-description">
+                        A full-stack fitness app built with React, TypeScript, Node.js, and PostgreSQL, containerized using Docker for easy deployment.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Express</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">JWT</span>
+                        <span class="tech-tag">OpenAI API</span>
+                    </div>
+                    <div class="project-features">
+                        <ul>
+                            <li>Containerized frontend and backend with Docker Compose for seamless startup and deployment.</li>
+                            <li>RESTful APIs secured with JWT authentication.</li>
+                            <li>Automated database initialization with SQL scripts.</li>
+                            <li>Responsive React + TypeScript frontend with Vite for fast development.</li>
+                            <li>Integrated OpenAI API to add AI-powered features.</li>
                         </ul>
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-            <h3>Cloud Monitoring App on Amazon EKS</h3>
-        </div>
-        <p class="project-description">
-            Built a real-time system resource monitoring application using Flask, deployed on a containerized infrastructure with Amazon EKS and Kubernetes.
-        </p>
-        <div class="project-tech">
-            <span class="tech-tag">AWS EKS</span>
-            <span class="tech-tag">Docker</span>
-            <span class="tech-tag">Kubernetes</span>
-            <span class="tech-tag">Python</span>
-        </div>
-        <div class="project-features">
-            <ul>
-                <li>Developed a Flask-based REST API and dashboard to monitor CPU, memory, and disk usage in real-time</li>
-                <li>Containerized the application with Docker and pushed images to Amazon ECR using secure IAM roles</li>
-                <li>Provisioned and configured an Amazon EKS cluster with managed node groups for orchestration</li>
-                <li>Managed Kubernetes Deployments and Services using declarative YAML manifests</li>
-                <li>Exposed internal services using port-forwarding; explored LoadBalancer configuration for public access</li>
-                <li>Controlled infrastructure from a local Ubuntu environment via AWS CLI and kubectl</li>
-            </ul>
-        </div>
-    </div>
-    <div class="project-card">
-        <div class="project-header">
-            <div class="project-icon">
-                <i class="fas fa-cogs"></i>
-            </div>
-            <h3>Self-Hosted GitLab CI/CD Pipeline for Flask App</h3>
-        </div>
-        <p class="project-description">
-            Set up a self-hosted GitLab CE instance and GitLab Runner using Docker to automate CI/CD pipelines for a containerized Flask web app.
-        </p>
-        <div class="project-tech">
-            <span class="tech-tag">GitLab CE</span>
-            <span class="tech-tag">Docker</span>
-            <span class="tech-tag">GitLab Runner</span>
-            <span class="tech-tag">Flask</span>
-            <span class="tech-tag">CI/CD</span>
-        </div>
-        <div class="project-features">
-            <ul>
-                <li>Deployed GitLab CE and Runner with Docker Compose on a local server</li>
-                <li>Configured a GitLab CI pipeline to build and test the Dockerized Flask app automatically</li>
-                <li>Demonstrated containerization, CI/CD automation, and Linux server administration skills</li>
-                <li>Managed secure handling of persistent GitLab volumes and sensitive configuration files</li>
-            </ul>
-        </div>
-    </div>
-    <div class="project-card">
-                <div class="project-header">
-                    <div class="project-icon">
-                        <i class="fas fa-dumbbell"></i> <!-- fitness icon, you can change it -->
-                    </div>
-                    <h3>FitNest – Full Stack Fitness App</h3>
-                </div>
-                <p class="project-description">
-                    A full-stack fitness app built with React, TypeScript, Node.js, and PostgreSQL, containerized using Docker for easy deployment.
-                </p>
-                <div class="project-tech">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">TypeScript</span>
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">Express</span>
-                    <span class="tech-tag">PostgreSQL</span>
-                    <span class="tech-tag">Docker</span>
-                    <span class="tech-tag">JWT</span>
-                    <span class="tech-tag">OpenAI API</span>
-                </div>
-                <div class="project-features">
-                    <ul>
-                        <li>Containerized frontend and backend with Docker Compose for seamless startup and deployment.</li>
-                        <li>RESTful APIs secured with JWT authentication.</li>
-                        <li>Automated database initialization with SQL scripts.</li>
-                        <li>Responsive React + TypeScript frontend with Vite for fast development.</li>
-                        <li>Integrated OpenAI API to add AI-powered features.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-=======
->>>>>>> 3ddc8c538a9958aa997181454de4111b78f1c81d
         </div>
     </section>
 
