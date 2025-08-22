@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Younus Mashoor – Cloud Engineer | DevOps Engineer</title>
     <meta name="description" content="Portfolio of Younus Mashoor - Software Technology graduate specializing in Cloud Engineering and DevOps.">
+    <!-- Added security and performance meta tags -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <!-- Preload critical resources for better performance -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -15,6 +23,10 @@
         <div class="nav-container">
             <div class="nav-logo">
                 <span class="logo-text">Younus Mashoor</span>
+                <!-- Added dark mode toggle button -->
+                <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
             <ul class="nav-menu" id="nav-menu">
                 <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
@@ -48,8 +60,8 @@
                         <a href="#contact" class="btn btn-secondary">Get In Touch</a>
                     </div>
                     <div class="hero-social">
-                        <a href="https://github.com/youni20" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/younus-mashoor-6a48aa360" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/youni20" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/younus-mashoor-6a48aa360" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-linkedin"></i></a>
                         <a href="mailto:younusmashoor@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
@@ -57,7 +69,7 @@
                     <div class="floating-card"><div class="card-content"><i class="fas fa-network-wired"></i><span>Automation</span></div></div>
                     <div class="floating-card" style="animation-delay: 0.5s;"><div class="card-content"><i class="fas fa-cloud"></i><span>Cloud Engineering</span></div></div>
                     <div class="floating-card" style="animation-delay: 1s;"><div class="card-content"><i class="fas fa-cogs"></i><span>DevOps</span></div></div>
-                    <div class="floating-card" style="animation-delay: 1.5s;"><div class="card-content"><i class="fas fa-robot"></i><span>MLOps</span></div></div>
+                    <div class="floating-card" style="animation-delay: 1.5s;"><div class="card-content"><i class="fa-solid fa-wave-square"></i><span>Monitoring</span></div></div>
                 </div>
             </div>
         </div>
@@ -91,7 +103,7 @@
                     <!--<i class="fas fa-user-tie"></i>-->
 
                     <div class="image-placeholder">
-                        <img src="IMG_0806.jpg" alt="Younus Mashoor" class="profile-image">
+                        <img src="IMG_0806.jpg" alt="Younus Mashoor" class="profile-image" loading="lazy">
                     </div>
                     <!-- END PLACEHOLDER -->
                 </div>
@@ -190,52 +202,86 @@
                 <p class="section-subtitle">My professional journey</p>
             </div>
             <div class="timeline">
-<div class="timeline-item">
-    <div class="timeline-dot"></div>
-    <div class="timeline-content">
-        <div class="timeline-header">
-            <h3>Cloud Engineering Intern — FMM, Hamad International Airport, Doha, Qatar</h3>
-            <span class="timeline-date">Jun - Jul 2025</span>
-        </div>
-        <ul>
-            <li>Configured and managed internal office network infrastructure</li>
-            <li>Implemented secure remote access solutions using <strong>FortiClient VPN</strong></li>
-            <li>Performed routine <strong>system backups</strong> and contributed to maintaining <strong>high availability</strong> across IT systems</li>
-            <li>Applied foundational <strong>DevOps and cloud practices</strong> to support infrastructure automation and system reliability</li>
-        </ul>
-    </div>
-</div>
-<div class="timeline-item">
-    <div class="timeline-dot"></div>
-    <div class="timeline-content">
-        <div class="timeline-header">
-            <h3>ML Engineer Intern — Mannai Corporation, Doha, Qatar</h3>
-            <span class="timeline-date">Jun - Aug 2024</span>
-        </div>
-        <ul>
-            <li>Developed a machine learning model to recommend tickets based on company-provided Excel datasets</li>
-            <li>Implemented data preprocessing and feature engineering techniques to improve model accuracy</li>
-            <li>Deployed the ML model using cloud infrastructure and containerization technologies (e.g., Docker)</li>
-            <li>Collaborated with cross-functional teams to integrate the recommendation system into existing workflows</li>
-        </ul>
-    </div>
-</div>
-<div class="timeline-item">
-    <div class="timeline-dot"></div>
-    <div class="timeline-content">
-        <div class="timeline-header">
-            <h3>Head of Marketing & Web Developer — LNU AI Society, Växjö, Sweden</h3>
-            <span class="timeline-date">Sep 2025 – Jul 2026</span>
-        </div>
-        <ul>
-            <li>Led marketing strategy and web presence for a non-profit student society focused on artificial intelligence</li>
-            <li>Designed, developed, and deployed the organization's website to promote events, research, and collaboration</li>
-            <li>Managed hosting, domain setup, and basic Linux server configuration to serve the static site</li>
-            <li>Collaborated with tech and media teams to ensure alignment between branding, outreach, and technical infrastructure</li>
-            <li><a href="https://www.lnuais.com/" target="_blank">Visit Website ↗</a></li>
-        </ul>
-    </div>
-</div>
+                <!-- Added new Teaching Assistant positions -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Teaching Assistant — Operating Systems Course, Linnaeus University, Växjö, Sweden</h3>
+                            <span class="timeline-date">Nov 2025 - Mar 2026</span>
+                        </div>
+                        <ul>
+                            <li>Assisted professor in lectures, clarifying OS concepts and providing real-world examples</li>
+                            <li>Conducted lab sessions on process scheduling and memory management.</li>
+                            <li>Graded assignments and exams, evaluated coding assignments and lab reports</li>
+                            <li>Held office hours to help students with OS concepts and cloud-based virtual labs</li>
+                            <li>Prepared teaching materials including slides, lab instructions, and cloud deployment templates</li>
+                            <li>Taught core concepts: processes & threads, scheduling algorithms, memory management, file systems, and concurrency</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Teaching Assistant — Cloud Native Applications Course, Linnaeus University, Kalmar, Sweden</h3>
+                            <span class="timeline-date">Sep 2025 - Jan 2026</span>
+                        </div>
+                        <ul>
+                            <li>Updated Coursepress website and maintained course materials</li>
+                            <li>Scripted and updated examples on GitLab for hands-on learning</li>
+                            <li>Conducted weekly workshops on Kubernetes, Docker, and Infrastructure as Code</li>
+                            <li>Provided support on Slack for CI/CD pipelines, Terraform, and containerization questions</li>
+                            <li>Helped students master cloud-native technologies and DevOps practices</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Cloud Engineering Intern — FMM, Hamad International Airport, Doha, Qatar</h3>
+                            <span class="timeline-date">Jun - Jul 2025</span>
+                        </div>
+                        <ul>
+                            <li>Configured and managed internal office network infrastructure</li>
+                            <li>Implemented secure remote access solutions using <strong>FortiClient VPN</strong></li>
+                            <li>Performed routine <strong>system backups</strong> and contributed to maintaining <strong>high availability</strong> across IT systems</li>
+                            <li>Applied foundational <strong>DevOps and cloud practices</strong> to support infrastructure automation and system reliability</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>ML Engineer Intern — Mannai Corporation, Doha, Qatar</h3>
+                            <span class="timeline-date">Jun - Aug 2024</span>
+                        </div>
+                        <ul>
+                            <li>Developed a machine learning model to recommend tickets based on company-provided Excel datasets</li>
+                            <li>Implemented data preprocessing and feature engineering techniques to improve model accuracy</li>
+                            <li>Deployed the ML model using cloud infrastructure and containerization technologies (e.g., Docker)</li>
+                            <li>Collaborated with cross-functional teams to integrate the recommendation system into existing workflows</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Head of Marketing & Web Developer — LNU AI Society, Växjö, Sweden</h3>
+                            <span class="timeline-date">Sep 2025 – Jul 2026</span>
+                        </div>
+                        <ul>
+                            <li>Led marketing strategy and web presence for a non-profit student society focused on artificial intelligence</li>
+                            <li>Designed, developed, and deployed the organization's website to promote events, research, and collaboration</li>
+                            <li>Managed hosting, domain setup, and basic Linux server configuration to serve the static site</li>
+                            <li>Collaborated with tech and media teams to ensure alignment between branding, outreach, and technical infrastructure</li>
+                            <li><a href="https://www.lnuais.com/" target="_blank" rel="noopener noreferrer">Visit Website ↗</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -247,94 +293,118 @@
                 <h2 class="section-title">Featured Projects</h2>
             </div>
             <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-cloud"></i>
+                <div class="project-card" data-project="cloud-monitoring">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h3>Cloud Monitoring App on Amazon EKS</h3>
                         </div>
-                        <h3>Cloud Monitoring App on Amazon EKS</h3>
+                        <p class="project-description">
+                            Built a real-time system resource monitoring application using Flask, deployed on a containerized infrastructure with Amazon EKS and Kubernetes.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">AWS EKS</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Kubernetes</span>
+                            <span class="tech-tag">Python</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link github-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="#" class="project-link video-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-play"></i>
+                                <span>Demo Video</span>
+                            </a>
+                        </div>
                     </div>
-                    <p class="project-description">
-                        Built a real-time system resource monitoring application using Flask, deployed on a containerized infrastructure with Amazon EKS and Kubernetes.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">AWS EKS</span>
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">Kubernetes</span>
-                        <span class="tech-tag">Python</span>
-                    </div>
-                    <div class="project-features">
-                        <ul>
-                            <li>Developed a Flask-based REST API and dashboard to monitor CPU, memory, and disk usage in real-time</li>
-                            <li>Containerized the application with Docker and pushed images to Amazon ECR using secure IAM roles</li>
-                            <li>Provisioned and configured an Amazon EKS cluster with managed node groups for orchestration</li>
-                            <li>Managed Kubernetes Deployments and Services using declarative YAML manifests</li>
-                            <li>Exposed internal services using port-forwarding; explored LoadBalancer configuration for public access</li>
-                            <li>Controlled infrastructure from a local Ubuntu environment via AWS CLI and kubectl</li>
-                        </ul>
+                    <div class="project-visual">
+                        <div class="project-visual-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-cogs"></i>
+                
+                <div class="project-card" data-project="gitlab-cicd">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h3>Self-Hosted GitLab CI/CD Pipeline for Flask App</h3>
                         </div>
-                        <h3>Self-Hosted GitLab CI/CD Pipeline for Flask App</h3>
+                        <p class="project-description">
+                            Set up a self-hosted GitLab CE instance and GitLab Runner using Docker to automate CI/CD pipelines for a containerized Flask web app.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">GitLab CE</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">GitLab Runner</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">CI/CD</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link github-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="#" class="project-link video-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-play"></i>
+                                <span>Demo Video</span>
+                            </a>
+                        </div>
                     </div>
-                    <p class="project-description">
-                        Set up a self-hosted GitLab CE instance and GitLab Runner using Docker to automate CI/CD pipelines for a containerized Flask web app.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">GitLab CE</span>
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">GitLab Runner</span>
-                        <span class="tech-tag">Flask</span>
-                        <span class="tech-tag">CI/CD</span>
-                    </div>
-                    <div class="project-features">
-                        <ul>
-                            <li>Deployed GitLab CE and Runner with Docker Compose on a local server</li>
-                            <li>Configured a GitLab CI pipeline to build and test the Dockerized Flask app automatically</li>
-                            <li>Demonstrated containerization, CI/CD automation, and Linux server administration skills</li>
-                            <li>Managed secure handling of persistent GitLab volumes and sensitive configuration files</li>
-                        </ul>
+                    <div class="project-visual">
+                        <div class="project-visual-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-dumbbell"></i>
+                
+                <div class="project-card" data-project="fitnest">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                            <h3>FitNest – Full Stack Fitness App</h3>
                         </div>
-                        <h3>FitNest – Full Stack Fitness App</h3>
+                        <p class="project-description">
+                            A full-stack fitness app built with React, TypeScript, Node.js, and PostgreSQL, containerized using Docker for easy deployment.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link github-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="#" class="project-link video-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-play"></i>
+                                <span>Demo Video</span>
+                            </a>
+                        </div>
                     </div>
-                    <p class="project-description">
-                        A full-stack fitness app built with React, TypeScript, Node.js, and PostgreSQL, containerized using Docker for easy deployment.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">TypeScript</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">Express</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">JWT</span>
-                        <span class="tech-tag">OpenAI API</span>
-                    </div>
-                    <div class="project-features">
-                        <ul>
-                            <li>Containerized frontend and backend with Docker Compose for seamless startup and deployment.</li>
-                            <li>RESTful APIs secured with JWT authentication.</li>
-                            <li>Automated database initialization with SQL scripts.</li>
-                            <li>Responsive React + TypeScript frontend with Vite for fast development.</li>
-                            <li>Integrated OpenAI API to add AI-powered features.</li>
-                        </ul>
+                    <div class="project-visual">
+                        <div class="project-visual-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-   <!-- Certifications Section -->
+    <!-- Certifications Section -->
     <section id="certifications" class="certifications">
         <div class="container">
             <div class="section-header">
@@ -342,15 +412,7 @@
                 <p class="section-subtitle">Professional achievements and credentials</p>
             </div>
             <div class="certifications-grid">
-                <!-- <div class="cert-card">
-                    <div class="cert-icon">
-                        <i class="fab fa-aws"></i>
-                    </div>
-                     <h3>AWS Certified DevOps Engineer Professional</h3>
-                    <p>Amazon Web Services</p>
-                    <div class="cert-badge">Professional</div>
-                </div> -->
-                <div class="cert-card">
+                <div class="cert-card" data-cert="aws-saa">
                     <div class="cert-icon"> 
                         <i class="fab fa-aws"></i>
                     </div> 
@@ -358,7 +420,7 @@
                     <p>Amazon Web Services</p>
                     <div class="cert-badge">Associate</div>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card" data-cert="aws-dev">
                     <div class="cert-icon">
                         <i class="fab fa-aws"></i>
                     </div>
@@ -366,48 +428,55 @@
                     <p>Amazon Web Services</p>
                     <div class="cert-badge">Associate</div>
                 </div>
-                    <div class="cert-card">
-                        <div class="cert-icon">
-                            <i class="fab fa-microsoft"></i>
-                        </div>
-                        <h3>API-104: Backend APIs & Microservices</h3>
-                        <p>Microsoft</p>
+                <div class="cert-card" data-cert="ms-api">
+                    <div class="cert-icon">
+                        <i class="fab fa-microsoft"></i>
                     </div>
-                <div class="cert-card">
+                    <h3>API-104: Backend APIs & Microservices</h3>
+                    <p>Microsoft</p>
+                </div>
+                <div class="cert-card" data-cert="python-ibm">
                     <div class="cert-icon">
                         <i class="fab fa-python"></i>
                     </div>
                     <h3>Python for Data Scientist, AI & Development</h3>
                     <p>IBM</p>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card" data-cert="network-fundamentals">
                     <div class="cert-icon">
                         <i class="fas fa-network-wired"></i>
                     </div>
                     <h3>Fundamentals of Network Communication</h3>
                     <p>University of Colorado</p>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card" data-cert="docker-basics">
                     <div class="cert-icon">
                         <i class="fab fa-docker"></i>
                     </div>
                     <h3>Docker Basics for DevOps</h3>
                     <p>KodeKloud</p>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card" data-cert="linux-cloud">
                     <div class="cert-icon">
                         <i class="fab fa-linux"></i>
                     </div>
                     <h3>Linux for Cloud and DevOps Engineers</h3>
                     <p>Packt</p>
                 </div>
-                <div class="cert-card">
+                <div class="cert-card" data-cert="linux-scripting">
                     <div class="cert-icon">
                         <i class="fas fa-terminal"></i>
                     </div>
                     <h3>Linux Shell Scripting - Advanced</h3>
                     <p>Packt</p>
                 </div>
+                    <div class="cert-card" data-cert="ibm-devops">
+                        <div class="cert-icon">
+                            <i class="fa-solid fa-stairs"></i>
+                        </div>
+                        <h3>Introduction to DevOps</h3>
+                        <p>IBM </p>
+                    </div>
             </div>
         </div>
     </section>
@@ -449,17 +518,24 @@
                         </div>
                     </div>
                 </div>
-                <div class="contact-social">
-                    <h3>Connect with me</h3>
-                    <div class="social-links">
-                        <a href="https://github.com/youni20" target="_blank" class="social-btn">
-                            <i class="fab fa-github"></i>
-                            <span>GitHub</span>
-                        </a>
-                        <a href="https://www.linkedin.com/in/younus-mashoor-6a48aa360" target="_blank" class="social-btn">
-                            <i class="fab fa-linkedin"></i>
-                            <span>LinkedIn</span>
-                        </a>
+                <!-- Removed contact form, kept only social links -->
+                <div class="contact-social-section">
+                    <div class="contact-social">
+                        <h3>Connect with me</h3>
+                        <div class="social-links">
+                            <a href="https://github.com/youni20" target="_blank" rel="noopener noreferrer" class="social-btn">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/younus-mashoor-6a48aa360" target="_blank" rel="noopener noreferrer" class="social-btn">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="mailto:younusmashoor@gmail.com" class="social-btn">
+                                <i class="fas fa-envelope"></i>
+                                <span>Email Me</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -481,6 +557,64 @@
             </div>
         </div>
     </footer>
+
+    <!-- Added modal for project details -->
+    <div id="projectModal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" aria-label="Close modal">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h2 id="modalTitle">Project Title</h2>
+            </div>
+            <div class="modal-body">
+                <p id="modalDescription">Project description will go here...</p>
+                <div class="modal-tech" id="modalTech">
+                    <!-- Tech tags will be populated here -->
+                </div>
+                <div class="modal-features" id="modalFeatures">
+                    <!-- Features will be populated here -->
+                </div>
+                <div class="modal-skills" id="modalSkills">
+                    <h4>Skills Demonstrated:</h4>
+                    <p>Skills will be populated here...</p>
+                </div>
+                <div class="modal-links" id="modalLinks">
+                    <!-- Links will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Added modal for certification details -->
+    <div id="certModal" class="modal" role="dialog" aria-labelledby="certModalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" aria-label="Close modal">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h2 id="certModalTitle">Certification Title</h2>
+            </div>
+            <div class="modal-body">
+                <!-- Added certificate image display -->
+                <div class="cert-image-container" id="certImageContainer">
+                    <img id="certImage" src="/placeholder.svg" alt="Certificate" class="cert-modal-image" style="display: none;" loading="lazy">
+                </div>
+                <p id="certModalDescription">Certification description will go here...</p>
+                <div class="modal-skills" id="certModalSkills">
+                    <h4>Skills Covered:</h4>
+                    <p>Skills will be populated here...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Added loading indicator for better UX -->
+    <div id="loadingIndicator" class="loading-indicator">
+        <div class="loading-spinner"></div>
+    </div>
 
     <script src="script.js"></script>
 </body>
