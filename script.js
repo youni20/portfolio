@@ -308,12 +308,6 @@ const certData = {
     skills:
       "AI Fundamentals, Machine Learning Concepts, AWS AI Services (SageMaker, Rekognition, Lex, Polly), Model Deployment, Validation, Security, Cost Optimization, Responsible AI Practices",
   image: "certs/AWS Certified AI Practitioner certificate.jpg",
-    extra: {
-      validationNumber: "f36d2ba3328d4fb69b8541fc86bfa455",
-      validateUrl: "https://aws.amazon.com/verification",
-      issueDate: "August 31, 2025",
-      expirationDate: "August 31, 2028",
-    },
   },
   "ms-api": {
     title: "API-104: Backend APIs & Microservices",
