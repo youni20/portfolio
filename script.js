@@ -301,6 +301,20 @@ const certData = {
       "AWS SDK and CLI, Lambda Functions, API Gateway, DynamoDB, CloudFormation, CodeCommit/CodeBuild/CodeDeploy, Application Security, Monitoring and Troubleshooting, Serverless Application Development",
     image: "certs/aws-dev.jpg",
   },
+  "aws-ai-practitioner": {
+    title: "AWS Certified AI Practitioner",
+    description:
+      "Validates foundational knowledge of AI and machine learning concepts, AWS AI services, and practical skills in deploying AI solutions on AWS. Demonstrates ability to design, implement, and validate AI-driven applications using AWS tools.",
+    skills:
+      "AI Fundamentals, Machine Learning Concepts, AWS AI Services (SageMaker, Rekognition, Lex, Polly), Model Deployment, Validation, Security, Cost Optimization, Responsible AI Practices",
+  image: "certs/AWS Certified AI Practitioner certificate.jpg",
+    extra: {
+      validationNumber: "f36d2ba3328d4fb69b8541fc86bfa455",
+      validateUrl: "https://aws.amazon.com/verification",
+      issueDate: "August 31, 2025",
+      expirationDate: "August 31, 2028",
+    },
+  },
   "ms-api": {
     title: "API-104: Backend APIs & Microservices",
     description:
@@ -441,6 +455,12 @@ certCards.forEach((card) => {
       const certImage = document.getElementById("certImage")
       const certImageContainer = document.getElementById("certImageContainer")
 
+      // Remove any previous extra details
+      if (certImageContainer) {
+        const extra = certImageContainer.querySelector(".cert-extra-details")
+        if (extra) extra.remove()
+      }
+
       if (cert.image && certImage && certImageContainer) {
         certImage.src = cert.image
         certImage.alt = `${cert.title} Certificate`
@@ -458,6 +478,17 @@ certCards.forEach((card) => {
         certImage.style.cursor = "pointer"
 
         certImageContainer.style.display = "block"
+
+        // Show extra details for AWS AI Practitioner
+        if (certId === "aws-ai-practitioner" && cert.extra) {
+          let extraHtml = `<div class='cert-extra-details' style='margin-top:16px;'>`
+          extraHtml += `<p><strong>Validation Number:</strong> ${cert.extra.validationNumber}</p>`
+          extraHtml += `<p><strong>Validate at:</strong> <a href='${cert.extra.validateUrl}' target='_blank' rel='noopener'>${cert.extra.validateUrl}</a></p>`
+          extraHtml += `<p><strong>Issue Date:</strong> ${cert.extra.issueDate}</p>`
+          extraHtml += `<p><strong>Expiration Date:</strong> ${cert.extra.expirationDate}</p>`
+          extraHtml += `</div>`
+          certImageContainer.insertAdjacentHTML("beforeend", extraHtml)
+        }
 
         // Enhanced click to zoom functionality
         certImage.onclick = () => {
