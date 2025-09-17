@@ -107,7 +107,7 @@ window.addEventListener("load", () => {
   if (loadingIndicator) {
     setTimeout(() => {
       loadingIndicator.classList.add("hidden")
-    }, 500)
+    }, 350)
   }
 })
 
