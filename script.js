@@ -1,20 +1,104 @@
-// Mobile Navigation Toggle
-const hamburger = document.getElementById("hamburger")
-const navMenu = document.getElementById("nav-menu")
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("nav-menu");
+let scrollPosition = 0;
+
+
+function disableScroll() {
+    // Store current scroll position
+    scrollPosition = window.pageYOffset;
+    
+    document.body.classList.add('no-scroll');
+    document.body.style.top = `-${scrollPosition}px`;
+    
+    // Prevent touch scrolling on iOS
+    document.addEventListener('touchmove', preventTouch, { passive: false });
+}
+
+function enableScroll() {
+    // Remove no-scroll class
+    document.body.classList.remove('no-scroll');
+    document.body.style.top = '';
+    
+    // Restore scroll position
+    window.scrollTo(0, scrollPosition);
+    
+    // Re-enable touch scrolling
+    document.removeEventListener('touchmove', preventTouch);
+}
+
+function preventTouch(e) {
+    // Allow scrolling within the nav menu itself
+    if (navMenu && navMenu.contains(e.target)) {
+        return;
+    }
+    e.preventDefault();
+}
 
 if (hamburger && navMenu) {
-  hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active")
-    navMenu.classList.toggle("active")
-  })
+    // Toggle menu
+    hamburger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+        
+        if (navMenu.classList.contains("active")) {
+            disableScroll();
+        } else {
+            enableScroll();
+        }
+    });
 
-  // Close mobile menu when clicking on a link
-  document.querySelectorAll(".nav-link").forEach((n) =>
-    n.addEventListener("click", () => {
-      hamburger.classList.remove("active")
-      navMenu.classList.remove("active")
-    }),
-  )
+    // Close menu when clicking on a navigation link
+    document.querySelectorAll(".nav-link").forEach((link) => {
+        link.addEventListener("click", (e) => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+            enableScroll();
+        });
+    });
+    
+    // Close menu when clicking outside (mobile only)
+    document.addEventListener("click", (e) => {
+        if (window.innerWidth <= 768 && 
+            navMenu.classList.contains("active") &&
+            !hamburger.contains(e.target) && 
+            !navMenu.contains(e.target)) {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+            enableScroll();
+        }
+    });
+    
+    // Close menu on escape key
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && navMenu.classList.contains("active")) {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+            enableScroll();
+        }
+    });
+    
+    // Handle window resize
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 768 && navMenu.classList.contains("active")) {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+            enableScroll();
+        }
+    });
+
+    // Handle orientation change on mobile devices
+    window.addEventListener("orientationchange", () => {
+        setTimeout(() => {
+            if (navMenu.classList.contains("active")) {
+                // Recalculate and maintain scroll lock
+                enableScroll();
+                setTimeout(() => {
+                    disableScroll();
+                }, 100);
+            }
+        }, 100);
+    });
 }
 
 // Navbar scroll effect with throttling for better performance
@@ -285,14 +369,6 @@ revealElements.forEach((el) => {
 
 // Certification data for modals
 const certData = {
-  "github-actions-devops": {
-    title: "GitHub Actions for DevOps CI/CD",
-    description:
-      "Certification for mastering GitHub Actions in DevOps CI/CD workflows. Demonstrates proficiency in automating build, test, and deployment pipelines using GitHub Actions, YAML workflows, and best practices for modern DevOps.",
-    skills:
-      "CI/CD Automation, GitHub Actions, Workflow YAML, DevOps Best Practices, Continuous Integration, Continuous Deployment, Automation Scripting, Pipeline Security, Packt Training",
-    image: "certs/REPLACE_WITH_IMAGE_PATH.jpg",
-  },
   "aws-saa": {
     title: "AWS Certified Solutions Architect Associate",
     description:
@@ -315,7 +391,7 @@ const certData = {
       "Certification for mastering GitHub Actions in DevOps CI/CD workflows. Demonstrates proficiency in automating build, test, and deployment pipelines using GitHub Actions, YAML workflows, and best practices for modern DevOps.",
     skills:
       "CI/CD Automation, GitHub Actions, Workflow YAML, DevOps Best Practices, Continuous Integration, Continuous Deployment, Automation Scripting, Pipeline Security, Packt Training",
-    image: "certs/REPLACE_CERT_PATH.jpg",
+    image: "certs/GitHubActions.jpg",
   },
   "aws-ai-practitioner": {
     title: "AWS Certified AI Practitioner",
