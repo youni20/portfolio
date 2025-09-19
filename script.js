@@ -285,6 +285,14 @@ revealElements.forEach((el) => {
 
 // Certification data for modals
 const certData = {
+  "github-actions-devops": {
+    title: "GitHub Actions for DevOps CI/CD",
+    description:
+      "Certification for mastering GitHub Actions in DevOps CI/CD workflows. Demonstrates proficiency in automating build, test, and deployment pipelines using GitHub Actions, YAML workflows, and best practices for modern DevOps.",
+    skills:
+      "CI/CD Automation, GitHub Actions, Workflow YAML, DevOps Best Practices, Continuous Integration, Continuous Deployment, Automation Scripting, Pipeline Security, Packt Training",
+    image: "certs/REPLACE_WITH_IMAGE_PATH.jpg",
+  },
   "aws-saa": {
     title: "AWS Certified Solutions Architect Associate",
     description:
@@ -300,6 +308,14 @@ const certData = {
     skills:
       "AWS SDK and CLI, Lambda Functions, API Gateway, DynamoDB, CloudFormation, CodeCommit/CodeBuild/CodeDeploy, Application Security, Monitoring and Troubleshooting, Serverless Application Development",
     image: "certs/aws-dev.jpg",
+  },
+  "github-actions-devops": {
+    title: "GitHub Actions for DevOps CI/CD",
+    description:
+      "Certification for mastering GitHub Actions in DevOps CI/CD workflows. Demonstrates proficiency in automating build, test, and deployment pipelines using GitHub Actions, YAML workflows, and best practices for modern DevOps.",
+    skills:
+      "CI/CD Automation, GitHub Actions, Workflow YAML, DevOps Best Practices, Continuous Integration, Continuous Deployment, Automation Scripting, Pipeline Security, Packt Training",
+    image: "certs/REPLACE_CERT_PATH.jpg",
   },
   "aws-ai-practitioner": {
     title: "AWS Certified AI Practitioner",
@@ -387,41 +403,6 @@ const projectData = {
     skills:
       "Cloud Architecture, Container Orchestration, Infrastructure as Code, System Monitoring, DevOps Practices, AWS Services, Kubernetes Management",
   },
-  "gitlab-cicd": {
-    title: "Self-Hosted GitLab CI/CD Pipeline for Flask App",
-    description:
-      "A complete DevOps solution featuring self-hosted GitLab CE instance with automated CI/CD pipelines. This project showcases advanced DevOps practices, containerization, and continuous integration/deployment workflows.",
-    tech: ["GitLab CE", "Docker", "GitLab Runner", "Flask", "CI/CD", "Docker Compose", "Linux"],
-    features: [
-      "Deployed GitLab CE and Runner with Docker Compose on a local server",
-      "Configured a GitLab CI pipeline to build and test the Dockerized Flask app automatically",
-      "Demonstrated containerization, CI/CD automation, and Linux server administration skills",
-      "Managed secure handling of persistent GitLab volumes and sensitive configuration files",
-      "Implemented automated testing and deployment workflows",
-      "Set up secure GitLab Runner registration and configuration",
-      "Created comprehensive pipeline stages for build, test, and deploy",
-    ],
-    skills:
-      "CI/CD Pipeline Design, GitLab Administration, Docker Containerization, Linux Server Management, DevOps Automation, Version Control, Infrastructure Management",
-  },
-  fitnest: {
-    title: "FitNest – Full Stack Fitness App",
-    description:
-      "A modern, full-stack fitness application built with React and Node.js, featuring AI integration and containerized deployment. This project demonstrates full-stack development skills, API design, and modern deployment practices.",
-    tech: ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Docker", "JWT", "OpenAI API", "Vite"],
-    features: [
-      "Containerized frontend and backend with Docker Compose for seamless startup and deployment",
-      "RESTful APIs secured with JWT authentication and authorization",
-      "Automated database initialization with SQL scripts and migrations",
-      "Responsive React + TypeScript frontend with Vite for fast development",
-      "Integrated OpenAI API to add AI-powered workout recommendations",
-      "Implemented user authentication and session management",
-      "Created comprehensive API documentation and testing suite",
-      "Applied modern React patterns and TypeScript best practices",
-    ],
-    skills:
-      "Full-Stack Development, API Design, Database Management, Authentication Systems, AI Integration, Container Orchestration, Modern JavaScript/TypeScript, Responsive Design",
-  },
 }
 
 const certCards = document.querySelectorAll(".cert-card")
@@ -432,7 +413,7 @@ certCards.forEach((card) => {
     const certId = card.getAttribute("data-cert")
     const cert = certData[certId]
 
-    if (cert && certModal) {
+  if (cert && certModal) {
       const modalTitle = document.getElementById("certModalTitle")
       const modalDescription = document.getElementById("certModalDescription")
       const modalSkills = document.getElementById("certModalSkills")
@@ -569,9 +550,13 @@ certCards.forEach((card) => {
         certImageContainer.style.display = "none"
       }
 
-      certModal.style.display = "block"
-      certModal.setAttribute("aria-hidden", "false")
-      preventBodyScroll()
+  certModal.style.display = "block"
+  certModal.setAttribute("aria-hidden", "false")
+  // Reset scroll position to top when opening modal
+  certModal.scrollTop = 0
+  const certModalContent = certModal.querySelector('.modal-content')
+  if (certModalContent) certModalContent.scrollTop = 0
+  preventBodyScroll()
     }
   })
 })
@@ -580,7 +565,14 @@ const projectCards = document.querySelectorAll(".project-card")
 const projectModal = document.getElementById("projectModal")
 
 projectCards.forEach((card) => {
-  card.addEventListener("click", () => {
+  card.addEventListener("click", function (e) {
+    // Prevent modal from opening if a project-link (GitHub or video) was clicked
+    if (
+      e.target.closest('.project-link')
+    ) {
+      // Let the link behave normally
+      return
+    }
     const projectId = card.getAttribute("data-project")
     const project = projectData[projectId]
 
@@ -632,6 +624,10 @@ projectCards.forEach((card) => {
 
       projectModal.style.display = "block"
       projectModal.setAttribute("aria-hidden", "false")
+      // Reset scroll position to top when opening modal
+      projectModal.scrollTop = 0
+      const projectModalContent = projectModal.querySelector('.modal-content')
+      if (projectModalContent) projectModalContent.scrollTop = 0
       preventBodyScroll()
     }
   })
