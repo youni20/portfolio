@@ -9,8 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Younus Mashoor – Portfolio</title>
     <meta name="description" content="Portfolio of Younus Mashoor - Software Technology graduate specializing in Cloud Engineering | Cloud Architecture & Security.">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <!-- Preload critical resources for better performance -->
@@ -504,17 +502,20 @@ const submitButton = form.querySelector("button[type='submit']");
 // -----------------------------
 // CONFIGURATION / "ENV VARIABLE"
 // -----------------------------
-// For local testing, use localhost
-// For production, use your ngrok or custom HTTPS URL
 const ENV = {
-  LOCAL: "http://127.0.0.1:4000/send",
-  PROD: "https://shantay-unresistable-chicly.ngrok-free.dev/send"
+  LOCAL: "http://127.0.0.1:4000/send", // local Node backend
+  PROD: "https://shantay-unresistable-chicly.ngrok-free.dev/send" // ngrok / production
 };
 
-// Detect environment automatically
-const BACKEND_URL = (location.hostname === "127.0.0.1" || location.hostname === "localhost")
-  ? ENV.LOCAL
-  : ENV.PROD;
+// -----------------------------
+// Automatically pick the right URL
+// -----------------------------
+let BACKEND_URL = ENV.PROD; // default to PROD
+
+// Use LOCAL if running via localhost or file:// for testing
+if (location.hostname === "127.0.0.1" || location.hostname === "localhost" || location.protocol === "file:") {
+  BACKEND_URL = ENV.LOCAL;
+}
 
 // -----------------------------
 // Notification helper
@@ -530,7 +531,7 @@ function showNotification(message, type = "success") {
     setTimeout(() => {
       notification.style.display = "none";
     }, 500);
-  }, 3000); // Hide after 3 seconds
+  }, 3000);
 }
 
 // -----------------------------
@@ -557,17 +558,17 @@ function setButtonLoading(isLoading) {
 // Form submission
 // -----------------------------
 form.addEventListener("submit", async (e) => {
-  e.preventDefault();
+  e.preventDefault(); // prevent page refresh
 
   const email = document.getElementById("email").value.trim();
   const subject = document.getElementById("subject").value.trim();
   const message = document.getElementById("message").value.trim();
 
-  // Simple validation
   if (!validateEmail(email)) {
     showNotification("Invalid email address.", "error");
     return;
   }
+
   if (!subject || !message) {
     showNotification("Subject and message cannot be empty.", "error");
     return;
@@ -580,30 +581,36 @@ form.addEventListener("submit", async (e) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
-        // If backend sets CORS headers, no need to modify here
       },
       body: JSON.stringify({ email, subject, message }),
     });
 
-    // Check if backend responded with JSON
-    const result = await response.json();
+    // Check if the backend returned JSON
+    let result;
+    try {
+      result = await response.json();
+    } catch {
+      throw new Error("Backend did not return valid JSON");
+    }
 
     if (result.success) {
       showNotification("Message sent successfully!", "success");
       form.reset();
     } else {
-      showNotification("Failed to send message: " + result.error, "error");
+      showNotification("Failed to send message: " + (result.error || "Unknown error"), "error");
       console.error("Backend error:", result.error);
     }
 
   } catch (err) {
     console.error("Fetch error:", err);
-    showNotification("Error sending message, please try again later.", "error");
+    showNotification("Error sending message. Check console for details.", "error");
   } finally {
     setButtonLoading(false);
   }
 });
 </script>
+
+
 
 
 
