@@ -501,10 +501,24 @@ const form = document.getElementById("contactForm");
 const notification = document.getElementById("contactNotification");
 const submitButton = form.querySelector("button[type='submit']");
 
-// Secure backend URL
-const BACKEND_URL = "https://shantay-unresistable-chicly.ngrok-free.dev/send";
+// -----------------------------
+// CONFIGURATION / "ENV VARIABLE"
+// -----------------------------
+// For local testing, use localhost
+// For production, use your ngrok or custom HTTPS URL
+const ENV = {
+  LOCAL: "http://127.0.0.1:4000/send",
+  PROD: "https://shantay-unresistable-chicly.ngrok-free.dev/send"
+};
 
-// Show notification helper
+// Detect environment automatically
+const BACKEND_URL = (location.hostname === "127.0.0.1" || location.hostname === "localhost")
+  ? ENV.LOCAL
+  : ENV.PROD;
+
+// -----------------------------
+// Notification helper
+// -----------------------------
 function showNotification(message, type = "success") {
   notification.textContent = message;
   notification.className = `contact-notification ${type}`;
@@ -519,12 +533,16 @@ function showNotification(message, type = "success") {
   }, 3000); // Hide after 3 seconds
 }
 
-// Simple email validation
+// -----------------------------
+// Email validation
+// -----------------------------
 function validateEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-// Add spinner to button
+// -----------------------------
+// Button loading state
+// -----------------------------
 function setButtonLoading(isLoading) {
   if (isLoading) {
     submitButton.disabled = true;
@@ -535,6 +553,9 @@ function setButtonLoading(isLoading) {
   }
 }
 
+// -----------------------------
+// Form submission
+// -----------------------------
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -542,11 +563,11 @@ form.addEventListener("submit", async (e) => {
   const subject = document.getElementById("subject").value.trim();
   const message = document.getElementById("message").value.trim();
 
+  // Simple validation
   if (!validateEmail(email)) {
     showNotification("Invalid email address.", "error");
     return;
   }
-
   if (!subject || !message) {
     showNotification("Subject and message cannot be empty.", "error");
     return;
@@ -557,10 +578,14 @@ form.addEventListener("submit", async (e) => {
 
     const response = await fetch(BACKEND_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json"
+        // If backend sets CORS headers, no need to modify here
+      },
       body: JSON.stringify({ email, subject, message }),
     });
 
+    // Check if backend responded with JSON
     const result = await response.json();
 
     if (result.success) {
@@ -579,6 +604,7 @@ form.addEventListener("submit", async (e) => {
   }
 });
 </script>
+
 
 
 
