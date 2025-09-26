@@ -1,0 +1,27 @@
+{
+  "name": "younusportfolio",
+  "version": "1.0.0",
+  "description": "This README is your personal guide for updating your portfolio website. Keep this handy for future reference!",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/youni20/portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/youni20/portfolio/issues"
+  },
+  "homepage": "https://github.com/youni20/portfolio#readme",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "nodemailer": "^7.0.6"
+  }
+}

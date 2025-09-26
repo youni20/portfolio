@@ -1,4 +1,4 @@
-    <!-- Added loading indicator for better UX -->
+<!-- Added loading indicator for better UX -->
     <div id="loadingIndicator" class="loading-indicator">
         <div class="loading-spinner"></div>
     </div>
@@ -99,7 +99,8 @@ I am passionate about building robust and maintainable systems and thrive at the
                     <div class="image-placeholder">
                         <img src="pfp.jpg" alt="Younus Mashoor" class="profile-image" loading="lazy">
                     </div>
-                    <!-- END PLACEHOLDER -->
+
+                    
                 </div>
             </div>
         </div>
@@ -424,7 +425,6 @@ I am passionate about building robust and maintainable systems and thrive at the
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Let's Work Together</h2>
-                <p class="section-subtitle">I'm always interested in new opportunities</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
@@ -456,25 +456,83 @@ I am passionate about building robust and maintainable systems and thrive at the
                         </div>
                     </div>
                 </div>
-                <!-- Removed contact form, kept only social links -->
-                <div class="contact-social-section">
-                    <div class="contact-social">
-                        <h3>Connect with me</h3>
-                        <div class="social-links">
-                            <a href="https://github.com/youni20" target="_blank" rel="noopener noreferrer" class="social-btn">
-                                <i class="fab fa-github"></i>
-                                <span>GitHub</span>
-                            </a>
-                            <a href="https://www.linkedin.com/in/younus-mashoor-6a48aa360" target="_blank" rel="noopener noreferrer" class="social-btn">
-                                <i class="fab fa-linkedin"></i>
-                                <span>LinkedIn</span>
-                            </a>
-                            <a href="mailto:younusmashoor@gmail.com" class="social-btn">
-                                <i class="fas fa-envelope"></i>
-                                <span>Email Me</span>
-                            </a>
-                        </div>
-                    </div>
+                
+              <div class="contact-form-section">
+  <div class="contact-form">
+    <h3>Send me a message</h3>
+    <form id="contactForm">
+      <div class="form-group">
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+      </div>
+      <div class="form-group">
+        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+      </div>
+      <div class="form-group">
+        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+  </div>
+
+  <div class="contact-social">
+    <h3>Connect with me</h3>
+    <div class="social-links">
+      <a href="https://github.com/youni20" target="_blank" rel="noopener noreferrer" class="social-btn">
+        <i class="fab fa-github"></i>
+        <span>GitHub</span>
+      </a>
+      <a href="https://www.linkedin.com/in/younus-mashoor-6a48aa360" target="_blank" rel="noopener noreferrer" class="social-btn">
+        <i class="fab fa-linkedin"></i>
+        <span>LinkedIn</span>
+      </a>
+      <a href="mailto:younusmashoor@gmail.com" class="social-btn">
+        <i class="fas fa-envelope"></i>
+        <span>Email Me</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+const form = document.getElementById("contactForm");
+
+// Determine URL: localhost for local testing, DuckDNS for production
+const isLocal = location.hostname === "127.0.0.1" || location.hostname === "localhost";
+const BACKEND_URL = isLocal
+  ? "http://127.0.0.1:4000/send"
+  : "http://portfolio-youni.duckdns.org:8085/send";
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const email = document.getElementById("email").value;
+  const subject = document.getElementById("subject").value;
+  const message = document.getElementById("message").value;
+
+  try {
+    const response = await fetch(BACKEND_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, subject, message }),
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      alert("Message sent successfully!");
+      form.reset();
+    } else {
+      alert("Failed to send message: " + result.error);
+      console.error("Backend error:", result.error);
+    }
+
+  } catch (err) {
+    console.error("Fetch error:", err);
+    alert("Error sending message. Check console for details.");
+  }
+});
+</script>
+
                 </div>
             </div>
         </div>
@@ -496,7 +554,6 @@ I am passionate about building robust and maintainable systems and thrive at the
         </div>
     </footer>
 
-    <!-- Added modal for project details -->
     <div id="projectModal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
         <div class="modal-content">
             <span class="close" aria-label="Close modal">&times;</span>
@@ -509,23 +566,23 @@ I am passionate about building robust and maintainable systems and thrive at the
             <div class="modal-body">
                 <p id="modalDescription">Project description will go here...</p>
                 <div class="modal-tech" id="modalTech">
-                    <!-- Tech tags will be populated here -->
+                    <!-- Tech tags -->
                 </div>
                 <div class="modal-features" id="modalFeatures">
-                    <!-- Features will be populated here -->
+                    <!-- Features -->
                 </div>
                 <div class="modal-skills" id="modalSkills">
                     <h4>Skills Demonstrated:</h4>
                     <p>Skills will be populated here...</p>
                 </div>
                 <div class="modal-links" id="modalLinks">
-                    <!-- Links will be populated here -->
+                    <!-- Links -->
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Added modal for certification details -->
+ 
     <div id="certModal" class="modal" role="dialog" aria-labelledby="certModalTitle" aria-hidden="true">
         <div class="modal-content">
             <span class="close" aria-label="Close modal">&times;</span>
@@ -536,14 +593,14 @@ I am passionate about building robust and maintainable systems and thrive at the
                 <h2 id="certModalTitle">Certification Title</h2>
             </div>
             <div class="modal-body">
-                <!-- Added certificate image display -->
+        
                 <div class="cert-image-container" id="certImageContainer">
                     <img id="certImage" src="/placeholder.svg" alt="Certificate" class="cert-modal-image" style="display: none;" loading="lazy">
                 </div>
-                <p id="certModalDescription">Certification description will go here...</p>
+                <p id="certModalDescription">Certification description here...</p>
                 <div class="modal-skills" id="certModalSkills">
                     <h4>Skills Covered:</h4>
-                    <p>Skills will be populated here...</p>
+                    <p>Skills here...</p>
                 </div>
             </div>
         </div>

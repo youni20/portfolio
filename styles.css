@@ -72,17 +72,17 @@
   .nav-container {
     padding: 0 15px;
   }
-  
+
   .nav-menu {
     padding: 20px 0;
   }
-  
+
   .nav-link {
     font-size: 16px;
     margin: 0 15px;
     padding: 12px 15px;
   }
-  
+
   .nav-menu li {
     margin: 15px 0;
   }
@@ -93,15 +93,15 @@
   .nav-container {
     padding: 0 10px;
   }
-  
+
   .logo-text {
     font-size: 18px;
   }
-  
+
   .hamburger {
     padding: 3px;
   }
-  
+
   .bar {
     width: 22px;
     height: 2px;
@@ -114,11 +114,11 @@
     min-height: calc(100vh - 70px);
     padding: 15px 0;
   }
-  
+
   .nav-menu li {
     margin: 10px 0;
   }
-  
+
   .nav-link {
     padding: 10px 20px;
   }
@@ -242,19 +242,19 @@ body {
   align-items: center;
   height: 70px;
 }
-  .floating-card:nth-child(5) {
-    top: 85%;
-    left: 50%;
-    transform: translateX(-50%);
-    min-width: 160px;
-    z-index: 10;
-    opacity: 1 !important;
-    display: flex !important;
-  }
-  .floating-card:nth-child(5) .card-content span {
-    font-size: 0.95rem;
-    white-space: nowrap;
-  }
+.floating-card:nth-child(5) {
+  top: 85%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 160px;
+  z-index: 10;
+  opacity: 1 !important;
+  display: flex !important;
+}
+.floating-card:nth-child(5) .card-content span {
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
 .floating-card:nth-child(5) .card-content span {
   font-size: 1rem;
   white-space: nowrap;
@@ -530,7 +530,6 @@ body {
   box-shadow: 0 8px 25px rgba(43, 108, 176, 0.15);
   cursor: pointer;
 }
-
 
 .floating-card:nth-child(1) {
   top: 5%;
@@ -1583,15 +1582,15 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 }
-  .floating-card:nth-child(5) {
-    top: 5px;
-    left: 45%;
-    transform: translateX(-50%);
-    min-width: 150px;
-  }
-  .floating-card:nth-child(5) .card-content span {
-    font-size: 0.95rem;
-  }
+.floating-card:nth-child(5) {
+  top: 5px;
+  left: 45%;
+  transform: translateX(-50%);
+  min-width: 150px;
+}
+.floating-card:nth-child(5) .card-content span {
+  font-size: 0.95rem;
+}
 
 @media (max-width: 768px) {
   .nav-menu {
