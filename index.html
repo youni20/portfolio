@@ -500,22 +500,10 @@ const notification = document.getElementById("contactNotification");
 const submitButton = form.querySelector("button[type='submit']");
 
 // -----------------------------
-// CONFIGURATION / "ENV VARIABLE"
+// CONFIGURATION / BACKEND URL
 // -----------------------------
-const ENV = {
-  LOCAL: "http://127.0.0.1:4000/send", // local Node backend
-  PROD: " https://shantay-unresistable-chicly.ngrok-free.dev/send" // ngrok / production
-};
-
-// -----------------------------
-// Automatically pick the right URL
-// -----------------------------
-let BACKEND_URL = ENV.PROD; // default to PROD
-
-// Use LOCAL if running via localhost or file:// for testing
-if (location.hostname === "127.0.0.1" || location.hostname === "localhost" || location.protocol === "file:") {
-  BACKEND_URL = ENV.LOCAL;
-}
+const BACKEND_URL = "https://shantay-unresistable-chicly.ngrok-free.dev/send";
+// const BACKEND_URL = "http://127.0.0.1:4000/send"; // Uncomment for local testing
 
 // -----------------------------
 // Notification helper
@@ -579,13 +567,10 @@ form.addEventListener("submit", async (e) => {
 
     const response = await fetch(BACKEND_URL, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, subject, message }),
     });
 
-    // Check if the backend returned JSON
     let result;
     try {
       result = await response.json();
@@ -609,10 +594,6 @@ form.addEventListener("submit", async (e) => {
   }
 });
 </script>
-
-
-
-
 
 
                 </div>
