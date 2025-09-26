@@ -498,9 +498,8 @@ const form = document.getElementById("contactForm");
 
 // Determine URL: localhost for local testing, DuckDNS for production
 const isLocal = location.hostname === "127.0.0.1" || location.hostname === "localhost";
-const BACKEND_URL = isLocal
-  ? "http://127.0.0.1:4000/send"
-  : "http://portfolio-youni.duckdns.org:8085/send";
+const BACKEND_URL = "https://shantay-unresistable-chicly.ngrok-free.dev/send";
+
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
