@@ -493,22 +493,68 @@ I am passionate about building robust and maintainable systems and thrive at the
   </div>
 </div>
 
+<!-- Notification container (place near the end of body or inside contact section) -->
+<div id="contactNotification" class="contact-notification"></div>
+
 <script>
 const form = document.getElementById("contactForm");
+const notification = document.getElementById("contactNotification");
+const submitButton = form.querySelector("button[type='submit']");
 
-// Determine URL: localhost for local testing, DuckDNS for production
-const isLocal = location.hostname === "127.0.0.1" || location.hostname === "localhost";
+// Secure backend URL
 const BACKEND_URL = "https://shantay-unresistable-chicly.ngrok-free.dev/send";
 
+// Show notification helper
+function showNotification(message, type = "success") {
+  notification.textContent = message;
+  notification.className = `contact-notification ${type}`;
+  notification.style.display = "block";
+  notification.style.opacity = "1";
+
+  setTimeout(() => {
+    notification.style.opacity = "0";
+    setTimeout(() => {
+      notification.style.display = "none";
+    }, 500);
+  }, 3000); // Hide after 3 seconds
+}
+
+// Simple email validation
+function validateEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+// Add spinner to button
+function setButtonLoading(isLoading) {
+  if (isLoading) {
+    submitButton.disabled = true;
+    submitButton.innerHTML = 'Sending... <span class="spinner"></span>';
+  } else {
+    submitButton.disabled = false;
+    submitButton.textContent = "Send Message";
+  }
+}
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const email = document.getElementById("email").value;
-  const subject = document.getElementById("subject").value;
-  const message = document.getElementById("message").value;
+  const email = document.getElementById("email").value.trim();
+  const subject = document.getElementById("subject").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  if (!validateEmail(email)) {
+    showNotification("Invalid email address.", "error");
+    return;
+  }
+
+  if (!subject || !message) {
+    showNotification("Subject and message cannot be empty.", "error");
+    return;
+  }
 
   try {
+    setButtonLoading(true);
+
     const response = await fetch(BACKEND_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -518,19 +564,23 @@ form.addEventListener("submit", async (e) => {
     const result = await response.json();
 
     if (result.success) {
-      alert("Message sent successfully!");
+      showNotification("Message sent successfully!", "success");
       form.reset();
     } else {
-      alert("Failed to send message: " + result.error);
+      showNotification("Failed to send message: " + result.error, "error");
       console.error("Backend error:", result.error);
     }
 
   } catch (err) {
     console.error("Fetch error:", err);
-    alert("Error sending message. Check console for details.");
+    showNotification("Error sending message, please try again later.", "error");
+  } finally {
+    setButtonLoading(false);
   }
 });
 </script>
+
+
 
                 </div>
             </div>

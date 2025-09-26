@@ -1962,3 +1962,33 @@ section {
     align-self: center;
   }
 }
+
+/* Notification banner */
+.contact-notification {
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #2b6cb0;
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 9999;
+  font-weight: bold;
+  animation: slideIn 0.5s ease-out;
+}
+
+.contact-notification.success {
+  background-color: #2f855a; /* Green for success */
+}
+
+.contact-notification.error {
+  background-color: #c53030; /* Red for error */
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
