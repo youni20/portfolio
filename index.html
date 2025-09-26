@@ -502,8 +502,7 @@ const notification = document.getElementById("contactNotification");
 const submitButton = form.querySelector("button[type='submit']");
 
 // Secure backend URL
-require("dotenv").config();
-const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:4000/send";
+const BACKEND_URL = "https://shantay-unresistable-chicly.ngrok-free.dev/send";
 
 // Show notification helper
 function showNotification(message, type = "success") {
