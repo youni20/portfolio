@@ -367,6 +367,7 @@ revealElements.forEach((el) => {
   revealObserver.observe(el)
 })
 
+/*
 // Certification data for modals
 const certData = {
   "aws-saa": {
@@ -457,8 +458,9 @@ const certData = {
       "DevOps Fundamentals, CI/CD, Automation, Collaboration, Cloud Concepts, Agile Practices, Monitoring, IBM DevOps Tools",
     image: "certs/IntroToDevOps.jpg",
   },
-}
+}*/
 
+/* 
 // Project data for modals
 const projectData = {
   "cloud-monitoring": {
@@ -480,6 +482,7 @@ const projectData = {
       "Cloud Architecture, Container Orchestration, Infrastructure as Code, System Monitoring, DevOps Practices, AWS Services, Kubernetes Management",
   },
 }
+*/
 
 const certCards = document.querySelectorAll(".cert-card")
 const certModal = document.getElementById("certModal")
