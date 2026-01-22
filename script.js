@@ -436,7 +436,7 @@ const projectData = {
     ],
     skills:
       "Machine Learning, Data Engineering, Time Series Analysis, Anomaly Detection, Dashboarding",
-    github: "https://github.com/youni20/ecoscale",
+    github: "https://github.com/youni20/EcoScale-Intelligent-Building-Energy-Management-System-BEMS-/tree/main",
   },
   "iot-platform": {
     title: "Cloud-Native IoT Telemetry Platform",
@@ -452,7 +452,7 @@ const projectData = {
     ],
     skills:
       "Cloud Native Architecture, Kubernetes, GitOps, IoT, Observability, Infrastructure as Code",
-    github: "https://github.com/youni20/iot-platform",
+    github: "https://github.com/youni20/IoT_Telemetry",
   },
   "football-vision": {
     title: "Football Vision AI: Sports Analytics System",
@@ -468,7 +468,7 @@ const projectData = {
     ],
     skills:
       "Computer Vision, Deep Learning, Object Tracking, Sports Analytics, Unsupervised Learning",
-    github: "https://github.com/youni20/football-vision",
+    github: "https://github.com/youni20/match-vision-ai",
   },
   "symphony-marine": {
     title: "Symphony Marine Analytics Platform",
@@ -484,7 +484,7 @@ const projectData = {
     ],
     skills:
       "Geospatial Data Science, Machine Learning, Web Development, Environmental Analytics",
-    github: "https://github.com/youni20/symphony-marine",
+    github: "https://github.com/youni20/symphony-ml-analytics",
   },
   "fitnest": {
     title: "FitNest - AI Powered Fitness App",
@@ -500,7 +500,7 @@ const projectData = {
     ],
     skills:
       "Full-Stack Development, AI Integration, Database Design, Containerization, API Development",
-    github: "https://github.com/youni20/fitnest",
+    github: "https://github.com/youni20/FitNest",
   },
   "deepfake-detection": {
     title: "DeepFake Detection System",
@@ -516,7 +516,7 @@ const projectData = {
     ],
     skills:
       "Computer Vision, Deep Learning, MLOps, Model Deployment, API Engineering",
-    github: "https://github.com/youni20/deepfake-detection",
+    github: "https://github.com/youni20/deepfake-detection-system",
   },
   "ibm-capstone": {
     title: "IBM Data Science Capstone",
@@ -532,7 +532,7 @@ const projectData = {
     ],
     skills:
       "Data Science Lifecycle, Statistical Analysis, Predictive Modeling, Data Visualization",
-    github: "https://github.com/youni20/ibm-capstone",
+    github: "",
   },
   "swedish-climate": {
     title: "Swedish Environmental Analytics Platform",
@@ -548,7 +548,7 @@ const projectData = {
     ],
     skills:
       "Full-Stack ML, Time Series Forecasting, System Architecture, Frontend Development, CI/CD",
-    github: "https://github.com/youni20/swedish-climate",
+    github: "https://github.com/youni20/swedish-climate-analytics-platform",
   },
 };
 
