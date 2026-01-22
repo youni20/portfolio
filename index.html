@@ -1,0 +1,1039 @@
+<!-- Added loading indicator for better UX -->
+<div id="loadingIndicator" class="loading-indicator">
+    <div class="loading-spinner"></div>
+</div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Younus Mashoor – Portfolio</title>
+    <meta name="description"
+        content="Portfolio of Younus Mashoor - Software Technology graduate specializing in Cloud Engineering | Cloud Architecture & Security.">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <!-- Preload critical resources for better performance -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Younus Mashoor</span>
+                <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="#certifications" class="nav-link">Certifications</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Hi, I'm Younus!</h1>
+                    <p class="hero-subtitle">Cloud Engineer | Cloud Architecture & Security</p>
+                    <p class="hero-description">
+                        I architect, secure, and automate scalable cloud solutions across AWS and hybrid environments.
+                        With a B.Sc. in Software Technology from Linnaeus University, I specialize in cloud engineering,
+                        networking, and designing solutions that bridge hardware, software, and cloud to solve complex
+                        problems securely and efficiently. I am passionate about enabling high-performing teams,
+                        reducing deployment times, and improving system reliability through automation, robust cloud
+                        security practices, and well-designed network architectures. Known for my collaborative
+                        approach, I thrive in cross-functional teams and enjoy mentoring others in cloud, networking,
+                        and security best practices. </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    </div>
+                    <div class="hero-social">
+                        <a href="https://github.com/youni20" target="_blank" rel="noopener noreferrer"
+                            class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/younus-mashoor-6a48aa360" target="_blank"
+                            rel="noopener noreferrer" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:younusmashoor@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="floating-card">
+                        <div class="card-content"><i class="fas fa-network-wired"></i><span>Automation</span></div>
+                    </div>
+                    <div class="floating-card">
+                        <div class="card-content"><i class="fas fa-cloud"></i><span>Cloud Engineering</span></div>
+                    </div>
+                    <div class="floating-card">
+                        <div class="card-content"><i class="fas fa-cogs"></i><span>DevOps</span></div>
+                    </div>
+                    <div class="floating-card">
+                        <div class="card-content"><i class="fas fa-shield-alt"></i><span>Security</span></div>
+                    </div>
+                    <div class="floating-card">
+                        <div class="card-content"><i class="fas fa-drafting-compass"></i><span>Solutions
+                                Architect</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I have a B.Sc. in Software Technology specializing in Cloud Engineering, Cloud Security, and
+                        Networking.
+                        I design and deliver scalable, secure, and resilient cloud infrastructure—primarily on AWS
+                        leveraging automation, infrastructure as code, and cloud-native tools with DevOps practices. My
+                        experience includes designing secure cloud and hybrid solutions, implementing compliance
+                        controls and optimizing infrastructure for reliability, performance, and cost efficiency. I help
+                        engineering teams accelerate deployments and improve uptime through automated CI/CD pipelines,
+                        streamlined infrastructure provisioning, and well designed network architectures.
+
+                        I am passionate about building robust and maintainable systems and thrive at the intersection of
+                        software, infrastructure, and networking. Known for my collaborative approach, mentoring, and
+                        problem solving skills, I excel in fast-paced, cross-functional environments.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <!--<i class="fas fa-user-tie"></i>-->
+
+                    <div class="image-placeholder">
+                        <img src="pfp.jpg" alt="Younus Mashoor" class="profile-image" loading="lazy">
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Technical Skills</h2>
+                <p class="section-subtitle">Technologies I work with</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-code"></i>
+                        <h3>Programming Languages</h3>
+                    </div>
+                    <div class="skills-list">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Bash</span>
+                        <span class="skill-tag">boto3</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-cloud"></i>
+                        <h3>DevOps & Cloud</h3>
+                    </div>
+                    <div class="skills-list">
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">OpenTofu</span>
+                        <span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">Ansible</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Prometheus</span>
+                        <span class="skill-tag">n8n</span>
+                        <span class="skill-tag">GitHub Actions</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-database"></i>
+                        <h3>Databases & Tools</h3>
+                    </div>
+                    <div class="skills-list">
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">Excel</span>
+                        <span class="skill-tag">Video Editing</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Frameworks & Libraries</h3>
+                    </div>
+                    <div class="skills-list">
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">Express.js</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Concepts & Methodologies</h3>
+                    </div>
+                    <div class="skills-list">
+                        <span class="skill-tag">API</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">Data Structures & Algorithms</span>
+                        <span class="skill-tag">Cloud Networking</span>
+                        <span class="skill-tag">Containerization</span>
+                        <span class="skill-tag">Infrastructure as Code</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Experience</h2>
+                <p class="section-subtitle">My professional journey</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Teaching Assistant — Cloud Native Applications Course, Linnaeus University, Kalmar,
+                                Sweden</h3>
+                            <span class="timeline-date">Sep 2025 - Jan 2026</span>
+                        </div>
+                        <ul>
+                            <li>Updated Coursepress website and maintained course materials</li>
+                            <li>Scripted and updated examples on GitLab for hands-on learning</li>
+                            <li>Conducted weekly workshops and mentored students on Kubernetes, Docker, and
+                                Infrastructure as Code</li>
+                            <li>Provided support on Slack for CI/CD pipelines, Terraform, and containerization
+                                questions, fostering collaboration and technical growth</li>
+                            <li>Helped students master cloud-native technologies, DevOps practices, and secure cloud
+                                deployment strategies</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Teaching Assistant — Operating Systems Course, Linnaeus University, Växjö, Sweden</h3>
+                            <span class="timeline-date">Nov 2025 - Jan 2026</span>
+                        </div>
+                        <ul>
+                            <li>Assisted professor in lectures, clarifying OS concepts and providing real-world examples
+                            </li>
+                            <li>Conducted lab sessions on process scheduling and memory management.</li>
+                            <li>Graded assignments and exams, evaluated coding assignments and lab reports</li>
+                            <li>Held office hours to help students with OS concepts and cloud based virtual labs</li>
+                            <li>Prepared teaching materials including slides, lab instructions, and cloud deployment
+                                templates</li>
+                            <li>Taught core concepts: processes & threads, scheduling algorithms, memory management,
+                                file systems, and concurrency</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Cloud Engineering Intern — FMM, Hamad International Airport, Doha, Qatar</h3>
+                            <span class="timeline-date">Jun - Jul 2025</span>
+                        </div>
+                        <ul>
+                            <li>Configured and managed internal office network infrastructure, improving uptime by 20%
+                            </li>
+                            <li>Implemented secure remote access solutions using FortiClient VPN, ensuring compliance
+                                and data protection</li>
+                            <li>Performed routine system backups and contributed to maintaining high availability and
+                                business continuity across IT systems</li>
+                            <li>Applied foundational DevOps and cloud practices to automate infrastructure and enhance
+                                system reliability</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>ML Engineer Intern — Mannai Corporation, Doha, Qatar</h3>
+                            <span class="timeline-date">Jun - Aug 2024</span>
+                        </div>
+                        <ul>
+                            <li>Developed a machine learning model to recommend tickets based on company-provided Excel
+                                datasets</li>
+                            <li>Implemented data preprocessing and feature engineering techniques to improve model
+                                accuracy</li>
+                            <li>Deployed the ML model using cloud infrastructure and containerization technologies
+                                (e.g., Docker)</li>
+                            <li>Collaborated with cross-functional teams to integrate the recommendation system into
+                                existing workflows</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Head of Marketing & Web Developer — LNU AI Society, Växjö, Sweden</h3>
+                            <span class="timeline-date">Sep 2025 – Jul 2026</span>
+                        </div>
+                        <ul>
+                            <li>Led marketing strategy and web presence for a non-profit student society focused on
+                                artificial intelligence</li>
+                            <li>Designed, developed, and deployed the organization's website to promote events,
+                                research, and collaboration</li>
+                            <li>Managed hosting, domain setup, and basic Linux server configuration to serve the static
+                                site</li>
+                            <li>Collaborated with tech and media teams to ensure alignment between branding, outreach,
+                                and technical infrastructure</li>
+                            <li><a href="https://www.lnuais.com/" target="_blank" rel="noopener noreferrer">Visit
+                                    Website ↗</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <!-- Scalable Multi-Tier Cloud Infrastructure -->
+                <div class="project-card" data-project="cloud-infrastructure">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <h3>Scalable Multi-Tier Cloud Infrastructure</h3>
+                            <span class="project-date">Sep 2025 - Present</span>
+                        </div>
+                        <p class="project-description">
+                            Designed and deployed a highly available 3-tier web application on AWS/Azure/GCP with
+                            Terraform IaC, Docker containerization, and Kubernetes orchestration. Implemented CI/CD
+                            pipelines with zero-downtime deployments and comprehensive monitoring.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">AWS/Azure/GCP</span>
+                            <span class="tech-tag">Terraform</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Kubernetes</span>
+                            <span class="tech-tag">CI/CD</span>
+                            <span class="tech-tag">Prometheus</span>
+                            <span class="tech-tag">Grafana</span>
+                        </div>
+                        <div class="project-links">
+                            <!-- <a href="#" class="project-link github-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Multi-camera Distributed Tracker -->
+                <div class="project-card" data-project="multi-camera-tracker">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <h3>Multi-Camera Distributed Tracker</h3>
+                            <span class="project-date">Aug 2025 - Oct 2025</span>
+                        </div>
+                        <p class="project-description">
+                            Developed a real-time, multi-camera object tracking system with scalable distributed
+                            processing. Built a modular pipeline for camera calibration, YOLOv8 object detection, and
+                            cross-camera tracking with containerization for cloud-ready deployment.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">YOLOv8</span>
+                            <span class="tech-tag">OpenCV</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Kubernetes</span>
+                            <span class="tech-tag">FAISS</span>
+                            <span class="tech-tag">CI/CD</span>
+                        </div>
+                        <div class="project-links">
+                            <!-- <a href="#" class="project-link github-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloud-Native Monitoring & Logging System -->
+                <div class="project-card" data-project="cloud-monitoring">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Cloud-Native Monitoring & Logging System</h3>
+                            <span class="project-date">Jun 2025 - Jul 2025</span>
+                        </div>
+                        <p class="project-description">
+                            Deployed a complete observability stack with Prometheus, Grafana, and ELK on Kubernetes.
+                            Built real-time dashboards, implemented alerting rules for downtime detection, and
+                            configured centralized logging pipelines for improved system resilience.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Prometheus</span>
+                            <span class="tech-tag">Grafana</span>
+                            <span class="tech-tag">ELK Stack</span>
+                            <span class="tech-tag">Kubernetes</span>
+                            <span class="tech-tag">AWS</span>
+                        </div>
+                        <div class="project-links">
+                            <!-- <a href="#" class="project-link github-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Football Match Outcome Predictor -->
+                <div class="project-card" data-project="football-predictor">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-futbol"></i>
+                            </div>
+                            <h3>Football Match Outcome Predictor</h3>
+                            <span class="project-date">Mar 2025 - May 2025</span>
+                        </div>
+                        <p class="project-description">
+                            Built an ML model to predict football match results using historical data and team
+                            performance metrics. Deployed as a Flask web application with Docker containerization, CI/CD
+                            automation via GitHub Actions, and Kubernetes deployment for scalability.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Kubernetes</span>
+                            <span class="tech-tag">GitHub Actions</span>
+                        </div>
+                        <div class="project-links">
+                            <!-- <a href="#" class="project-link github-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Python for Data Science Capstone -->
+                <div class="project-card" data-project="data-science-capstone">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3>Python for Data Science Capstone Project</h3>
+                            <span class="project-date">Dec 2024 - Feb 2025</span>
+                        </div>
+                        <p class="project-description">
+                            Completed a comprehensive data science project involving data cleaning, exploratory
+                            analysis, and predictive modeling. Applied Python libraries including Pandas, NumPy,
+                            Scikit-learn, and Matplotlib to extract insights from real-world datasets.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">NumPy</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Matplotlib</span>
+                            <span class="tech-tag">Data Analysis</span>
+                        </div>
+                        <div class="project-links">
+                            <!-- <a href="#" class="project-link github-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Certifications</h2>
+                <p class="section-subtitle">Professional achievements and credentials</p>
+            </div>
+            <div class="certifications-grid">
+                <div class="cert-card" data-cert="aws-saa">
+                    <div class="cert-icon">
+                        <i class="fab fa-aws"></i>
+                    </div>
+                    <h3>AWS Certified Solutions Architect</h3>
+                    <p>Amazon Web Services</p>
+                    <div class="cert-badge">Associate</div>
+                </div>
+
+                <div class="cert-card" data-cert="aws-dev">
+                    <div class="cert-icon">
+                        <i class="fab fa-aws"></i>
+                    </div>
+                    <h3>AWS Certified CloudOps Engineer</h3>
+                    <p>Amazon Web Services</p>
+                    <div class="cert-badge">Associate</div>
+                </div>
+
+                <!-- AWS Developer -->
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fab fa-aws"></i>
+                    </div>
+                    <h3>AWS Certified Developer</h3>
+                    <p>Amazon Web Services</p>
+                    <div class="cert-badge">Associate</div>
+                </div>
+
+                <!-- AWS Cloud Practitioner -->
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fab fa-aws"></i>
+                    </div>
+                    <h3>AWS Certified Cloud Practitioner</h3>
+                    <p>Amazon Web Services</p>
+                    <div class="cert-badge">Practitioner</div>
+                </div>
+                <div class="cert-card" data-cert="aws-cloud-practitioner">
+                    <div class="cert-icon">
+                        <i class="fab fa-aws"></i>
+                    </div>
+                    <h3>AWS Certified AI Practitioner</h3>
+                    <p>Amazon Web Services</p>
+                    <div class="cert-badge">Practitioner</div>
+                </div>
+                <div class="cert-card" data-cert="ibm-rag-and-agentic-ai">
+                    <div class="cert-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>RAG and Agentic AI Professional Certificate</h3>
+                    <p>IBM</p>
+                    <div class="cert-badge">Professional</div>
+                </div>
+
+                <!-- Microsoft API -->
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fab fa-microsoft"></i>
+                    </div>
+                    <h3>API-104: Backend APIs & Microservices</h3>
+                    <p>Microsoft</p>
+                </div>
+
+                <!-- IBM DevOps & Cloud -->
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>DevOps & Cloud Fundamentals</h3>
+                    <p>IBM</p>
+                </div>
+
+                <!-- Python for Data Science -->
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h3>Python for Data Science, AI & Development</h3>
+                    <p>IBM</p>
+                </div>
+
+                <!-- Network Fundamentals -->
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Fundamentals of Network Communication</h3>
+                    <p>University of Colorado</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Let's Work Together</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>younusmashoor@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <p>+46 76 456 1873</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p>Växjö, Sweden</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-section">
+                    <div class="contact-form">
+                        <h3>Send me a message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+
+                    <div class="contact-social">
+                        <h3>Connect with me</h3>
+                        <div class="social-links">
+                            <a href="https://github.com/youni20" target="_blank" rel="noopener noreferrer"
+                                class="social-btn">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/younus-mashoor-6a48aa360" target="_blank"
+                                rel="noopener noreferrer" class="social-btn">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="mailto:younusmashoor@gmail.com" class="social-btn">
+                                <i class="fas fa-envelope"></i>
+                                <span>Email Me</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notification container (place near the end of body or inside contact section) -->
+                <div id="contactNotification" class="contact-notification"></div>
+
+                <script>
+                    const form = document.getElementById("contactForm");
+                    const notification = document.getElementById("contactNotification");
+                    const submitButton = form.querySelector("button[type='submit']");
+
+                    // -----------------------------
+                    // CONFIGURATION / BACKEND URL
+                    // -----------------------------
+                    const BACKEND_URL = "/api/contact";
+                    // const BACKEND_URL = "http://localhost:3000/api/contact"; // Use this if frontend and backend are on different ports/servers
+
+
+                    // -----------------------------
+                    // SECURITY CONFIGURATION
+                    // -----------------------------
+                    const RATE_LIMIT = {
+                        maxEmails: 3,
+                        timeWindow: 60 * 60 * 1000, // 1 hour in milliseconds
+                        cooldownPeriod: 5 * 60 * 1000 // 15 minutes between submissions
+                    };
+
+                    const VALIDATION = {
+                        maxSubjectLength: 200,
+                        maxMessageLength: 5000,
+                        minMessageLength: 10,
+                        maxEmailLength: 254
+                    };
+
+                    // -----------------------------
+                    // Rate limiting storage
+                    // -----------------------------
+                    function getSubmissionData() {
+                        const data = localStorage.getItem('contactFormSubmissions');
+                        return data ? JSON.parse(data) : { count: 0, timestamps: [], lastSubmission: null };
+                    }
+
+                    function saveSubmissionData(data) {
+                        localStorage.setItem('contactFormSubmissions', JSON.stringify(data));
+                    }
+
+                    function checkRateLimit() {
+                        const now = Date.now();
+                        const data = getSubmissionData();
+
+                        // Remove timestamps older than the time window
+                        data.timestamps = data.timestamps.filter(t => now - t < RATE_LIMIT.timeWindow);
+                        data.count = data.timestamps.length;
+
+                        // Check if max emails reached
+                        if (data.count >= RATE_LIMIT.maxEmails) {
+                            const oldestTimestamp = Math.min(...data.timestamps);
+                            const timeRemaining = Math.ceil((RATE_LIMIT.timeWindow - (now - oldestTimestamp)) / 60000);
+                            return {
+                                allowed: false,
+                                message: `You've reached the maximum of ${RATE_LIMIT.maxEmails} emails per hour. Please try again in ${timeRemaining} minutes.`
+                            };
+                        }
+
+                        // Check cooldown between submissions
+                        if (data.lastSubmission && (now - data.lastSubmission) < RATE_LIMIT.cooldownPeriod) {
+                            const timeRemaining = Math.ceil((RATE_LIMIT.cooldownPeriod - (now - data.lastSubmission)) / 60000);
+                            return {
+                                allowed: false,
+                                message: `Please wait ${timeRemaining} minutes before sending another message.`
+                            };
+                        }
+
+                        return { allowed: true };
+                    }
+
+                    function recordSubmission() {
+                        const now = Date.now();
+                        const data = getSubmissionData();
+                        data.timestamps.push(now);
+                        data.lastSubmission = now;
+                        data.count = data.timestamps.length;
+                        saveSubmissionData(data);
+                    }
+
+                    // -----------------------------
+                    // Notification helper
+                    // -----------------------------
+                    function showNotification(message, type = "success") {
+                        notification.textContent = message;
+                        notification.className = `contact-notification ${type}`;
+                        notification.style.display = "block";
+                        notification.style.opacity = "1";
+
+                        setTimeout(() => {
+                            notification.style.opacity = "0";
+                            setTimeout(() => {
+                                notification.style.display = "none";
+                            }, 500);
+                        }, 3000);
+                    }
+
+                    // -----------------------------
+                    // Enhanced validation
+                    // -----------------------------
+                    function validateEmail(email) {
+                        // Basic format check
+                        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                            return false;
+                        }
+
+                        // Length check
+                        if (email.length > VALIDATION.maxEmailLength) {
+                            return false;
+                        }
+
+                        // Check for suspicious patterns
+                        const suspiciousPatterns = [
+                            /script/i,
+                            /<[^>]*>/,
+                            /javascript:/i,
+                            /on\w+=/i
+                        ];
+
+                        return !suspiciousPatterns.some(pattern => pattern.test(email));
+                    }
+
+                    function sanitizeInput(input) {
+                        // Remove any HTML tags and trim
+                        return input.replace(/<[^>]*>/g, '').trim();
+                    }
+
+                    function validateSubject(subject) {
+                        if (!subject || subject.length === 0) {
+                            return { valid: false, message: "Subject cannot be empty." };
+                        }
+
+                        if (subject.length > VALIDATION.maxSubjectLength) {
+                            return { valid: false, message: `Subject must be less than ${VALIDATION.maxSubjectLength} characters.` };
+                        }
+
+                        return { valid: true };
+                    }
+
+                    function validateMessage(message) {
+                        if (!message || message.length < VALIDATION.minMessageLength) {
+                            return { valid: false, message: `Message must be at least ${VALIDATION.minMessageLength} characters.` };
+                        }
+
+                        if (message.length > VALIDATION.maxMessageLength) {
+                            return { valid: false, message: `Message must be less than ${VALIDATION.maxMessageLength} characters.` };
+                        }
+
+                        // Check for spam-like patterns
+                        const urlCount = (message.match(/https?:\/\//g) || []).length;
+                        if (urlCount > 3) {
+                            return { valid: false, message: "Message contains too many URLs." };
+                        }
+
+                        return { valid: true };
+                    }
+
+                    // -----------------------------
+                    // Button loading state
+                    // -----------------------------
+                    function setButtonLoading(isLoading) {
+                        if (isLoading) {
+                            submitButton.disabled = true;
+                            submitButton.innerHTML = 'Sending... <span class="spinner"></span>';
+                        } else {
+                            submitButton.disabled = false;
+                            submitButton.textContent = "Send Message";
+                        }
+                    }
+
+                    // -----------------------------
+                    // Display remaining emails counter
+                    // -----------------------------
+                    function updateRemainingCounter() {
+                        const data = getSubmissionData();
+                        const now = Date.now();
+
+                        // Clean old timestamps
+                        data.timestamps = data.timestamps.filter(t => now - t < RATE_LIMIT.timeWindow);
+                        const remaining = RATE_LIMIT.maxEmails - data.timestamps.length;
+
+                        // You can display this in your UI if you want
+                        console.log(`Emails remaining: ${remaining}/${RATE_LIMIT.maxEmails}`);
+                    }
+
+                    // -----------------------------
+                    // Form submission
+                    // -----------------------------
+                    form.addEventListener("submit", async (e) => {
+                        e.preventDefault();
+
+                        // Check rate limit first
+                        const rateLimitCheck = checkRateLimit();
+                        if (!rateLimitCheck.allowed) {
+                            showNotification(rateLimitCheck.message, "error");
+                            return;
+                        }
+
+                        // Get and sanitize inputs
+                        let email = document.getElementById("email").value.trim();
+                        let subject = sanitizeInput(document.getElementById("subject").value);
+                        let message = sanitizeInput(document.getElementById("message").value);
+
+                        // Validate email
+                        if (!validateEmail(email)) {
+                            showNotification("Invalid email address.", "error");
+                            return;
+                        }
+
+                        // Validate subject
+                        const subjectValidation = validateSubject(subject);
+                        if (!subjectValidation.valid) {
+                            showNotification(subjectValidation.message, "error");
+                            return;
+                        }
+
+                        // Validate message
+                        const messageValidation = validateMessage(message);
+                        if (!messageValidation.valid) {
+                            showNotification(messageValidation.message, "error");
+                            return;
+                        }
+
+                        try {
+                            setButtonLoading(true);
+
+                            const response = await fetch(BACKEND_URL, {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                    "X-Requested-With": "XMLHttpRequest" // CSRF protection header
+                                },
+                                body: JSON.stringify({ email, subject, message }),
+                            });
+
+                            let result;
+                            try {
+                                result = await response.json();
+                            } catch {
+                                throw new Error("Backend did not return valid JSON");
+                            }
+
+                            if (result.success) {
+                                // Record successful submission
+                                recordSubmission();
+
+                                showNotification("Message sent successfully!", "success");
+                                form.reset();
+                                updateRemainingCounter();
+                            } else {
+                                showNotification("Failed to send message: " + (result.error || "Unknown error"), "error");
+                                console.error("Backend error:", result.error);
+                            }
+
+                        } catch (err) {
+                            console.error("Fetch error:", err);
+                            showNotification("Error sending message. Check console for details.", "error");
+                        } finally {
+                            setButtonLoading(false);
+                        }
+                    });
+
+                    // Initialize counter on page load
+                    updateRemainingCounter();
+                </script>
+
+
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Younus Mashoor</p>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#certifications">Certifications</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="projectModal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" aria-label="Close modal">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h2 id="modalTitle">Project Title</h2>
+            </div>
+            <div class="modal-body">
+                <p id="modalDescription">Project description will go here...</p>
+                <div class="modal-tech" id="modalTech">
+                    <!-- Tech tags -->
+                </div>
+                <div class="modal-features" id="modalFeatures">
+                    <!-- Features -->
+                </div>
+                <div class="modal-skills" id="modalSkills">
+                    <h4>Skills Demonstrated:</h4>
+                    <p>Skills will be populated here...</p>
+                </div>
+                <div class="modal-links" id="modalLinks">
+                    <!-- Links -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="certModal" class="modal" role="dialog" aria-labelledby="certModalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" aria-label="Close modal">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h2 id="certModalTitle">Certification Title</h2>
+            </div>
+            <div class="modal-body">
+
+                <div class="cert-image-container" id="certImageContainer">
+                    <img id="certImage" src="/placeholder.svg" alt="Certificate" class="cert-modal-image"
+                        style="display: none;" loading="lazy">
+                </div>
+                <p id="certModalDescription">Certification description here...</p>
+                <div class="modal-skills" id="certModalSkills">
+                    <h4>Skills Covered:</h4>
+                    <p>Skills here...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
