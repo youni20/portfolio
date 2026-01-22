@@ -355,7 +355,7 @@ revealElements.forEach((el) => {
 // Certification data for modals
 const certData = {
   "cs50-ai": {
-    title: "CS50's Artificial Intelligence with Python (Professional)",
+    title: "CS50's Artificial Intelligence with Python",
     description:
       "Harvard University's introduction to the concepts and algorithms at the foundation of modern artificial intelligence. Completed a comprehensive curriculum covering search algorithms, knowledge representation, uncertainty, optimization, learning, neural networks, and language processing.",
     skills:
@@ -371,7 +371,7 @@ const certData = {
     image: "certs/aws-ccp.jpg",
   },
   "ibm-rag": {
-    title: "IBM RAG & Agentic AI (Professional)",
+    title: "IBM RAG & Agentic AI",
     description:
       "Specialized certification in Retrieval-Augmented Generation (RAG) and Agentic AI. Covers building autonomous AI agents, intelligent information retrieval, and advanced natural language understanding systems.",
     skills:
