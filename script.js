@@ -355,7 +355,7 @@ revealElements.forEach((el) => {
 // Certification data for modals
 const certData = {
   "cs50-ai": {
-    title: "CS50's Artificial Intelligence with Python",
+    title: "CS50's Artificial Intelligence with Python (Professional)",
     description:
       "Harvard University's introduction to the concepts and algorithms at the foundation of modern artificial intelligence. Completed a comprehensive curriculum covering search algorithms, knowledge representation, uncertainty, optimization, learning, neural networks, and language processing.",
     skills:
@@ -371,7 +371,7 @@ const certData = {
     image: "certs/aws-ccp.jpg",
   },
   "ibm-rag": {
-    title: "IBM RAG & Agentic AI Professional Certificate",
+    title: "IBM RAG & Agentic AI (Professional)",
     description:
       "Specialized certification in Retrieval-Augmented Generation (RAG) and Agentic AI. Covers building autonomous AI agents, intelligent information retrieval, and advanced natural language understanding systems.",
     skills:
@@ -436,6 +436,7 @@ const projectData = {
     ],
     skills:
       "Machine Learning, Data Engineering, Time Series Analysis, Anomaly Detection, Dashboarding",
+    github: "https://github.com/youni20/ecoscale",
   },
   "iot-platform": {
     title: "Cloud-Native IoT Telemetry Platform",
@@ -451,6 +452,7 @@ const projectData = {
     ],
     skills:
       "Cloud Native Architecture, Kubernetes, GitOps, IoT, Observability, Infrastructure as Code",
+    github: "https://github.com/youni20/iot-platform",
   },
   "football-vision": {
     title: "Football Vision AI: Sports Analytics System",
@@ -466,6 +468,7 @@ const projectData = {
     ],
     skills:
       "Computer Vision, Deep Learning, Object Tracking, Sports Analytics, Unsupervised Learning",
+    github: "https://github.com/youni20/football-vision",
   },
   "symphony-marine": {
     title: "Symphony Marine Analytics Platform",
@@ -481,6 +484,7 @@ const projectData = {
     ],
     skills:
       "Geospatial Data Science, Machine Learning, Web Development, Environmental Analytics",
+    github: "https://github.com/youni20/symphony-marine",
   },
   "fitnest": {
     title: "FitNest - AI Powered Fitness App",
@@ -496,6 +500,7 @@ const projectData = {
     ],
     skills:
       "Full-Stack Development, AI Integration, Database Design, Containerization, API Development",
+    github: "https://github.com/youni20/fitnest",
   },
   "deepfake-detection": {
     title: "DeepFake Detection System",
@@ -511,6 +516,7 @@ const projectData = {
     ],
     skills:
       "Computer Vision, Deep Learning, MLOps, Model Deployment, API Engineering",
+    github: "https://github.com/youni20/deepfake-detection",
   },
   "ibm-capstone": {
     title: "IBM Data Science Capstone",
@@ -526,6 +532,7 @@ const projectData = {
     ],
     skills:
       "Data Science Lifecycle, Statistical Analysis, Predictive Modeling, Data Visualization",
+    github: "https://github.com/youni20/ibm-capstone",
   },
   "swedish-climate": {
     title: "Swedish Environmental Analytics Platform",
@@ -541,6 +548,7 @@ const projectData = {
     ],
     skills:
       "Full-Stack ML, Time Series Forecasting, System Architecture, Frontend Development, CI/CD",
+    github: "https://github.com/youni20/swedish-climate",
   },
 };
 
@@ -749,8 +757,9 @@ projectCards.forEach((card) => {
 
       // Populate links
       if (modalLinks) {
+        const githubUrl = project.github || "#";
         modalLinks.innerHTML = `
-          <a href="#" class="project-link github-link" target="_blank" rel="noopener noreferrer">
+          <a href="${githubUrl}" class="project-link github-link" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-github"></i>
             <span>View on GitHub</span>
           </a>
