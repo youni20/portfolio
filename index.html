@@ -654,7 +654,7 @@
                 <div class="contact-form-section">
                     <div class="contact-form">
                         <h3>Send me a message</h3>
-                        <form id="contactForm">
+                        <form id="contactForm" action="https://formspree.io/f/xqepzjwy" method="POST">
                             <div class="form-group">
                                 <input type="email" id="email" name="email" placeholder="Your Email" required>
                             </div>
@@ -697,83 +697,6 @@
                     const notification = document.getElementById("contactNotification");
                     const submitButton = form.querySelector("button[type='submit']");
 
-                    // -----------------------------
-                    // CONFIGURATION / BACKEND URL
-                    // -----------------------------
-                    const BACKEND_URL = "/api/contact";
-                    // const BACKEND_URL = "http://localhost:3000/api/contact"; // Use this if frontend and backend are on different ports/servers
-
-
-                    // -----------------------------
-                    // SECURITY CONFIGURATION
-                    // -----------------------------
-                    const RATE_LIMIT = {
-                        maxEmails: 3,
-                        timeWindow: 60 * 60 * 1000, // 1 hour in milliseconds
-                        cooldownPeriod: 5 * 60 * 1000 // 15 minutes between submissions
-                    };
-
-                    const VALIDATION = {
-                        maxSubjectLength: 200,
-                        maxMessageLength: 5000,
-                        minMessageLength: 10,
-                        maxEmailLength: 254
-                    };
-
-                    // -----------------------------
-                    // Rate limiting storage
-                    // -----------------------------
-                    function getSubmissionData() {
-                        const data = localStorage.getItem('contactFormSubmissions');
-                        return data ? JSON.parse(data) : { count: 0, timestamps: [], lastSubmission: null };
-                    }
-
-                    function saveSubmissionData(data) {
-                        localStorage.setItem('contactFormSubmissions', JSON.stringify(data));
-                    }
-
-                    function checkRateLimit() {
-                        const now = Date.now();
-                        const data = getSubmissionData();
-
-                        // Remove timestamps older than the time window
-                        data.timestamps = data.timestamps.filter(t => now - t < RATE_LIMIT.timeWindow);
-                        data.count = data.timestamps.length;
-
-                        // Check if max emails reached
-                        if (data.count >= RATE_LIMIT.maxEmails) {
-                            const oldestTimestamp = Math.min(...data.timestamps);
-                            const timeRemaining = Math.ceil((RATE_LIMIT.timeWindow - (now - oldestTimestamp)) / 60000);
-                            return {
-                                allowed: false,
-                                message: `You've reached the maximum of ${RATE_LIMIT.maxEmails} emails per hour. Please try again in ${timeRemaining} minutes.`
-                            };
-                        }
-
-                        // Check cooldown between submissions
-                        if (data.lastSubmission && (now - data.lastSubmission) < RATE_LIMIT.cooldownPeriod) {
-                            const timeRemaining = Math.ceil((RATE_LIMIT.cooldownPeriod - (now - data.lastSubmission)) / 60000);
-                            return {
-                                allowed: false,
-                                message: `Please wait ${timeRemaining} minutes before sending another message.`
-                            };
-                        }
-
-                        return { allowed: true };
-                    }
-
-                    function recordSubmission() {
-                        const now = Date.now();
-                        const data = getSubmissionData();
-                        data.timestamps.push(now);
-                        data.lastSubmission = now;
-                        data.count = data.timestamps.length;
-                        saveSubmissionData(data);
-                    }
-
-                    // -----------------------------
-                    // Notification helper
-                    // -----------------------------
                     function showNotification(message, type = "success") {
                         notification.textContent = message;
                         notification.className = `contact-notification ${type}`;
@@ -785,176 +708,57 @@
                             setTimeout(() => {
                                 notification.style.display = "none";
                             }, 500);
-                        }, 3000);
+                        }, 5000);
                     }
 
-                    // -----------------------------
-                    // Enhanced validation
-                    // -----------------------------
-                    function validateEmail(email) {
-                        // Basic format check
-                        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                            return false;
+                    async function handleSubmit(event) {
+                        event.preventDefault();
+                        const data = new FormData(event.target);
+
+                        // Basic validation
+                        const email = data.get('email');
+                        const subject = data.get('subject');
+                        const message = data.get('message');
+
+                        if (!email || !subject || !message) {
+                            showNotification("Please fill in all fields.", "error");
+                            return;
                         }
 
-                        // Length check
-                        if (email.length > VALIDATION.maxEmailLength) {
-                            return false;
-                        }
+                        // Disable button and show loading state
+                        submitButton.disabled = true;
+                        submitButton.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
 
-                        // Check for suspicious patterns
-                        const suspiciousPatterns = [
-                            /script/i,
-                            /<[^>]*>/,
-                            /javascript:/i,
-                            /on\w+=/i
-                        ];
+                        try {
+                            const response = await fetch(event.target.action, {
+                                method: form.method,
+                                body: data,
+                                headers: {
+                                    'Accept': 'application/json'
+                                }
+                            });
 
-                        return !suspiciousPatterns.some(pattern => pattern.test(email));
-                    }
-
-                    function sanitizeInput(input) {
-                        // Remove any HTML tags and trim
-                        return input.replace(/<[^>]*>/g, '').trim();
-                    }
-
-                    function validateSubject(subject) {
-                        if (!subject || subject.length === 0) {
-                            return { valid: false, message: "Subject cannot be empty." };
-                        }
-
-                        if (subject.length > VALIDATION.maxSubjectLength) {
-                            return { valid: false, message: `Subject must be less than ${VALIDATION.maxSubjectLength} characters.` };
-                        }
-
-                        return { valid: true };
-                    }
-
-                    function validateMessage(message) {
-                        if (!message || message.length < VALIDATION.minMessageLength) {
-                            return { valid: false, message: `Message must be at least ${VALIDATION.minMessageLength} characters.` };
-                        }
-
-                        if (message.length > VALIDATION.maxMessageLength) {
-                            return { valid: false, message: `Message must be less than ${VALIDATION.maxMessageLength} characters.` };
-                        }
-
-                        // Check for spam-like patterns
-                        const urlCount = (message.match(/https?:\/\//g) || []).length;
-                        if (urlCount > 3) {
-                            return { valid: false, message: "Message contains too many URLs." };
-                        }
-
-                        return { valid: true };
-                    }
-
-                    // -----------------------------
-                    // Button loading state
-                    // -----------------------------
-                    function setButtonLoading(isLoading) {
-                        if (isLoading) {
-                            submitButton.disabled = true;
-                            submitButton.innerHTML = 'Sending... <span class="spinner"></span>';
-                        } else {
+                            if (response.ok) {
+                                showNotification("Thanks for your message! I'll be in touch soon.", "success");
+                                form.reset();
+                            } else {
+                                const result = await response.json();
+                                if (Object.hasOwn(result, 'errors')) {
+                                    const errorMessages = result.errors.map(error => error.message).join(", ");
+                                    showNotification(errorMessages, "error");
+                                } else {
+                                    showNotification("Oops! There was a problem submitting your form", "error");
+                                }
+                            }
+                        } catch (error) {
+                            showNotification("Oops! There was a problem submitting your form", "error");
+                        } finally {
                             submitButton.disabled = false;
                             submitButton.textContent = "Send Message";
                         }
                     }
 
-                    // -----------------------------
-                    // Display remaining emails counter
-                    // -----------------------------
-                    function updateRemainingCounter() {
-                        const data = getSubmissionData();
-                        const now = Date.now();
-
-                        // Clean old timestamps
-                        data.timestamps = data.timestamps.filter(t => now - t < RATE_LIMIT.timeWindow);
-                        const remaining = RATE_LIMIT.maxEmails - data.timestamps.length;
-
-                        // You can display this in your UI if you want
-                        console.log(`Emails remaining: ${remaining}/${RATE_LIMIT.maxEmails}`);
-                    }
-
-                    // -----------------------------
-                    // Form submission
-                    // -----------------------------
-                    form.addEventListener("submit", async (e) => {
-                        e.preventDefault();
-
-                        // Check rate limit first
-                        const rateLimitCheck = checkRateLimit();
-                        if (!rateLimitCheck.allowed) {
-                            showNotification(rateLimitCheck.message, "error");
-                            return;
-                        }
-
-                        // Get and sanitize inputs
-                        let email = document.getElementById("email").value.trim();
-                        let subject = sanitizeInput(document.getElementById("subject").value);
-                        let message = sanitizeInput(document.getElementById("message").value);
-
-                        // Validate email
-                        if (!validateEmail(email)) {
-                            showNotification("Invalid email address.", "error");
-                            return;
-                        }
-
-                        // Validate subject
-                        const subjectValidation = validateSubject(subject);
-                        if (!subjectValidation.valid) {
-                            showNotification(subjectValidation.message, "error");
-                            return;
-                        }
-
-                        // Validate message
-                        const messageValidation = validateMessage(message);
-                        if (!messageValidation.valid) {
-                            showNotification(messageValidation.message, "error");
-                            return;
-                        }
-
-                        try {
-                            setButtonLoading(true);
-
-                            const response = await fetch(BACKEND_URL, {
-                                method: "POST",
-                                headers: {
-                                    "Content-Type": "application/json",
-                                    "X-Requested-With": "XMLHttpRequest" // CSRF protection header
-                                },
-                                body: JSON.stringify({ email, subject, message }),
-                            });
-
-                            let result;
-                            try {
-                                result = await response.json();
-                            } catch {
-                                throw new Error("Backend did not return valid JSON");
-                            }
-
-                            if (result.success) {
-                                // Record successful submission
-                                recordSubmission();
-
-                                showNotification("Message sent successfully!", "success");
-                                form.reset();
-                                updateRemainingCounter();
-                            } else {
-                                showNotification("Failed to send message: " + (result.error || "Unknown error"), "error");
-                                console.error("Backend error:", result.error);
-                            }
-
-                        } catch (err) {
-                            console.error("Fetch error:", err);
-                            showNotification("Error sending message. Check console for details.", "error");
-                        } finally {
-                            setButtonLoading(false);
-                        }
-                    });
-
-                    // Initialize counter on page load
-                    updateRemainingCounter();
+                    form.addEventListener("submit", handleSubmit);
                 </script>
 
 
