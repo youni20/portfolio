@@ -370,7 +370,7 @@ body {
 
 .hero-image {
   position: relative;
-  height: 400px;
+  height: 450px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -379,12 +379,13 @@ body {
 .floating-card {
   position: absolute;
   background: var(--card-bg);
-  padding: 20px;
+  padding: 16px 22px;
   border-radius: 12px;
   border: 1px solid var(--border-color);
   animation: float 6s ease-in-out infinite;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  white-space: nowrap;
 }
 
 .floating-card:hover {
@@ -393,31 +394,41 @@ body {
   cursor: pointer;
 }
 
-.floating-card:nth-child(1) {
-  top: 5%;
-  left: -2%;
-}
-
-.floating-card:nth-child(2) {
-  top: 35%;
-  right: 25%;
-}
-
-.floating-card:nth-child(3) {
-  bottom: 25%;
-  left: 5%;
-}
-
-.floating-card:nth-child(4) {
-  bottom: 5%;
-  right: 10%;
-}
-
+/* Top-center — Architecture */
 .floating-card:nth-child(5) {
-  top: 5px;
-  left: 45%;
+  top: 0;
+  left: 50%;
   transform: translateX(-50%);
-  min-width: 150px;
+  animation: floatCenter 6s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+/* Upper-left — Machine Learning */
+.floating-card:nth-child(1) {
+  top: 18%;
+  left: 0;
+  animation-delay: -1.5s;
+}
+
+/* Upper-right — Cloud Engineering */
+.floating-card:nth-child(2) {
+  top: 25%;
+  right: -5%;
+  animation-delay: -3s;
+}
+
+/* Lower-left — DevOps */
+.floating-card:nth-child(3) {
+  bottom: 18%;
+  left: 8%;
+  animation-delay: -4s;
+}
+
+/* Lower-right — Security */
+.floating-card:nth-child(4) {
+  bottom: 8%;
+  right: 2%;
+  animation-delay: -2s;
 }
 
 .card-content {
@@ -444,7 +455,19 @@ body {
   }
 
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes floatCenter {
+
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-15px);
   }
 }
 
@@ -1296,7 +1319,23 @@ section {
 /* Responsive Design */
 @media (max-width: 1024px) {
   .hero-content {
-    gap: 40px;
+    gap: 30px;
+  }
+
+  .hero-image {
+    height: 380px;
+  }
+
+  .floating-card {
+    padding: 12px 16px;
+  }
+
+  .card-content i {
+    font-size: 20px;
+  }
+
+  .card-content span {
+    font-size: 0.9rem;
   }
 }
 
@@ -1385,15 +1424,42 @@ section {
   }
 
   .hero-image {
-    height: 300px;
+    height: auto;
+    min-height: auto;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px;
+    overflow: hidden;
   }
 
-  .floating-card {
-    padding: 15px;
+  .floating-card,
+  .floating-card:nth-child(1),
+  .floating-card:nth-child(2),
+  .floating-card:nth-child(3),
+  .floating-card:nth-child(4),
+  .floating-card:nth-child(5) {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    padding: 10px 16px;
+    animation: none !important;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .floating-card span {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+  }
+
+  .card-content i {
+    font-size: 20px;
   }
 
   .about-content {
@@ -1680,12 +1746,17 @@ section {
     font-size: 0.9rem;
   }
 
-  .floating-card {
-    padding: 12px;
+  .floating-card,
+  .floating-card:nth-child(1),
+  .floating-card:nth-child(2),
+  .floating-card:nth-child(3),
+  .floating-card:nth-child(4),
+  .floating-card:nth-child(5) {
+    padding: 10px 14px;
   }
 
   .card-content i {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .card-content span {
@@ -1766,8 +1837,13 @@ section {
     font-size: 1.8rem;
   }
 
-  .floating-card {
-    padding: 10px;
+  .floating-card,
+  .floating-card:nth-child(1),
+  .floating-card:nth-child(2),
+  .floating-card:nth-child(3),
+  .floating-card:nth-child(4),
+  .floating-card:nth-child(5) {
+    padding: 8px 12px;
   }
 
   .card-content span {

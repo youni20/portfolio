@@ -221,39 +221,6 @@ window.addEventListener("load", () => {
   document.body.classList.add("loaded");
 });
 
-// Skills animation on scroll
-const skillsSection = document.getElementById("skills");
-let skillsAnimated = false;
-
-const skillsObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting && !skillsAnimated) {
-      animateSkills();
-      skillsAnimated = true;
-      skillsObserver.unobserve(entry.target);
-    }
-  });
-});
-
-if (skillsSection) {
-  skillsObserver.observe(skillsSection);
-}
-
-function animateSkills() {
-  const skillTags = document.querySelectorAll(".skill-tag");
-  skillTags.forEach((tag, index) => {
-    setTimeout(() => {
-      tag.style.opacity = "0";
-      tag.style.transform = "scale(0.8)";
-      tag.style.transition = "all 0.3s ease";
-      setTimeout(() => {
-        tag.style.opacity = "1";
-        tag.style.transform = "scale(1)";
-      }, 50);
-    }, index * 100);
-  });
-}
-
 // Interactive effects
 document.addEventListener("DOMContentLoaded", () => {
   // Hover effects for project cards
