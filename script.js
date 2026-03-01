@@ -389,6 +389,22 @@ const certData = {
 
 // Project data for modals
 const projectData = {
+  "aura-vbs": {
+    title: "Aura-VBS: High-Performance Vector Search Engine",
+    description:
+      "A high-performance, low-latency vector search engine developed in C++20, designed to provide 'Spotify-scale' retrieval capabilities for massive audio datasets. Implements the HNSW algorithm from scratch for approximate nearest neighbor search across millions of 128-dimensional AudioSet embeddings in sub-millisecond time.",
+    tech: ["C++20", "HNSW", "AVX2 SIMD", "mmap", "Multithreading", "CMake", "Google Benchmark"],
+    features: [
+      "Implemented Hierarchical Navigable Small World (HNSW) algorithm from scratch for ANN search",
+      "Leveraged AVX2 SIMD intrinsics for hardware-accelerated distance calculations",
+      "Used memory-mapping (mmap) for zero-copy data access exceeding physical RAM limits",
+      "Built a custom multithreaded query engine to maximize CPU throughput",
+      "Achieved sub-millisecond search latency across millions of 128-dimensional embeddings",
+    ],
+    skills:
+      "Systems Programming, Algorithm Design, SIMD Optimization, Memory-Mapped I/O, Multithreading, High-Performance Computing",
+    github: "https://github.com/youni20/Aura-VBS",
+  },
   "ecoscale": {
     title: "EcoScale: Commercial Energy Anomaly Detection",
     description:
