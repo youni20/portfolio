@@ -1121,7 +1121,7 @@ button {
     top: 12px;
     bottom: 12px;
     width: 2px;
-    background: linear-gradient(180deg, var(--accent), var(--border) 20%, var(--border) 80%, transparent);
+    background: linear-gradient(180deg, var(--accent), var(--border-strong) 20%, var(--border-strong) 80%, transparent);
 }
 
 .timeline-entry {
@@ -1151,7 +1151,7 @@ button {
     height: 14px;
     border-radius: 50%;
     background: var(--accent);
-    border: 3px solid var(--bg);
+    border: 3px solid var(--bg-alt);
     box-shadow: 0 0 0 2px var(--accent), 0 0 20px rgba(var(--accent-rgb), 0.4);
 }
 
