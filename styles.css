@@ -234,8 +234,23 @@ button {
     right: 0;
     z-index: 100;
     padding: 16px 0;
-    pointer-events: none;
     transition: background 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease;
+}
+
+/* Allow click-through to hero parallax only on hover-capable (desktop) devices.
+   On touch devices the nav must always capture events. */
+@media (hover: hover) {
+    .nav {
+        pointer-events: none;
+    }
+
+    .nav.scrolled {
+        pointer-events: auto;
+    }
+
+    .nav-inner {
+        pointer-events: auto;
+    }
 }
 
 .nav.scrolled {
@@ -244,7 +259,6 @@ button {
     -webkit-backdrop-filter: blur(12px);
     padding: 12px 0;
     border-bottom: 1px solid var(--border);
-    pointer-events: auto;
 }
 
 .nav-inner {
@@ -254,7 +268,6 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    pointer-events: auto;
 }
 
 .nav-logo {
@@ -388,7 +401,8 @@ button {
     transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Mobile menu */
+/* Mobile menu — .nav-links is moved to <body> when open so it
+   escapes the nav stacking-context and backdrop-filter containment */
 .nav-links.open {
     display: flex;
     flex-direction: column;
@@ -396,21 +410,49 @@ button {
     top: 0;
     right: 0;
     bottom: 0;
-    width: 280px;
+    width: min(280px, 80vw);
     background: var(--bg-alt);
-    padding: 88px 32px 32px;
-    gap: 24px;
+    padding: 88px 24px 32px;
+    gap: 0;
     border-left: 1px solid var(--border);
-    z-index: 105;
+    z-index: 1001;
     animation: slideIn 0.3s ease forwards;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+}
+
+.nav-links.open .nav-link {
+    font-size: var(--fs-h3);
+    display: block;
+    padding: 14px 8px;
+    border-radius: var(--radius-sm);
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+.nav-links.open .nav-link:active {
+    background: var(--chip-bg);
+}
+
+.nav-links.open .nav-link.active {
+    color: var(--accent);
+}
+
+.nav-links.open .nav-link.active::after {
+    display: none;
+}
+
+.nav.menu-open {
+    z-index: 1002;
+    pointer-events: auto;
 }
 
 .nav-overlay {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 99;
+    z-index: 1000;
     animation: fadeIn 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
 }
 
 @keyframes slideIn {
@@ -433,18 +475,65 @@ button {
     }
 }
 
+.nav-links.closing {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(280px, 80vw);
+    background: var(--bg-alt);
+    padding: 88px 24px 32px;
+    gap: 0;
+    border-left: 1px solid var(--border);
+    z-index: 1001;
+    animation: slideOut 0.3s ease forwards;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+}
+
+.nav-overlay.closing {
+    animation: fadeOut 0.3s ease forwards;
+    pointer-events: none;
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
 /* --- Hero -------------------------------------------------- */
 .hero {
     min-height: 100vh;
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     position: relative;
-    padding: 120px 0 80px;
+    padding: 120px 0 32px;
     overflow: hidden;
     perspective: 1200px;
+}
+
+.hero::before {
+    content: '';
+    margin-bottom: auto;
 }
 
 .hero-bg {
@@ -707,13 +796,11 @@ button {
 }
 
 .scroll-hint {
-    position: absolute;
-    bottom: 32px;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-top: auto;
     color: var(--text-muted);
     font-size: 11px;
     letter-spacing: 0.2em;
+
     text-transform: uppercase;
     display: flex;
     flex-direction: column;

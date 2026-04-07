@@ -71,28 +71,57 @@ window.addEventListener('scroll', () => {
 });
 
 // Mobile menu
+// navLinks is moved to <body> when the menu opens so it escapes the
+// nav's stacking-context and backdrop-filter containing block.
+const navActions = document.querySelector('.nav-actions');
+
 function openMenu() {
+    navLinks.classList.remove('closing');
     navLinks.classList.add('open');
     navToggle.classList.add('active');
     navToggle.setAttribute('aria-expanded', 'true');
+    nav.classList.add('menu-open');
     document.body.classList.add('no-scroll');
 
-    overlay = document.createElement('div');
-    overlay.className = 'nav-overlay';
-    overlay.addEventListener('click', closeMenu);
-    document.body.appendChild(overlay);
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'nav-overlay';
+        overlay.addEventListener('click', closeMenu);
+        document.body.appendChild(overlay);
+    }
+    overlay.classList.remove('closing');
+
+    if (navLinks.parentNode !== document.body) {
+        document.body.appendChild(navLinks);
+    }
 }
 
 function closeMenu() {
+    if (!navLinks.classList.contains('open')) return;
+
     navLinks.classList.remove('open');
+    navLinks.classList.add('closing');
     navToggle.classList.remove('active');
     navToggle.setAttribute('aria-expanded', 'false');
+    nav.classList.remove('menu-open');
     document.body.classList.remove('no-scroll');
-
-    if (overlay && overlay.parentNode) {
-        overlay.parentNode.removeChild(overlay);
-        overlay = null;
+    
+    if (overlay) {
+        overlay.classList.add('closing');
     }
+
+    setTimeout(() => {
+        if (!navLinks.classList.contains('open')) {
+            navLinks.classList.remove('closing');
+            if (navActions.parentNode && navLinks.parentNode !== navActions.parentNode) {
+                navActions.parentNode.insertBefore(navLinks, navActions);
+            }
+            if (overlay && overlay.parentNode) {
+                overlay.parentNode.removeChild(overlay);
+                overlay = null;
+            }
+        }
+    }, 300);
 }
 
 navToggle.addEventListener('click', () => {
