@@ -4,816 +4,739 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Younus Mashoor – Portfolio</title>
-    <meta name="description" content="Portfolio of Younus Mashoor - Cloud, Data & Machine Learning Engineer.">
+    <title>Younus Mashoor — ML, Data &amp; Cloud Engineer</title>
+    <meta name="description"
+        content="Younus Mashoor — ML, Data & Cloud Engineer building production-grade AI systems, data pipelines, and cloud-native infrastructure.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        document.documentElement.classList.add('js');
+        (function () {
+            var stored = localStorage.getItem('theme');
+            var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+            if (stored === 'light' || (!stored && prefersLight)) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
 </head>
 
 <body>
-    <div id="loadingIndicator" class="loading-indicator">
-        <div class="loading-spinner"></div>
-    </div>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-text">Younus Mashoor</span>
-                <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
-                    <i class="fas fa-moon"></i>
+    <!-- SVG Icon Sprites -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+        <symbol id="icon-github" viewBox="0 0 24 24">
+            <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+        </symbol>
+        <symbol id="icon-linkedin" viewBox="0 0 24 24">
+            <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+        </symbol>
+        <symbol id="icon-email" viewBox="0 0 24 24" fill="none">
+            <path
+                d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+                stroke="currentColor" stroke-width="1.5" fill="none" />
+        </symbol>
+        <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none">
+            <path d="M7 17L17 7M17 7H7M17 7v10" stroke="currentColor" stroke-width="2" />
+        </symbol>
+        <symbol id="icon-chevron" viewBox="0 0 24 24" fill="none">
+            <path d="M19 9l-7 7-7-7" stroke="currentColor" stroke-width="2" />
+        </symbol>
+        <symbol id="icon-sun" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </symbol>
+        <symbol id="icon-moon" viewBox="0 0 24 24" fill="none">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+        </symbol>
+    </svg>
+
+    <header>
+        <nav class="nav" id="nav">
+            <div class="nav-inner">
+                <a href="#home" class="nav-logo" aria-label="Home">
+                    <span class="logo-bracket">&lt;</span>YM<span class="logo-bracket">/&gt;</span>
+                </a>
+                <ul class="nav-links" id="navLinks" role="menubar">
+                    <li role="none"><a href="#home" class="nav-link active" role="menuitem">Home</a></li>
+                    <li role="none"><a href="#about" class="nav-link" role="menuitem">About</a></li>
+                    <li role="none"><a href="#experience" class="nav-link" role="menuitem">Experience</a></li>
+                    <li role="none"><a href="#projects" class="nav-link" role="menuitem">Projects</a></li>
+                    <li role="none"><a href="#contact" class="nav-link" role="menuitem">Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme" type="button">
+                        <svg class="theme-icon theme-icon-sun" width="18" height="18" aria-hidden="true">
+                            <use href="#icon-sun" />
+                        </svg>
+                        <svg class="theme-icon theme-icon-moon" width="18" height="18" aria-hidden="true">
+                            <use href="#icon-moon" />
+                        </svg>
+                    </button>
+                    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section id="home" class="hero" data-parallax>
+            <div class="hero-bg" aria-hidden="true">
+                <div class="grid-bg"></div>
+                <div class="blob blob-1"></div>
+                <div class="blob blob-2"></div>
+                <div class="hero-cursor-glow" id="cursorGlow"></div>
+            </div>
+            <div class="container hero-content" id="heroContent">
+                <p class="hero-greeting" data-tilt="10">Hi there, I'm</p>
+                <h1 class="hero-name" data-tilt="20">
+                    <span class="hero-name-first">Younus</span>
+                    <span class="hero-name-last">Mashoor</span>
+                </h1>
+                <p class="hero-title" data-tilt="15">ML, Data &amp; Cloud Engineer</p>
+                <p class="hero-tagline" data-tilt="12">
+                    <span id="typedText"></span><span class="caret" aria-hidden="true">|</span>
+                </p>
+                <div class="hero-ctas" data-tilt="8">
+                    <a href="#projects" class="btn btn-primary">
+                        <span>View Projects</span>
+                        <svg width="16" height="16">
+                            <use href="#icon-arrow" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="hero-socials" data-tilt="5" aria-label="Social links">
+                    <a href="https://github.com/youni20" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <svg width="20" height="20" fill="currentColor">
+                            <use href="#icon-github" />
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/younus-mashoor-6a48aa360" target="_blank"
+                        rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg width="20" height="20" fill="currentColor">
+                            <use href="#icon-linkedin" />
+                        </svg>
+                    </a>
+                    <a href="mailto:younusmashoor@gmail.com" aria-label="Email">
+                        <svg width="20" height="20" stroke="currentColor" fill="none">
+                            <use href="#icon-email" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="scroll-hint" aria-hidden="true">
+                <span>Scroll</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="about-grid fade-in">
+                    <div class="about-text">
+                        <div class="section-head">
+                            <span class="section-num">00</span>
+                            <h2 class="section-title-big">About</h2>
+                        </div>
+                        <p>Software Technology student at Linnaeus University with hands-on experience across six
+                            internships spanning ML, data engineering, cloud, and backend systems. I specialise in
+                            building production-grade machine learning models, scalable data pipelines, and
+                            cloud-native infrastructure. Driven by complex problems at the intersection of data,
+                            algorithms, and systems.</p>
+                    </div>
+                    <div class="about-photo">
+                        <div class="photo-frame">
+                            <img src="pfp.jpg" alt="Younus Mashoor" width="280" height="280" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                <div class="focus-areas stagger">
+                    <div class="focus-card">
+                        <i class="fas fa-brain focus-icon" aria-hidden="true"></i>
+                        <span>Machine Learning</span>
+                    </div>
+                    <div class="focus-card">
+                        <i class="fas fa-database focus-icon" aria-hidden="true"></i>
+                        <span>Data Engineering</span>
+                    </div>
+                    <div class="focus-card">
+                        <i class="fas fa-cloud focus-icon" aria-hidden="true"></i>
+                        <span>Cloud &amp; DevOps</span>
+                    </div>
+                    <div class="focus-card">
+                        <i class="fas fa-microchip focus-icon" aria-hidden="true"></i>
+                        <span>Systems Programming</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section id="stack" class="section section-alt">
+            <div class="container">
+                <div class="section-head fade-in">
+                    <span class="section-num">01</span>
+                    <h2 class="section-title-big">Tech Stack</h2>
+                </div>
+                <div class="tech-stack-grid stagger">
+                    <article class="tech-card">
+                        <div class="tech-card-head">
+                            <span class="tech-card-num">/ 01</span>
+                            <i class="fas fa-code tech-card-icon" aria-hidden="true"></i>
+                            <h3 class="tech-card-title">Languages</h3>
+                        </div>
+                        <div class="tech-chips">
+                            <span class="tech-chip"><i class="devicon-python-plain colored" aria-hidden="true"></i>Python</span>
+                            <span class="tech-chip"><i class="devicon-cplusplus-plain colored" aria-hidden="true"></i>C++</span>
+                            <span class="tech-chip"><i class="devicon-java-plain colored" aria-hidden="true"></i>Java</span>
+                            <span class="tech-chip"><i class="devicon-typescript-plain colored" aria-hidden="true"></i>TypeScript</span>
+                            <span class="tech-chip"><i class="devicon-postgresql-plain colored" aria-hidden="true"></i>SQL</span>
+                            <span class="tech-chip"><i class="devicon-bash-plain" aria-hidden="true"></i>Bash</span>
+                        </div>
+                    </article>
+
+                    <article class="tech-card">
+                        <div class="tech-card-head">
+                            <span class="tech-card-num">/ 02</span>
+                            <i class="fas fa-brain tech-card-icon" aria-hidden="true"></i>
+                            <h3 class="tech-card-title">AI &amp; ML Engineering</h3>
+                        </div>
+                        <div class="tech-chips">
+                            <span class="tech-chip"><i class="devicon-pytorch-original colored" aria-hidden="true"></i>PyTorch</span>
+                            <span class="tech-chip"><i class="devicon-tensorflow-original colored" aria-hidden="true"></i>TensorFlow</span>
+                            <span class="tech-chip"><span class="tech-chip-emoji" aria-hidden="true">&#x1F917;</span>Hugging Face</span>
+                            <span class="tech-chip"><span class="tech-chip-glyph" aria-hidden="true">&#x26D3;</span>LangChain</span>
+                            <span class="tech-chip"><i class="fas fa-cube tech-chip-fa" aria-hidden="true"></i>LlamaIndex</span>
+                            <span class="tech-chip"><i class="fas fa-circle-nodes tech-chip-fa" aria-hidden="true"></i>OpenAI&nbsp;API</span>
+                            <span class="tech-chip"><i class="devicon-scikitlearn-plain colored" aria-hidden="true"></i>Scikit-learn</span>
+                            <span class="tech-chip"><i class="devicon-opencv-plain colored" aria-hidden="true"></i>OpenCV</span>
+                        </div>
+                    </article>
+
+                    <article class="tech-card">
+                        <div class="tech-card-head">
+                            <span class="tech-card-num">/ 03</span>
+                            <i class="fas fa-database tech-card-icon" aria-hidden="true"></i>
+                            <h3 class="tech-card-title">Data Engineering</h3>
+                        </div>
+                        <div class="tech-chips">
+                            <span class="tech-chip"><i class="devicon-apacheairflow-plain colored" aria-hidden="true"></i>Airflow</span>
+                            <span class="tech-chip"><i class="devicon-apachespark-plain colored" aria-hidden="true"></i>Spark</span>
+                            <span class="tech-chip"><i class="devicon-apachekafka-original colored" aria-hidden="true"></i>Kafka</span>
+                            <span class="tech-chip"><i class="fas fa-stream tech-chip-fa" aria-hidden="true"></i>dbt</span>
+                            <span class="tech-chip"><i class="fas fa-snowflake tech-chip-fa" aria-hidden="true"></i>Snowflake</span>
+                            <span class="tech-chip"><i class="devicon-googlecloud-plain colored" aria-hidden="true"></i>BigQuery</span>
+                            <span class="tech-chip"><i class="devicon-postgresql-plain colored" aria-hidden="true"></i>PostgreSQL</span>
+                            <span class="tech-chip"><i class="fas fa-table tech-chip-fa" aria-hidden="true"></i>Pandas</span>
+                        </div>
+                    </article>
+
+                    <article class="tech-card">
+                        <div class="tech-card-head">
+                            <span class="tech-card-num">/ 04</span>
+                            <i class="fas fa-cloud tech-card-icon" aria-hidden="true"></i>
+                            <h3 class="tech-card-title">Cloud &amp; Infra</h3>
+                        </div>
+                        <div class="tech-chips">
+                            <span class="tech-chip"><i class="fab fa-aws tech-chip-fa" aria-hidden="true" style="color:#ff9900"></i>AWS</span>
+                            <span class="tech-chip"><i class="devicon-docker-plain colored" aria-hidden="true"></i>Docker</span>
+                            <span class="tech-chip"><i class="devicon-kubernetes-plain colored" aria-hidden="true"></i>Kubernetes</span>
+                            <span class="tech-chip"><i class="devicon-terraform-plain colored" aria-hidden="true"></i>Terraform</span>
+                            <span class="tech-chip"><i class="devicon-githubactions-plain colored" aria-hidden="true"></i>GH&nbsp;Actions</span>
+                            <span class="tech-chip"><i class="fas fa-chart-line tech-chip-fa" aria-hidden="true"></i>Grafana</span>
+                            <span class="tech-chip"><i class="devicon-azure-plain colored" aria-hidden="true"></i>Azure</span>
+                            <span class="tech-chip"><i class="devicon-googlecloud-plain colored" aria-hidden="true"></i>GCP</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section id="education" class="section">
+            <div class="container">
+                <div class="section-head fade-in">
+                    <span class="section-num">02</span>
+                    <h2 class="section-title-big">Education</h2>
+                </div>
+                <div class="edu-grid stagger">
+                    <article class="edu-card edu-current">
+                        <div class="edu-card-top">
+                            <span class="edu-status">Current</span>
+                            <time class="edu-card-date">2023 &mdash; 2026</time>
+                        </div>
+                        <h3 class="edu-card-degree">BSc Software Technology</h3>
+                        <p class="edu-card-school">Linnaeus University</p>
+                        <p class="edu-card-location">Växjö, Sweden</p>
+                    </article>
+                    <article class="edu-card">
+                        <div class="edu-card-top">
+                            <span class="edu-status edu-status-past">Completed</span>
+                            <time class="edu-card-date">2010 &mdash; 2022</time>
+                        </div>
+                        <h3 class="edu-card-degree">High School Diploma</h3>
+                        <p class="edu-card-school">Newton International Academy</p>
+                        <p class="edu-card-location">Doha, Qatar</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience" class="section section-alt">
+            <div class="container">
+                <div class="section-head fade-in">
+                    <span class="section-num">03</span>
+                    <h2 class="section-title-big">Experience</h2>
+                </div>
+                <div class="timeline">
+                    <article class="timeline-entry fade-in">
+                        <div class="tl-marker"></div>
+                        <div class="tl-content">
+                            <div class="tl-header">
+                                <div>
+                                    <h3 class="tl-company">Rankad.ai</h3>
+                                    <p class="tl-role">AI &amp; Backend Engineer Intern</p>
+                                </div>
+                                <time class="tl-date">Feb 2026 &ndash; Present</time>
+                            </div>
+                            <ul class="tl-bullets">
+                                <li>Building backend systems and AI infrastructure for an autonomous platform that helps businesses get recommended by AI services such as ChatGPT, Gemini, and Perplexity</li>
+                                <li>Engineering backend services and pipelines that power real-time brand visibility tracking, competitor analysis, and automated AI search optimisation across multiple LLMs</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="timeline-entry fade-in">
+                        <div class="tl-marker"></div>
+                        <div class="tl-content">
+                            <div class="tl-header">
+                                <div>
+                                    <h3 class="tl-company">LNU AI Society</h3>
+                                    <p class="tl-role">Founder &amp; Head of IT</p>
+                                </div>
+                                <time class="tl-date">Apr 2025 &ndash; Present</time>
+                            </div>
+                            <ul class="tl-bullets">
+                                <li>Co-founded a student-led AI society at Linnaeus University, leading both the Marketing and IT departments</li>
+                                <li>Designed, developed, and deployed the official website to support events, member engagement, and internal operations</li>
+                                <li>Established partnerships with AI companies, startups, and research organisations to host hackathons, workshops, and networking sessions</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="timeline-entry fade-in">
+                        <div class="tl-marker"></div>
+                        <div class="tl-content">
+                            <div class="tl-header">
+                                <div>
+                                    <h3 class="tl-company">Brinna AI</h3>
+                                    <p class="tl-role">AI/ML Research &amp; Engineering Intern</p>
+                                </div>
+                                <time class="tl-date">Nov 2025 &ndash; Feb 2026</time>
+                            </div>
+                            <ul class="tl-bullets">
+                                <li>Contributing to applied AI research and engineering for next-generation Brand Intelligence at a fast-moving technology startup</li>
+                                <li>Building and refining machine learning prototypes that enhance consistency, effectiveness, and decision-making for enterprise branding</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="timeline-entry fade-in">
+                        <div class="tl-marker"></div>
+                        <div class="tl-content">
+                            <div class="tl-header">
+                                <div>
+                                    <h3 class="tl-company">XR Solutions</h3>
+                                    <p class="tl-role">Data &amp; Machine Learning Engineer Intern</p>
+                                </div>
+                                <time class="tl-date">Oct 2025 &ndash; Feb 2026</time>
+                            </div>
+                            <ul class="tl-bullets">
+                                <li>Built and maintained scalable data pipelines and backend systems supporting ML-driven AR applications for industrial use cases</li>
+                                <li>Developed RESTful APIs using Node.js, Express.js, and PostgreSQL to serve data and model predictions, deployed ML pipelines and services on AWS</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="timeline timeline-collapsed" id="moreExperience">
+                    <article class="timeline-entry">
+                        <div class="tl-marker"></div>
+                        <div class="tl-content">
+                            <div class="tl-header">
+                                <div>
+                                    <h3 class="tl-company">Linnaeus University</h3>
+                                    <p class="tl-role">Teaching Assistant &mdash; Cloud Native Applications &amp; OS</p>
+                                </div>
+                                <time class="tl-date">Sep 2025 &ndash; Feb 2026</time>
+                            </div>
+                            <ul class="tl-bullets">
+                                <li>Designed and managed scalable infrastructure using IaC, Ansible, Docker, and Kubernetes on OpenStack</li>
+                                <li>Mentored students on CI/CD pipelines, distributed systems, process synchronisation, memory management, and kernel-level programming in C/C++</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="timeline-entry">
+                        <div class="tl-marker"></div>
+                        <div class="tl-content">
+                            <div class="tl-header">
+                                <div>
+                                    <h3 class="tl-company">Mannai Corporation QPSC</h3>
+                                    <p class="tl-role">Machine Learning Intern</p>
+                                </div>
+                                <time class="tl-date">Jul &ndash; Sep 2024</time>
+                            </div>
+                            <ul class="tl-bullets">
+                                <li>Developed and optimised machine learning models end to end, covering data preprocessing, feature engineering, model training, evaluation, and deployment</li>
+                                <li>Built scalable, production-ready solutions using Python, TensorFlow, PyTorch, and Scikit-learn; designed model architectures for real-world business problems</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+
+                <button class="btn-text-toggle" id="toggleExperience" aria-expanded="false">
+                    <span>Show more</span>
+                    <svg width="16" height="16">
+                        <use href="#icon-chevron" />
+                    </svg>
                 </button>
             </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-                <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
-                <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
-                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-                <li class="nav-item"><a href="#certifications" class="nav-link">Certifications</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
+        </section>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">Hi, I'm Younus!</h1>
-                    <p class="hero-subtitle">Cloud, Data & Machine Learning Engineer</p>
-                    <p class="hero-description">
-                        Cloud, Data & Machine Learning Engineer building scalable, production-ready AI and data systems.
-                        I develop ML models, design data pipelines, build and maintain production software, architect
-                        cloud infrastructure, and automate workflows that bridge software, data, and infrastructure
-                        across the full lifecycle — from data engineering and model development to cloud-scale
-                        deployments.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary">View My Work</a>
-                        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                    </div>
-                    <div class="hero-social">
-                        <a href="https://github.com/youni20" target="_blank" rel="noopener noreferrer"
-                            class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/younus-mashoor-6a48aa360" target="_blank"
-                            rel="noopener noreferrer" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="mailto:younusmashoor@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
-                    </div>
+        <!-- Featured Work -->
+        <section id="projects" class="section">
+            <div class="container">
+                <div class="section-head fade-in">
+                    <span class="section-num">04</span>
+                    <h2 class="section-title-big">Featured Work</h2>
                 </div>
-                <div class="hero-image">
-                    <div class="floating-card">
-                        <div class="card-content"><i class="fas fa-brain"></i><span>Machine Learning</span></div>
-                    </div>
-                    <div class="floating-card">
-                        <div class="card-content"><i class="fas fa-cloud"></i><span>Cloud Engineering</span></div>
-                    </div>
-                    <div class="floating-card">
-                        <div class="card-content"><i class="fas fa-cogs"></i><span>DevOps</span></div>
-                    </div>
-                    <div class="floating-card">
-                        <div class="card-content"><i class="fas fa-shield-alt"></i><span>Security</span></div>
-                    </div>
-                    <div class="floating-card">
-                        <div class="card-content"><i class="fas fa-network-wired"></i><span>Data Engineering</span>
+                <div class="projects-grid stagger">
+                    <article class="project-card">
+                        <span class="project-num">/ 01</span>
+                        <h3 class="project-name">EcoScale</h3>
+                        <p class="project-impact">$1.46M savings identified</p>
+                        <p class="project-desc">End-to-end ML system acting as a &ldquo;Virtual Meter&rdquo; for 1,600+
+                            commercial buildings. Predicts expected energy usage and flags inefficiencies in real-time
+                            using gradient boosting.</p>
+                        <div class="project-tags">
+                            <span>Python</span><span>LightGBM</span><span>Streamlit</span><span>Pandas</span>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="scroll-arrow"></div>
-        </div>
-    </section>
+                        <a href="https://github.com/youni20/EcoScale-Intelligent-Building-Energy-Management-System-BEMS-/tree/main"
+                            target="_blank" rel="noopener noreferrer" class="project-link">
+                            View on GitHub
+                            <svg width="16" height="16">
+                                <use href="#icon-arrow" />
+                            </svg>
+                        </a>
+                    </article>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">About Me</h2>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        I am a Cloud, Data & Machine Learning Engineer dedicated to building scalable, secure AI and
-                        data systems. With a strong foundation in software engineering, data engineering, and
-                        infrastructure, I bridge the gap between developing advanced ML models and deploying them into
-                        production. I specialize in designing data pipelines, architecting cloud infrastructure on AWS,
-                        automating workflows with CI/CD, and optimizing systems for performance and reliability.
-
-                        My work spans the full lifecycle, from data engineering and model training to cloud-scale
-                        deployment and monitoring.
-                        Passionate about solving complex problems, I strive to create maintainable, real-world solutions
-                        that drive value.
-                    </p>
-                </div>
-                <div class="about-image">
-                    <!--<i class="fas fa-user-tie"></i>-->
-
-                    <div class="image-placeholder">
-                        <img src="pfp.jpg" alt="Younus Mashoor" class="profile-image" loading="lazy">
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="education">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Education</h2>
-                <p class="section-subtitle">Academic background</p>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Bachelor's degree, Computer Science — Linnaeus University</h3>
-                            <span class="timeline-date">2023 - 2026</span>
-                        </div>
-                        <p>A comprehensive program covering software development, system architecture, databases,
-                            networking, and IT security, with hands-on experience in designing, implementing, and
-                            maintaining complex software systems</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>High School Diploma — Newton International Academy- Doha, Qatar</h3>
-                            <span class="timeline-date">2010 - 2022</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Technical Skills</h2>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <div class="category-header">
-                        <i class="fas fa-code"></i>
-                        <h3>Programming Languages</h3>
-                    </div>
-                    <div class="skills-list">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">C#</span>
-                        <span class="skill-tag">C</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">Bash</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="category-header">
-                        <i class="fas fa-brain"></i>
-                        <h3>Machine Learning</h3>
-                    </div>
-                    <div class="skills-list">
-                        <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">Scikit-learn</span>
-                        <span class="skill-tag">NumPy</span>
-                        <span class="skill-tag">Pandas</span>
-                        <span class="skill-tag">Keras</span>
-                        <span class="skill-tag">OpenCV</span>
-                        <span class="skill-tag">NLTK</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="category-header">
-                        <i class="fas fa-cloud"></i>
-                        <h3>DevOps & Cloud</h3>
-                    </div>
-                    <div class="skills-list">
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Kubernetes</span>
-                        <span class="skill-tag">OpenTofu</span>
-                        <span class="skill-tag">Terraform</span>
-                        <span class="skill-tag">Ansible</span>
-                        <span class="skill-tag">Jenkins</span>
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">Prometheus</span>
-                        <span class="skill-tag">n8n</span>
-                        <span class="skill-tag">GitHub Actions</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="category-header">
-                        <i class="fas fa-database"></i>
-                        <h3>Databases & Tools</h3>
-                    </div>
-                    <div class="skills-list">
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">GitHub</span>
-                        <span class="skill-tag">Excel</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="category-header">
-                        <i class="fas fa-laptop-code"></i>
-                        <h3>Frameworks & Libraries</h3>
-                    </div>
-                    <div class="skills-list">
-                        <span class="skill-tag">Spring Boot</span>
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">Flask</span>
-                        <span class="skill-tag">Express.js</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="category-header">
-                        <i class="fas fa-lightbulb"></i>
-                        <h3>Concepts & Methodologies</h3>
-                    </div>
-                    <div class="skills-list">
-                        <span class="skill-tag">API</span>
-                        <span class="skill-tag">CI/CD</span>
-                        <span class="skill-tag">Data Structures & Algorithms</span>
-                        <span class="skill-tag">Cloud Networking</span>
-                        <span class="skill-tag">Containerization</span>
-                        <span class="skill-tag">Infrastructure as Code</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Experience</h2>
-                <p class="section-subtitle">My professional journey</p>
-            </div>
-            <div class="timeline">
-                <!-- Brinna AI -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>AI/ML Research & Engineering Intern — Brinna AI, Stockholm County, Sweden</h3>
-                            <span class="timeline-date">Nov 2025 - Present</span>
-                        </div>
-                        <ul>
-                            <li>Supporting the development of applied AI solutions focused on next-generation Brand
-                                Intelligence.</li>
-                            <li>Contributing to research, prototyping, and engineering tasks aimed at advancing
-                                practical machine learning capabilities within a fast-moving technology startup.</li>
-                            <li>Working on projects that explore how AI can enhance consistency, effectiveness, and
-                                decision-making for enterprise branding.</li>
-                            <li>Collaborating with the technical team to build, test, and refine tools that create real
-                                value for users.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- LNU AI Society -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Head of IT — LNU AI Society, Växjö, Sweden</h3>
-                            <span class="timeline-date">Apr 2025 - Present</span>
-                        </div>
-                        <ul>
-                            <li>Co-founded a student-led society dedicated to advancing artificial intelligence
-                                education and innovation at Linnaeus University.</li>
-                            <li>Lead both the Marketing and IT departments, overseeing the society’s digital
-                                infrastructure, technical development, and brand strategy.</li>
-                            <li>Designed, developed, and deployed the official website, implementing platforms to
-                                support events, member engagement, and internal operations.</li>
-                            <li>Established partnerships with AI companies, startups, and research organizations to host
-                                hackathons and workshops.</li>
-                            <li>Directed marketing campaigns and outreach initiatives to grow visibility and foster
-                                collaboration.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- XR Solutions -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Backend & Machine Learning Engineer Intern — XR Solutions, Stockholm County, Sweden
-                                (Hybrid)</h3>
-                            <span class="timeline-date">Oct 2025 - Jan 2026</span>
-                        </div>
-                        <ul>
-                            <li>Collaborating with engineering teams to design, train, and deploy machine learning
-                                models enhancing AR capabilities for industrial automation.</li>
-                            <li>Developing and maintaining RESTful APIs using Node.js, Express.js, and PostgreSQL to
-                                serve model predictions.</li>
-                            <li>Contributing to the full ML lifecycle from data preprocessing and model development to
-                                cloud deployment on AWS.</li>
-                            <li>Supporting scalable and secure backend infrastructure while bridging software
-                                engineering with applied machine learning.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- TA Cloud Native -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Teaching Assistant – Cloud Native Applications — Linnaeus University, Kalmar, Sweden
-                            </h3>
-                            <span class="timeline-date">Sep 2025 - Jan 2026</span>
-                        </div>
-                        <ul>
-                            <li>Designed, implemented, and managed cloud-native infrastructure using IaC, Ansible,
-                                Docker, Kubernetes, and OpenStack.</li>
-                            <li>Built and deployed containerized applications in Kubernetes clusters, demonstrating
-                                real-world workflows.</li>
-                            <li>Automated infrastructure provisioning and configuration with IaC and Ansible, ensuring
-                                consistency.</li>
-                            <li>Guided students through best practices in DevOps, CI/CD pipelines, container
-                                orchestration, and system optimization.</li>
-                            <li>Supported learners in troubleshooting real-world issues, bridging theoretical knowledge
-                                with hands-on implementation.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- FMM -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Cloud Engineer Intern — Facilities Management & Maintenance Company, LLC, Doha, Qatar
-                            </h3>
-                            <span class="timeline-date">Jul 2025 - Aug 2025</span>
-                        </div>
-                        <ul>
-                            <li>Configured and maintained office network infrastructure (routers, switches, firewalls)
-                                ensuring secure connectivity.</li>
-                            <li>Managed and monitored VPN access using FortiClient, configuring secure tunnels for
-                                remote workers.</li>
-                            <li>Applied DevOps principles by automating repetitive workflows and writing scripts for
-                                system monitoring.</li>
-                            <li>Implemented and verified regular system backups using scheduled jobs and monitoring
-                                tools.</li>
-                            <li>Monitored critical systems for high availability in a mission-critical airport
-                                environment.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Mannai -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Machine Learning Intern — Mannai Corporation QPSC, Doha, Qatar</h3>
-                            <span class="timeline-date">Jul 2024 - Sep 2024</span>
-                        </div>
-                        <ul>
-                            <li>Developed and optimized machine learning models end-to-end (preprocessing, training,
-                                evaluation, deployment).</li>
-                            <li>Focused on scalable solutions using Python, TensorFlow, PyTorch, and scikit-learn.</li>
-                            <li>Collaborated on model architecture design tailored to real-world business problems.</li>
-                            <li>Integrated model outputs into functional systems, contributing to both algorithmic and
-                                engineering phases.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Featured Projects</h2>
-            </div>
-            <div class="projects-grid">
-                <!-- Aura-VBS -->
-                <div class="project-card" data-project="aura-vbs">
-                    <div class="project-content">
-                        <div class="project-header">
-                            <div class="project-icon"><i class="fas fa-search"></i></div>
-                            <h3>Aura-VBS: High-Performance Vector Search Engine</h3>
-                            <span class="project-date">Dec 2025 - Feb 2026</span>
-                        </div>
-                        <p class="project-description">Spotify-scale vector search engine built in C++20. Implements
-                            HNSW from scratch for sub-millisecond ANN search across millions of 128-dim AudioSet
+                    <article class="project-card">
+                        <span class="project-num">/ 02</span>
+                        <h3 class="project-name">Aura-VBS</h3>
+                        <p class="project-impact">Sub-ms search over 2M vectors</p>
+                        <p class="project-desc">High-performance vector search engine in C++20. Implements HNSW from
+                            scratch for approximate nearest neighbor search across millions of 128-dim AudioSet
                             embeddings using AVX2 SIMD and mmap.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">C++</span>
-                            <span class="tech-tag">HNSW</span>
-                            <span class="tech-tag">AVX2 SIMD</span>
+                        <div class="project-tags">
+                            <span>C++</span><span>HNSW</span><span>AVX2 SIMD</span><span>mmap</span>
                         </div>
-                        <div class="project-links" style="margin-top: 15px;">
-                            <a href="https://github.com/youni20/Aura-VBS-Acoustic-Ultra-fast-Retrieval-Architecture---Vector-Binary-Search-" target="_blank" class="btn-text"><i
-                                    class="fab fa-github"></i> View Code</a>
+                        <a href="https://github.com/youni20/Aura-VBS" target="_blank" rel="noopener noreferrer"
+                            class="project-link">
+                            View on GitHub
+                            <svg width="16" height="16">
+                                <use href="#icon-arrow" />
+                            </svg>
+                        </a>
+                    </article>
+
+                    <article class="project-card">
+                        <span class="project-num">/ 03</span>
+                        <h3 class="project-name">DeepFake Detection</h3>
+                        <p class="project-impact">96.8% detection accuracy</p>
+                        <p class="project-desc">Production-ready deep learning system detecting AI-generated faces.
+                            Uses transfer learning with ResNet50 and EfficientNet, deployed via Dockerized FastAPI with
+                            MLflow tracking.</p>
+                        <div class="project-tags">
+                            <span>PyTorch</span><span>FastAPI</span><span>Docker</span><span>MLflow</span>
                         </div>
-                    </div>
+                        <a href="https://github.com/youni20/deepfake-detection-system" target="_blank"
+                            rel="noopener noreferrer" class="project-link">
+                            View on GitHub
+                            <svg width="16" height="16">
+                                <use href="#icon-arrow" />
+                            </svg>
+                        </a>
+                    </article>
+
+                    <article class="project-card">
+                        <span class="project-num">/ 04</span>
+                        <h3 class="project-name">Symphony Marine</h3>
+                        <p class="project-impact">2nd Place &mdash; Mistra Hackathon</p>
+                        <p class="project-desc">Award-winning marine spatial analytics platform. Uses ML to analyse
+                            interactions between human pressures and marine ecosystems with predictive modelling and
+                            correlation analysis.</p>
+                        <div class="project-tags">
+                            <span>Python</span><span>Flask</span><span>XGBoost</span><span>Geospatial</span>
+                        </div>
+                        <a href="https://github.com/youni20/symphony-ml-analytics" target="_blank"
+                            rel="noopener noreferrer" class="project-link">
+                            View on GitHub
+                            <svg width="16" height="16">
+                                <use href="#icon-arrow" />
+                            </svg>
+                        </a>
+                    </article>
                 </div>
 
-                <!-- EcoScale -->
-                <div class="project-card" data-project="ecoscale">
-                    <div class="project-content">
-                        <div class="project-header">
-                            <div class="project-icon"><i class="fas fa-bolt"></i></div>
-                            <h3>EcoScale: Commercial Energy Anomaly Detection</h3>
-                            <span class="project-date">Aug 2025 - Nov 2025</span>
-                        </div>
-                        <p class="project-description">End-to-end ML system acting as a "Virtual Meter" for 1,600+
-                            buildings. Detects energy waste and inefficiencies in real-time, identifying $1.46M in
-                            potential savings.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">LightGBM</span>
-                            <span class="tech-tag">Streamlit</span>
-                        </div>
-                        <div class="project-links" style="margin-top: 15px;">
-                            <a href="https://github.com/youni20/EcoScale-Intelligent-Building-Energy-Management-System-BEMS-/tree/main"
-                                target="_blank" class="btn-text"><i class="fab fa-github"></i> View Code</a>
-                        </div>
-                    </div>
-                </div>
+                <div class="projects-more" id="moreProjects">
+                    <div class="projects-compact">
+                        <article class="project-compact">
+                            <div class="pc-info">
+                                <h3>Cloud-Native IoT Telemetry Platform</h3>
+                                <p>Production-ready IoT platform demonstrating GitOps, K8s orchestration, and real-time
+                                    data processing.</p>
+                                <div class="project-tags">
+                                    <span>Kubernetes</span><span>Flux CD</span><span>MQTT</span><span>Grafana</span>
+                                </div>
+                            </div>
+                            <a href="https://github.com/youni20/IoT_Telemetry" target="_blank"
+                                rel="noopener noreferrer" class="project-link-sm"
+                                aria-label="View IoT Telemetry on GitHub">
+                                <svg width="20" height="20" fill="currentColor">
+                                    <use href="#icon-github" />
+                                </svg>
+                            </a>
+                        </article>
 
-                <!-- IoT Platform -->
-                <div class="project-card" data-project="iot-platform">
-                    <div class="project-content">
-                        <div class="project-header">
-                            <div class="project-icon"><i class="fas fa-network-wired"></i></div>
-                            <h3>Cloud-Native IoT Telemetry Platform</h3>
-                            <span class="project-date">Aug 2025 - Oct 2025</span>
-                        </div>
-                        <p class="project-description">Production-ready IoT telemetry platform demonstrating GitOps,
-                            Kubernetes orchestration, and real-time data processing for educational use.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Kubernetes</span>
-                            <span class="tech-tag">Flux CD</span>
-                            <span class="tech-tag">MQTT</span>
-                        </div>
-                        <div class="project-links" style="margin-top: 15px;">
-                            <a href="https://github.com/youni20/IoT_Telemetry" target="_blank" class="btn-text"><i
-                                    class="fab fa-github"></i> View Code</a>
-                        </div>
-                    </div>
-                </div>
+                        <article class="project-compact">
+                            <div class="pc-info">
+                                <h3>Football Vision AI</h3>
+                                <p>End-to-end computer vision system automating match analysis with player tracking,
+                                    team segmentation, and speed metrics.</p>
+                                <div class="project-tags">
+                                    <span>YOLOv8</span><span>OpenCV</span><span>PyTorch</span><span>ByteTrack</span>
+                                </div>
+                            </div>
+                            <a href="https://github.com/youni20/match-vision-ai" target="_blank"
+                                rel="noopener noreferrer" class="project-link-sm"
+                                aria-label="View Football Vision AI on GitHub">
+                                <svg width="20" height="20" fill="currentColor">
+                                    <use href="#icon-github" />
+                                </svg>
+                            </a>
+                        </article>
 
-                <!-- Football Vision AI -->
-                <div class="project-card" data-project="football-vision">
-                    <div class="project-content">
-                        <div class="project-header">
-                            <div class="project-icon"><i class="fas fa-futbol"></i></div>
-                            <h3>Football Vision AI: Analytics System</h3>
-                            <span class="project-date">Aug 2025 - Oct 2025</span>
-                        </div>
-                        <p class="project-description">End-to-end computer vision system automating match analysis.
-                            Tracks players/ball, calculates speed, and provides tactical insights using Deep Learning.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">YOLOv8</span>
-                            <span class="tech-tag">OpenCV</span>
-                            <span class="tech-tag">PyTorch</span>
-                        </div>
-                        <div class="project-links" style="margin-top: 15px;">
-                            <a href="https://github.com/youni20/match-vision-ai" target="_blank" class="btn-text"><i
-                                    class="fab fa-github"></i> View Code</a>
-                        </div>
-                    </div>
-                </div>
+                        <article class="project-compact">
+                            <div class="pc-info">
+                                <h3>FitNest &mdash; AI Fitness Platform</h3>
+                                <p>Full-stack fitness platform with AI-driven workout recommendations, secure JWT auth,
+                                    and real-time tracking.</p>
+                                <div class="project-tags">
+                                    <span>React</span><span>Node.js</span><span>PostgreSQL</span><span>OpenAI</span>
+                                </div>
+                            </div>
+                            <a href="https://github.com/youni20/FitNest" target="_blank" rel="noopener noreferrer"
+                                class="project-link-sm" aria-label="View FitNest on GitHub">
+                                <svg width="20" height="20" fill="currentColor">
+                                    <use href="#icon-github" />
+                                </svg>
+                            </a>
+                        </article>
 
-                <!-- Symphony Marine -->
-                <div class="project-card" data-project="symphony-marine">
-                    <div class="project-content">
-                        <div class="project-header">
-                            <div class="project-icon"><i class="fas fa-water"></i></div>
-                            <h3>Symphony Marine Analytics Platform</h3>
-                            <span class="project-date">Sep 2025 - Oct 2025</span>
-                        </div>
-                        <p class="project-description">Award-winning marine spatial analytics platform using ML to
-                            analyze ecosystem impacts. 2nd Place at Mistra C2B2 Hackathon.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Flask</span>
-                            <span class="tech-tag">Geospatial</span>
-                        </div>
-                        <div class="project-links" style="margin-top: 15px;">
-                            <a href="https://github.com/youni20/symphony-ml-analytics" target="_blank"
-                                class="btn-text"><i class="fab fa-github"></i> View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FitNest -->
-                <div class="project-card" data-project="fitnest">
-                    <div class="project-content">
-                        <div class="project-header">
-                            <div class="project-icon"><i class="fas fa-dumbbell"></i></div>
-                            <h3>FitNest - AI Powered Fitness App</h3>
-                            <span class="project-date">Apr 2025 - Jun 2025</span>
-                        </div>
-                        <p class="project-description">Full-stack fitness platform with AI-driven workout
-                            recommendations, secure auth, and real-time progress tracking.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">OpenAI API</span>
-                        </div>
-                        <div class="project-links" style="margin-top: 15px;">
-                            <a href="https://github.com/youni20/FitNest" target="_blank" class="btn-text"><i
-                                    class="fab fa-github"></i> View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- DeepFake Detection -->
-                <div class="project-card" data-project="deepfake-detection">
-                    <div class="project-content">
-                        <div class="project-header">
-                            <div class="project-icon"><i class="fas fa-user-shield"></i></div>
-                            <h3>DeepFake Detection System</h3>
-                            <span class="project-date">Jan 2025 - Mar 2025</span>
-                        </div>
-                        <p class="project-description">Production-ready deep learning system detecting AI-generated
-                            faces with 96.8% accuracy using ResNet50 and EfficientNet.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">PyTorch</span>
-                            <span class="tech-tag">FastAPI</span>
-                            <span class="tech-tag">Docker</span>
-                        </div>
-                        <div class="project-links" style="margin-top: 15px;">
-                            <a href="https://github.com/youni20/deepfake-detection-system" target="_blank"
-                                class="btn-text"><i class="fab fa-github"></i> View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <!-- Swedish Climate -->
-                <div class="project-card" data-project="swedish-climate">
-                    <div class="project-content">
-                        <div class="project-header">
-                            <div class="project-icon"><i class="fas fa-leaf"></i></div>
-                            <h3>Swedish Environmental Analytics</h3>
-                            <span class="project-date">Jan 2025 - Feb 2025</span>
-                        </div>
-                        <p class="project-description">Full-stack ML platform forecasting environmental patterns across
-                            Swedish cities with interactive visualizations and API.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">FastAPI</span>
-                            <span class="tech-tag">Prophet</span>
-                        </div>
-                        <div class="project-links" style="margin-top: 15px;">
+                        <article class="project-compact">
+                            <div class="pc-info">
+                                <h3>Swedish Environmental Analytics</h3>
+                                <p>Full-stack ML platform forecasting environmental patterns with Prophet, SARIMA, and
+                                    LSTM models.</p>
+                                <div class="project-tags">
+                                    <span>React</span><span>FastAPI</span><span>Prophet</span><span>Docker</span>
+                                </div>
+                            </div>
                             <a href="https://github.com/youni20/swedish-climate-analytics-platform" target="_blank"
-                                class="btn-text"><i class="fab fa-github"></i> View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- IBM Capstone -->
-                <div class="project-card" data-project="ibm-capstone">
-                    <div class="project-content">
-                        <div class="project-header">
-                            <div class="project-icon"><i class="fas fa-chart-pie"></i></div>
-                            <h3>IBM Data Science Capstone</h3>
-                            <span class="project-date">Dec 2024 - Feb 2025</span>
-                        </div>
-                        <p class="project-description">Comprehensive data science project executing the full pipeline
-                            from raw data cleaning to predictive modeling and insight generation.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Scikit-Learn</span>
-                            <span class="tech-tag">Pandas</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section id="certifications" class="certifications">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Certifications</h2>
-                <p class="section-subtitle">Professional achievements and credentials</p>
-            </div>
-            <div class="certifications-grid">
-                <!-- CS50 AI -->
-                <div class="cert-card" data-cert="cs50-ai">
-                    <div class="cert-icon"><i class="fas fa-brain"></i></div>
-                    <h3>CS50's AI with Python</h3>
-                    <p>Harvard University</p>
-                </div>
-
-                <!-- AWS Cloud Practitioner -->
-                <div class="cert-card" data-cert="aws-ccp">
-                    <div class="cert-icon"><i class="fab fa-aws"></i></div>
-                    <h3>AWS Certified Cloud Practitioner</h3>
-                    <p>Amazon Web Services</p>
-                </div>
-
-                <!-- IBM RAG -->
-                <div class="cert-card" data-cert="ibm-rag">
-                    <div class="cert-icon"><i class="fas fa-robot"></i></div>
-                    <h3>IBM RAG & Agentic AI</h3>
-                    <p>IBM</p>
-                </div>
-
-                <!-- Microsoft API -->
-                <div class="cert-card" data-cert="ms-api">
-                    <div class="cert-icon"><i class="fab fa-microsoft"></i></div>
-                    <h3>Backend APIs & Microservices</h3>
-                    <p>Microsoft</p>
-                </div>
-
-                <!-- AWS AI Practitioner -->
-                <div class="cert-card" data-cert="aws-ai">
-                    <div class="cert-icon"><i class="fab fa-aws"></i></div>
-                    <h3>AWS Certified AI Practitioner</h3>
-                    <p>Amazon Web Services</p>
-                </div>
-
-                <!-- IBM DevOps -->
-                <div class="cert-card" data-cert="ibm-devops">
-                    <div class="cert-icon"><i class="fas fa-cloud"></i></div>
-                    <h3>DevOps & Cloud Fundamentals</h3>
-                    <p>IBM</p>
-                </div>
-
-                <!-- Network Fundamentals -->
-                <div class="cert-card" data-cert="cu-network">
-                    <div class="cert-icon"><i class="fas fa-network-wired"></i></div>
-                    <h3>Fundamentals of Networking</h3>
-                    <p>University of Colorado</p>
-                </div>
-
-                <!-- IBM Python -->
-                <div class="cert-card" data-cert="ibm-python">
-                    <div class="cert-icon"><i class="fab fa-python"></i></div>
-                    <h3>Python for Data Science & AI</h3>
-                    <p>IBM</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Let's Work Together</h2>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Email</h3>
-                            <p>younusmashoor@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Phone</h3>
-                            <p>+46 76 456 1873</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Location</h3>
-                            <p>Växjö, Sweden</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact-form-section">
-                    <div class="contact-form">
-                        <h3>Send me a message</h3>
-                        <form id="contactForm" action="https://formspree.io/f/xqepzjwy" method="POST">
-                            <div class="form-group">
-                                <input type="email" id="email" name="email" placeholder="Your Email" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                            </div>
-                            <div class="form-group">
-                                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Send Message</button>
-                        </form>
-                    </div>
-
-                    <div class="contact-social">
-                        <h3>Connect with me</h3>
-                        <div class="social-links">
-                            <a href="https://github.com/youni20" target="_blank" rel="noopener noreferrer"
-                                class="social-btn">
-                                <i class="fab fa-github"></i>
-                                <span>GitHub</span>
+                                rel="noopener noreferrer" class="project-link-sm"
+                                aria-label="View Swedish Environmental Analytics on GitHub">
+                                <svg width="20" height="20" fill="currentColor">
+                                    <use href="#icon-github" />
+                                </svg>
                             </a>
-                            <a href="https://www.linkedin.com/in/younus-mashoor-6a48aa360" target="_blank"
-                                rel="noopener noreferrer" class="social-btn">
-                                <i class="fab fa-linkedin"></i>
-                                <span>LinkedIn</span>
-                            </a>
-                            <a href="mailto:younusmashoor@gmail.com" class="social-btn">
-                                <i class="fas fa-envelope"></i>
-                                <span>Email Me</span>
-                            </a>
-                        </div>
+                        </article>
                     </div>
                 </div>
 
-                <!-- Notification container (place near the end of body or inside contact section) -->
-                <div id="contactNotification" class="contact-notification"></div>
+                <button class="btn-text-toggle" id="toggleProjects" aria-expanded="false">
+                    <span>View all projects</span>
+                    <svg width="16" height="16">
+                        <use href="#icon-chevron" />
+                    </svg>
+                </button>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
+        <!-- Certifications -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="section-head fade-in">
+                    <span class="section-num">05</span>
+                    <h2 class="section-title-big">Certifications</h2>
+                </div>
+                <div class="certs-grid stagger">
+                    <div class="cert-card">
+                        <div class="cert-logo cert-logo-harvard"><i class="fas fa-graduation-cap"></i></div>
+                        <div>
+                            <h3>CS50's AI with Python</h3>
+                            <p>Harvard University</p>
+                        </div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-logo cert-logo-aws"><i class="fab fa-aws"></i></div>
+                        <div>
+                            <h3>AWS Certified Cloud Practitioner</h3>
+                            <p>Amazon Web Services</p>
+                        </div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-logo cert-logo-aws"><i class="fab fa-aws"></i></div>
+                        <div>
+                            <h3>AWS Certified AI Practitioner</h3>
+                            <p>Amazon Web Services</p>
+                        </div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-logo cert-logo-ibm"><i class="fas fa-robot"></i></div>
+                        <div>
+                            <h3>IBM RAG &amp; Agentic AI</h3>
+                            <p>IBM</p>
+                        </div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-logo cert-logo-ms"><i class="fab fa-microsoft"></i></div>
+                        <div>
+                            <h3>Backend APIs &amp; Microservices</h3>
+                            <p>Microsoft</p>
+                        </div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-logo cert-logo-ibm"><i class="fas fa-cloud"></i></div>
+                        <div>
+                            <h3>DevOps &amp; Cloud Fundamentals</h3>
+                            <p>IBM</p>
+                        </div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-logo cert-logo-cu"><i class="fas fa-network-wired"></i></div>
+                        <div>
+                            <h3>Fundamentals of Networking</h3>
+                            <p>University of Colorado</p>
+                        </div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-logo cert-logo-ibm"><i class="fab fa-python"></i></div>
+                        <div>
+                            <h3>Python for Data Science &amp; AI</h3>
+                            <p>IBM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="section-head fade-in">
+                    <span class="section-num">06</span>
+                    <h2 class="section-title-big">Let's connect.</h2>
+                </div>
+                <p class="contact-sub fade-in">Have a project in mind, an opportunity, or just want to say hi? Drop me
+                    a message.</p>
+                <div class="contact-grid fade-in">
+                    <div class="contact-info">
+                        <a href="mailto:younusmashoor@gmail.com" class="contact-info-item">
+                            <svg width="20" height="20" stroke="currentColor" fill="none">
+                                <use href="#icon-email" />
+                            </svg>
+                            <span>younusmashoor@gmail.com</span>
+                        </a>
+                        <a href="https://github.com/youni20" target="_blank" rel="noopener noreferrer"
+                            class="contact-info-item">
+                            <svg width="20" height="20" fill="currentColor">
+                                <use href="#icon-github" />
+                            </svg>
+                            <span>github.com/youni20</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/younus-mashoor-6a48aa360" target="_blank"
+                            rel="noopener noreferrer" class="contact-info-item">
+                            <svg width="20" height="20" fill="currentColor">
+                                <use href="#icon-linkedin" />
+                            </svg>
+                            <span>linkedin.com/in/younus-mashoor</span>
+                        </a>
+                        <div class="contact-info-item contact-info-static">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <span>Växjö, Sweden</span>
+                        </div>
+                    </div>
+                    <form id="contactForm" class="contact-form" action="https://formspree.io/f/xqepzjwy" method="POST">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Your message..."
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <span>Send Message</span>
+                            <svg width="16" height="16">
+                                <use href="#icon-arrow" />
+                            </svg>
+                        </button>
+                        <div id="contactNotification" class="contact-notification" role="status"
+                            aria-live="polite"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 Younus Mashoor</p>
-                <div class="footer-links">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#certifications">Certifications</a>
-                    <a href="#contact">Contact</a>
-                </div>
+        <div class="container footer-inner">
+            <p>&copy; 2026 Younus Mashoor</p>
+            <div class="footer-links">
+                <a href="https://github.com/youni20" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <svg width="18" height="18" fill="currentColor">
+                        <use href="#icon-github" />
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/younus-mashoor-6a48aa360" target="_blank"
+                    rel="noopener noreferrer" aria-label="LinkedIn">
+                    <svg width="18" height="18" fill="currentColor">
+                        <use href="#icon-linkedin" />
+                    </svg>
+                </a>
             </div>
         </div>
     </footer>
-
-    <div id="projectModal" class="modal" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="modal-header">
-                <div class="modal-icon"><i class="fas fa-code"></i></div>
-                <h2 id="modalTitle"></h2>
-            </div>
-            <div class="modal-body">
-                <p id="modalDescription"></p>
-                <div class="modal-tech" id="modalTech"></div>
-                <div class="modal-features" id="modalFeatures"></div>
-                <div class="modal-skills" id="modalSkills"></div>
-                <div class="modal-links" id="modalLinks"></div>
-            </div>
-        </div>
-    </div>
-
-    <div id="certModal" class="modal" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="modal-header">
-                <div class="modal-icon"><i class="fas fa-certificate"></i></div>
-                <h2 id="certModalTitle"></h2>
-            </div>
-            <div class="modal-body">
-                <div class="cert-image-container" id="certImageContainer">
-                    <img id="certImage" src="" alt="" class="cert-modal-image" style="display: none;" loading="lazy">
-                </div>
-                <p id="certModalDescription"></p>
-                <div class="modal-skills" id="certModalSkills"></div>
-            </div>
-        </div>
-    </div>
 
     <script src="contact.js"></script>
     <script src="script.js"></script>

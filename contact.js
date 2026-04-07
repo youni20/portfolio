@@ -1,6 +1,7 @@
 const contactForm = document.getElementById("contactForm");
 const contactNotification = document.getElementById("contactNotification");
-const contactSubmitButton = contactForm.querySelector("button[type='submit']");
+const contactSubmitButton = contactForm ? contactForm.querySelector("button[type='submit']") : null;
+const contactSubmitOriginalHTML = contactSubmitButton ? contactSubmitButton.innerHTML : "";
 
 // -----------------------------
 // CONFIGURATION
@@ -98,7 +99,7 @@ async function handleContactSubmit(event) {
 
     // Disable button
     contactSubmitButton.disabled = true;
-    contactSubmitButton.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
+    contactSubmitButton.innerHTML = '<span>Sending...</span>';
 
     try {
         const response = await fetch(event.target.action, {
@@ -127,7 +128,7 @@ async function handleContactSubmit(event) {
         showContactNotification("Oops! There was a problem submitting your form", "error");
     } finally {
         contactSubmitButton.disabled = false;
-        contactSubmitButton.textContent = "Send Message";
+        contactSubmitButton.innerHTML = contactSubmitOriginalHTML;
     }
 }
 
