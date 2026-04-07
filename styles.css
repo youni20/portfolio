@@ -1292,6 +1292,12 @@ button {
     position: relative;
     overflow: hidden;
     isolation: isolate;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-desc {
+    flex: 1;
 }
 
 .project-card::before {
