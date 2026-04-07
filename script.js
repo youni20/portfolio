@@ -8,7 +8,7 @@
 const themeToggle = document.getElementById('themeToggle');
 const rootEl = document.documentElement;
 
-function setTheme(theme) {
+function applyTheme(theme) {
     if (theme === 'light') {
         rootEl.setAttribute('data-theme', 'light');
     } else {
@@ -21,6 +21,46 @@ function setTheme(theme) {
     }
 }
 
+function setThemeWithTransition(theme) {
+    // Skip animation if user prefers reduced motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        applyTheme(theme);
+        return;
+    }
+
+    const rect = themeToggle.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+
+    // Radius must cover the farthest corner
+    const maxDist = Math.hypot(
+        Math.max(cx, window.innerWidth - cx),
+        Math.max(cy, window.innerHeight - cy)
+    );
+
+    const circle = document.createElement('div');
+    circle.className = 'theme-transition-circle';
+    // The circle carries the DESTINATION theme colour
+    circle.style.background = theme === 'light' ? '#f6f3e8' : '#0c0c0c';
+    circle.style.left = cx + 'px';
+    circle.style.top = cy + 'px';
+    circle.style.setProperty('--radius', maxDist + 'px');
+    document.body.appendChild(circle);
+
+    // Force reflow then start animation
+    circle.offsetWidth;
+    circle.classList.add('expanding');
+
+    // Apply actual theme at midpoint so the transition feels seamless
+    const halfDuration = 350;
+    setTimeout(() => applyTheme(theme), halfDuration);
+
+    // Clean up after animation ends
+    circle.addEventListener('animationend', () => {
+        circle.remove();
+    });
+}
+
 if (themeToggle) {
     const initial = rootEl.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
     themeToggle.setAttribute('aria-label',
@@ -28,7 +68,7 @@ if (themeToggle) {
 
     themeToggle.addEventListener('click', () => {
         const current = rootEl.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-        setTheme(current === 'light' ? 'dark' : 'light');
+        setThemeWithTransition(current === 'light' ? 'dark' : 'light');
     });
 }
 
