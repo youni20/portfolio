@@ -21,43 +21,51 @@ function applyTheme(theme) {
     }
 }
 
+let themeTransitioning = false;
+
 function setThemeWithTransition(theme) {
+    if (themeTransitioning) return;
+
     // Skip animation if user prefers reduced motion
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         applyTheme(theme);
         return;
     }
 
+    themeTransitioning = true;
+
     const rect = themeToggle.getBoundingClientRect();
     const cx = rect.left + rect.width / 2;
     const cy = rect.top + rect.height / 2;
 
-    // Radius must cover the farthest corner
-    const maxDist = Math.hypot(
+    // Radius needed to cover the farthest screen corner from the button
+    const maxRadius = Math.hypot(
         Math.max(cx, window.innerWidth - cx),
         Math.max(cy, window.innerHeight - cy)
     );
 
-    const circle = document.createElement('div');
-    circle.className = 'theme-transition-circle';
-    // The circle carries the DESTINATION theme colour
-    circle.style.background = theme === 'light' ? '#f6f3e8' : '#0c0c0c';
-    circle.style.left = cx + 'px';
-    circle.style.top = cy + 'px';
-    circle.style.setProperty('--radius', maxDist + 'px');
-    document.body.appendChild(circle);
+    // 1. Apply the new theme NOW so the page underneath is the new colours
+    applyTheme(theme);
 
-    // Force reflow then start animation
-    circle.offsetWidth;
-    circle.classList.add('expanding');
+    // 2. Create a full-screen overlay with the OLD theme colour on top
+    //    Then shrink it away via clip-path, revealing the new theme underneath
+    const oldBg = theme === 'light' ? '#0c0c0c' : '#f6f3e8';
+    const overlay = document.createElement('div');
+    overlay.className = 'theme-wipe';
+    overlay.style.background = oldBg;
+    overlay.style.clipPath = `circle(${maxRadius}px at ${cx}px ${cy}px)`;
+    document.body.appendChild(overlay);
 
-    // Apply actual theme at midpoint so the transition feels seamless
-    const halfDuration = 350;
-    setTimeout(() => applyTheme(theme), halfDuration);
+    // Force reflow
+    overlay.offsetWidth;
 
-    // Clean up after animation ends
-    circle.addEventListener('animationend', () => {
-        circle.remove();
+    // 3. Animate clip-path down to 0 — the old colour "shrinks" into the button
+    overlay.style.transition = 'clip-path 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+    overlay.style.clipPath = `circle(0px at ${cx}px ${cy}px)`;
+
+    overlay.addEventListener('transitionend', () => {
+        overlay.remove();
+        themeTransitioning = false;
     });
 }
 
