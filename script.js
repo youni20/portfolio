@@ -8,7 +8,7 @@
 const themeToggle = document.getElementById('themeToggle');
 const rootEl = document.documentElement;
 
-function applyTheme(theme) {
+function setTheme(theme) {
     if (theme === 'light') {
         rootEl.setAttribute('data-theme', 'light');
     } else {
@@ -21,54 +21,6 @@ function applyTheme(theme) {
     }
 }
 
-let themeTransitioning = false;
-
-function setThemeWithTransition(theme) {
-    if (themeTransitioning) return;
-
-    // Skip animation if user prefers reduced motion
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        applyTheme(theme);
-        return;
-    }
-
-    themeTransitioning = true;
-
-    const rect = themeToggle.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-
-    // Radius needed to cover the farthest screen corner from the button
-    const maxRadius = Math.hypot(
-        Math.max(cx, window.innerWidth - cx),
-        Math.max(cy, window.innerHeight - cy)
-    );
-
-    // 1. Apply the new theme NOW so the page underneath is the new colours
-    applyTheme(theme);
-
-    // 2. Create a full-screen overlay with the OLD theme colour on top
-    //    Then shrink it away via clip-path, revealing the new theme underneath
-    const oldBg = theme === 'light' ? '#0c0c0c' : '#f6f3e8';
-    const overlay = document.createElement('div');
-    overlay.className = 'theme-wipe';
-    overlay.style.background = oldBg;
-    overlay.style.clipPath = `circle(${maxRadius}px at ${cx}px ${cy}px)`;
-    document.body.appendChild(overlay);
-
-    // Force reflow
-    overlay.offsetWidth;
-
-    // 3. Animate clip-path down to 0 — the old colour "shrinks" into the button
-    overlay.style.transition = 'clip-path 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-    overlay.style.clipPath = `circle(0px at ${cx}px ${cy}px)`;
-
-    overlay.addEventListener('transitionend', () => {
-        overlay.remove();
-        themeTransitioning = false;
-    });
-}
-
 if (themeToggle) {
     const initial = rootEl.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
     themeToggle.setAttribute('aria-label',
@@ -76,7 +28,7 @@ if (themeToggle) {
 
     themeToggle.addEventListener('click', () => {
         const current = rootEl.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-        setThemeWithTransition(current === 'light' ? 'dark' : 'light');
+        setTheme(current === 'light' ? 'dark' : 'light');
     });
 }
 

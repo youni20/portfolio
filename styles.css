@@ -355,14 +355,6 @@ button {
     transform: rotate(90deg) scale(0.5);
 }
 
-/* Theme wipe overlay — old colour shrinks away revealing the new theme */
-.theme-wipe {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    pointer-events: none;
-}
-
 /* Hamburger */
 .nav-toggle {
     display: flex;
