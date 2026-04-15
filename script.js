@@ -61,11 +61,16 @@ const links = document.querySelectorAll('.nav-link');
 
 function updateActiveLink() {
     let current = '';
-    sections.forEach(section => {
-        if (window.scrollY >= section.offsetTop - 100) {
-            current = section.id;
-        }
-    });
+    const atBottom = (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2;
+    if (atBottom && sections.length) {
+        current = sections[sections.length - 1].id;
+    } else {
+        sections.forEach(section => {
+            if (window.scrollY >= section.offsetTop - 100) {
+                current = section.id;
+            }
+        });
+    }
     links.forEach(link => {
         link.classList.toggle('active', link.getAttribute('href') === '#' + current);
     });
