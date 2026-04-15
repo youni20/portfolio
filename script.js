@@ -314,4 +314,3 @@ function setupToggle(buttonId, targetId, labelExpanded, labelCollapsed) {
 }
 
 setupToggle('toggleExperience', 'moreExperience', 'Show less', 'Show more');
-setupToggle('toggleProjects', 'moreProjects', 'Show fewer projects', 'View all projects');
