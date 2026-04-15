@@ -1,34 +1,39 @@
 // ============================================================
-// Portfolio — Younus Mashoor
-// Navigation, typing effect, parallax tilt, scroll animations
+// Portfolio — Younus Mashoor (Nike Podium CDS Inspired)
+// Navigation, scroll animations
 // ============================================================
 
-// --- Theme toggle -----------------------------------------
-
+// --- Theme Toggle -----------------------------------------
 const themeToggle = document.getElementById('themeToggle');
 const rootEl = document.documentElement;
 
 function setTheme(theme) {
-    if (theme === 'light') {
-        rootEl.setAttribute('data-theme', 'light');
+    if (theme === 'dark') {
+        rootEl.setAttribute('data-theme', 'dark');
     } else {
         rootEl.removeAttribute('data-theme');
     }
     localStorage.setItem('theme', theme);
     if (themeToggle) {
         themeToggle.setAttribute('aria-label',
-            theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme');
+            theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
     }
 }
 
 if (themeToggle) {
-    const initial = rootEl.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-    themeToggle.setAttribute('aria-label',
-        initial === 'light' ? 'Switch to dark theme' : 'Switch to light theme');
+    const stored = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    // Initial theme
+    if (stored === 'dark' || (!stored && prefersDark)) {
+        setTheme('dark');
+    } else {
+        setTheme('light');
+    }
 
     themeToggle.addEventListener('click', () => {
-        const current = rootEl.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-        setTheme(current === 'light' ? 'dark' : 'light');
+        const current = rootEl.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        setTheme(current === 'dark' ? 'light' : 'dark');
     });
 }
 
@@ -43,7 +48,7 @@ let ticking = false;
 window.addEventListener('scroll', () => {
     if (!ticking) {
         requestAnimationFrame(() => {
-            nav.classList.toggle('scrolled', window.scrollY > 50);
+            nav.classList.toggle('scrolled', window.scrollY > 0);
             ticking = false;
         });
         ticking = true;
@@ -57,7 +62,7 @@ const links = document.querySelectorAll('.nav-link');
 function updateActiveLink() {
     let current = '';
     sections.forEach(section => {
-        if (window.scrollY >= section.offsetTop - 200) {
+        if (window.scrollY >= section.offsetTop - 100) {
             current = section.id;
         }
     });
@@ -71,15 +76,15 @@ window.addEventListener('scroll', () => {
 });
 
 // Mobile menu
-// navLinks is moved to <body> when the menu opens so it escapes the
-// nav's stacking-context and backdrop-filter containing block.
 const navActions = document.querySelector('.nav-actions');
 
 function openMenu() {
     navLinks.classList.remove('closing');
     navLinks.classList.add('open');
-    navToggle.classList.add('active');
-    navToggle.setAttribute('aria-expanded', 'true');
+    if (navToggle) {
+        navToggle.classList.add('active');
+        navToggle.setAttribute('aria-expanded', 'true');
+    }
     nav.classList.add('menu-open');
     document.body.classList.add('no-scroll');
 
@@ -101,8 +106,10 @@ function closeMenu() {
 
     navLinks.classList.remove('open');
     navLinks.classList.add('closing');
-    navToggle.classList.remove('active');
-    navToggle.setAttribute('aria-expanded', 'false');
+    if (navToggle) {
+        navToggle.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+    }
     nav.classList.remove('menu-open');
     document.body.classList.remove('no-scroll');
     
@@ -113,7 +120,7 @@ function closeMenu() {
     setTimeout(() => {
         if (!navLinks.classList.contains('open')) {
             navLinks.classList.remove('closing');
-            if (navActions.parentNode && navLinks.parentNode !== navActions.parentNode) {
+            if (navActions && navActions.parentNode && navLinks.parentNode !== navActions.parentNode) {
                 navActions.parentNode.insertBefore(navLinks, navActions);
             }
             if (overlay && overlay.parentNode) {
@@ -124,13 +131,15 @@ function closeMenu() {
     }, 300);
 }
 
-navToggle.addEventListener('click', () => {
-    if (navLinks.classList.contains('open')) {
-        closeMenu();
-    } else {
-        openMenu();
-    }
-});
+if (navToggle) {
+    navToggle.addEventListener('click', () => {
+        if (navLinks.classList.contains('open')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+}
 
 navLinks.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', closeMenu);
@@ -143,7 +152,7 @@ document.addEventListener('keydown', e => {
 });
 
 window.addEventListener('resize', () => {
-    if (window.innerWidth > 768 && navLinks.classList.contains('open')) {
+    if (window.innerWidth > 960 && navLinks.classList.contains('open')) {
         closeMenu();
     }
 });
@@ -159,127 +168,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         if (target) {
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-    });
-});
-
-// --- Typing effect ----------------------------------------
-
-const typedEl = document.getElementById('typedText');
-if (typedEl) {
-    const phrases = [
-        'Building production-grade AI & data systems.',
-        'Scaling ML from notebook to cloud.',
-        'Architecting pipelines for petabyte-scale data.',
-        'Shipping code that thinks.'
-    ];
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function tick() {
-        const current = phrases[phraseIndex];
-        if (isDeleting) {
-            typedEl.textContent = current.substring(0, charIndex - 1);
-            charIndex--;
-            if (charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                setTimeout(tick, 400);
-                return;
-            }
-            setTimeout(tick, 28);
-        } else {
-            typedEl.textContent = current.substring(0, charIndex + 1);
-            charIndex++;
-            if (charIndex === current.length) {
-                isDeleting = true;
-                setTimeout(tick, 2200);
-                return;
-            }
-            setTimeout(tick, 55);
-        }
-    }
-    setTimeout(tick, 800);
-}
-
-// --- Hero parallax tilt (mouse tracking) ------------------
-
-const hero = document.querySelector('.hero');
-const heroContent = document.getElementById('heroContent');
-const cursorGlow = document.getElementById('cursorGlow');
-const tiltTargets = document.querySelectorAll('[data-tilt]');
-
-if (hero && heroContent && !window.matchMedia('(hover: none)').matches) {
-    let rafPending = false;
-    let targetX = 0, targetY = 0;
-    let currentX = 0, currentY = 0;
-
-    hero.addEventListener('mousemove', (e) => {
-        const rect = hero.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        // Normalize to -1..1
-        targetX = (x / rect.width) * 2 - 1;
-        targetY = (y / rect.height) * 2 - 1;
-
-        // Move cursor glow
-        if (cursorGlow) {
-            cursorGlow.style.left = x + 'px';
-            cursorGlow.style.top = y + 'px';
-        }
-
-        if (!rafPending) {
-            rafPending = true;
-            requestAnimationFrame(animateTilt);
-        }
-    });
-
-    hero.addEventListener('mouseleave', () => {
-        targetX = 0;
-        targetY = 0;
-        if (!rafPending) {
-            rafPending = true;
-            requestAnimationFrame(animateTilt);
-        }
-    });
-
-    function animateTilt() {
-        // Smooth interpolation (lerp)
-        currentX += (targetX - currentX) * 0.08;
-        currentY += (targetY - currentY) * 0.08;
-
-        // Container-level tilt
-        const rotateY = currentX * 6;
-        const rotateX = -currentY * 6;
-        heroContent.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-
-        // Per-element depth shift (parallax)
-        tiltTargets.forEach(el => {
-            const depth = parseFloat(el.dataset.tilt) || 0;
-            const tx = currentX * depth;
-            const ty = currentY * depth;
-            el.style.transform = `translate3d(${tx}px, ${ty}px, ${depth * 2}px)`;
-        });
-
-        // Continue animating if still interpolating
-        if (Math.abs(targetX - currentX) > 0.001 || Math.abs(targetY - currentY) > 0.001) {
-            requestAnimationFrame(animateTilt);
-        } else {
-            rafPending = false;
-        }
-    }
-}
-
-// --- Project card cursor glow -----------------------------
-
-document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-        card.style.setProperty('--mx', x + '%');
-        card.style.setProperty('--my', y + '%');
     });
 });
 
