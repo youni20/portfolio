@@ -214,8 +214,21 @@
                 <h2 class="section-title fade-in">Experience</h2>
                 
                 <div class="timeline stagger">
+                    <!-- Current Role -->
                     <article class="timeline-entry">
-                        <time class="tl-date">Mar 2026 &ndash; Present</time>
+                        <time class="tl-date">Sep 2026 &ndash; Present</time>
+                        <div class="tl-content">
+                            <h3 class="tl-company">Softwerk AB</h3>
+                            <p class="tl-role">Machine Learning Systems Engineer</p>
+                            <ul class="tl-bullets">
+                                <li>[Add your first responsibility or achievement here]</li>
+                                <li>[Add your second responsibility or achievement here]</li>
+                            </ul>
+                        </div>
+                    </article>
+                
+                    <article class="timeline-entry">
+                        <time class="tl-date">Mar 2026 &ndash; Jul 2026</time>
                         <div class="tl-content">
                             <h3 class="tl-company">Softwerk AB</h3>
                             <p class="tl-role">Bachelor Thesis Researcher</p>
@@ -225,6 +238,7 @@
                             </ul>
                         </div>
                     </article>
+                </div>
 
                     <article class="timeline-entry">
                         <time class="tl-date">Feb 2026 &ndash; Present</time>
@@ -307,46 +321,105 @@
             </div>
         </section>
 
+        
         <!-- Featured Work -->
-        <section id="projects" class="section">
-            <div class="container">
-                <h2 class="section-title fade-in">Featured Work</h2>
-                
-                <div class="projects-grid stagger">
-                    <article class="project-card">
-                        <div class="project-content">
-                            <h3 class="project-name">Football Vision AI</h3>
-                            <p class="project-impact">End-to-end match analysis</p>
-                            <p class="project-desc">End-to-end computer vision system automating match analysis with player tracking, team segmentation, and speed metrics.</p>
-                            <div class="project-tags">
-                                <span>YOLOv8</span><span>OpenCV</span><span>PyTorch</span><span>ByteTrack</span>
-                            </div>
-                            <a href="https://github.com/youni20/match-vision-ai" target="_blank"
-                                rel="noopener noreferrer" class="project-link">
-                                View on GitHub
-                            </a>
-                        </div>
-                    </article>
+        <section id="projects" class="portfolio-projects">
+  <h2>Pinned Projects</h2>
+  <div class="projects-grid">
+    
+    <!-- Project 1: sgemm-autotuner -->
+    <div class="project-card">
+      <div class="project-header">
+        <h3><a href="https://github.com/youni20/sgemm-autotuner" target="_blank" rel="noopener noreferrer">sgemm-autotuner</a></h3>
+        <span class="badge">Public</span>
+      </div>
+      <p class="project-description">
+        A high-performance C++ SGEMM implementation evolving from a naive loop to near-peak CPU performance, featuring empirical autotuning and OpenBLAS benchmarking.
+      </p>
+      <div class="project-footer">
+        <span class="language-color" style="background-color: #f34b7d;"></span>
+        <span class="language">C++</span>
+      </div>
+    </div>
 
-                    <article class="project-card">
-                        <div class="project-content">
-                            <h3 class="project-name">DeepFake Detection</h3>
-                            <p class="project-impact">96.8% detection accuracy</p>
-                            <p class="project-desc">Production-ready deep learning system detecting AI-generated faces.
-                                Uses transfer learning with ResNet50 and EfficientNet, deployed via Dockerized FastAPI with
-                                MLflow tracking.</p>
-                            <div class="project-tags">
-                                <span>PyTorch</span><span>FastAPI</span><span>Docker</span><span>MLflow</span>
-                            </div>
-                            <a href="https://github.com/youni20/deepfake-detection-system" target="_blank"
-                                rel="noopener noreferrer" class="project-link">
-                                View on GitHub
-                            </a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
+    <!-- Project 2: sherlock-RAG -->
+    <div class="project-card">
+      <div class="project-header">
+        <h3><a href="https://github.com/youni20/sherlock-RAG" target="_blank" rel="noopener noreferrer">sherlock-RAG</a></h3>
+        <span class="badge">Public</span>
+      </div>
+      <p class="project-description">
+        A Retrieval-Augmented Generation (RAG) assistant designed to ingest documents and provide verified answers based strictly on the provided evidence. Built as a technical assessment.
+      </p>
+      <div class="project-footer">
+        <span class="language-color" style="background-color: #3572A5;"></span>
+        <span class="language">Python</span>
+      </div>
+    </div>
+
+    <!-- Project 3: match-vision-ai -->
+    <div class="project-card">
+      <div class="project-header">
+        <h3><a href="https://github.com/youni20/match-vision-ai" target="_blank" rel="noopener noreferrer">match-vision-ai</a></h3>
+        <span class="badge">Public</span>
+      </div>
+      <p class="project-description">
+        An AI-powered video data analysis system built with YOLO and OpenCV that detects players, tracks ball movement, and extracts match insights in real time.
+      </p>
+      <div class="project-footer">
+        <span class="language-color" style="background-color: #DA5B0B;"></span>
+        <span class="language">Jupyter Notebook</span>
+      </div>
+    </div>
+
+    <!-- Project 4: code-translation-engine -->
+    <div class="project-card">
+      <div class="project-header">
+        <h3><a href="https://github.com/youni20/code-translation-engine" target="_blank" rel="noopener noreferrer">code-translation-engine</a></h3>
+        <span class="badge">Public</span>
+      </div>
+      <p class="project-description">
+        Bachelor thesis investigating whether Language Server Protocol (LSP) feedback improves LLM-driven code repair in agentic translation pipelines. Compares structured LSP diagnostics against raw comp...
+      </p>
+      <div class="project-footer">
+        <span class="language-color" style="background-color: #dea584;"></span>
+        <span class="language">Rust</span>
+      </div>
+    </div>
+
+    <!-- Project 5: ClearScan-OCR-Pipeline -->
+    <div class="project-card">
+      <div class="project-header">
+        <h3><a href="https://github.com/youni20/ClearScan-OCR-Pipeline" target="_blank" rel="noopener noreferrer">ClearScan-OCR-Pipeline</a></h3>
+        <span class="badge">Public</span>
+      </div>
+      <p class="project-description">
+        OCR pipeline for digitising historical Swedish investigation documents using Qwen3-VL with adaptive preprocessing and evaluation.
+      </p>
+      <div class="project-footer">
+        <span class="language-color" style="background-color: #3572A5;"></span>
+        <span class="language">Python</span>
+      </div>
+    </div>
+
+    <!-- Project 6: api-forge -->
+    <div class="project-card">
+      <div class="project-header">
+        <h3><a href="https://github.com/youni20/api-forge" target="_blank" rel="noopener noreferrer">api-forge</a></h3>
+        <span class="badge">Public</span>
+      </div>
+      <p class="project-description">
+        A collection of scalable, commercial-grade APIs designed for SaaS integration and monetization.
+      </p>
+      <div class="project-footer">
+        <span class="language-color" style="background-color: #f1e05a;"></span>
+        <span class="language">JavaScript</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+        
 
         <!-- Certifications -->
         <section class="section section-alt">
