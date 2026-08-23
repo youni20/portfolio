@@ -324,100 +324,133 @@
 
         
         <!-- Featured Work -->
-        <section id="projects" class="portfolio-projects">
-  <h2>Pinned Projects</h2>
-  <div class="projects-grid">
+        <section id="projects" class="portfolio-projects section">
+  <div class="container">
+    <h2 class="section-title fade-in">Pinned Projects</h2>
     
-    <!-- Project 1: sgemm-autotuner -->
-    <div class="project-card">
-      <div class="project-header">
-        <h3><a href="https://github.com/youni20/sgemm-autotuner" target="_blank" rel="noopener noreferrer">sgemm-autotuner</a></h3>
-        <span class="badge">Public</span>
+    <div class="projects-grid stagger">
+      
+      <!-- Project 1: sgemm-autotuner -->
+      <div class="project-card">
+        <div class="project-header">
+          <h3 class="project-name">sgemm-autotuner</h3>
+          <span class="badge">Public</span>
+        </div>
+        <p class="project-description">
+          A high-performance C++ SGEMM implementation evolving from a naive loop to near-peak CPU performance, featuring empirical autotuning and OpenBLAS benchmarking.
+        </p>
+        <div class="project-footer">
+          <div class="project-lang">
+            <span class="language-color" style="background-color: #f34b7d;"></span>
+            <span class="language">C++</span>
+          </div>
+          <a href="https://github.com/youni20/sgemm-autotuner" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-small">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
       </div>
-      <p class="project-description">
-        A high-performance C++ SGEMM implementation evolving from a naive loop to near-peak CPU performance, featuring empirical autotuning and OpenBLAS benchmarking.
-      </p>
-      <div class="project-footer">
-        <span class="language-color" style="background-color: #f34b7d;"></span>
-        <span class="language">C++</span>
-      </div>
-    </div>
 
-    <!-- Project 2: sherlock-RAG -->
-    <div class="project-card">
-      <div class="project-header">
-        <h3><a href="https://github.com/youni20/sherlock-RAG" target="_blank" rel="noopener noreferrer">sherlock-RAG</a></h3>
-        <span class="badge">Public</span>
+      <!-- Project 2: sherlock-RAG -->
+      <div class="project-card">
+        <div class="project-header">
+          <h3 class="project-name">sherlock-RAG</h3>
+          <span class="badge">Public</span>
+        </div>
+        <p class="project-description">
+          A Retrieval-Augmented Generation (RAG) assistant designed to ingest documents and provide verified answers based strictly on the provided evidence. Built as a technical assessment.
+        </p>
+        <div class="project-footer">
+          <div class="project-lang">
+            <span class="language-color" style="background-color: #3572A5;"></span>
+            <span class="language">Python</span>
+          </div>
+          <a href="https://github.com/youni20/sherlock-RAG" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-small">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
       </div>
-      <p class="project-description">
-        A Retrieval-Augmented Generation (RAG) assistant designed to ingest documents and provide verified answers based strictly on the provided evidence. Built as a technical assessment.
-      </p>
-      <div class="project-footer">
-        <span class="language-color" style="background-color: #3572A5;"></span>
-        <span class="language">Python</span>
-      </div>
-    </div>
 
-    <!-- Project 3: match-vision-ai -->
-    <div class="project-card">
-      <div class="project-header">
-        <h3><a href="https://github.com/youni20/match-vision-ai" target="_blank" rel="noopener noreferrer">match-vision-ai</a></h3>
-        <span class="badge">Public</span>
+      <!-- Project 3: match-vision-ai -->
+      <div class="project-card">
+        <div class="project-header">
+          <h3 class="project-name">match-vision-ai</h3>
+          <span class="badge">Public</span>
+        </div>
+        <p class="project-description">
+          An AI-powered video data analysis system built with YOLO and OpenCV that detects players, tracks ball movement, and extracts match insights in real time.
+        </p>
+        <div class="project-footer">
+          <div class="project-lang">
+            <span class="language-color" style="background-color: #DA5B0B;"></span>
+            <span class="language">Jupyter Notebook</span>
+          </div>
+          <a href="https://github.com/youni20/match-vision-ai" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-small">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
       </div>
-      <p class="project-description">
-        An AI-powered video data analysis system built with YOLO and OpenCV that detects players, tracks ball movement, and extracts match insights in real time.
-      </p>
-      <div class="project-footer">
-        <span class="language-color" style="background-color: #DA5B0B;"></span>
-        <span class="language">Jupyter Notebook</span>
-      </div>
-    </div>
 
-    <!-- Project 4: code-translation-engine -->
-    <div class="project-card">
-      <div class="project-header">
-        <h3><a href="https://github.com/youni20/code-translation-engine" target="_blank" rel="noopener noreferrer">code-translation-engine</a></h3>
-        <span class="badge">Public</span>
+      <!-- Project 4: code-translation-engine -->
+      <div class="project-card">
+        <div class="project-header">
+          <h3 class="project-name">code-translation-engine</h3>
+          <span class="badge">Public</span>
+        </div>
+        <p class="project-description">
+          Bachelor thesis investigating whether Language Server Protocol (LSP) feedback improves LLM-driven code repair in agentic translation pipelines. 
+        </p>
+        <div class="project-footer">
+          <div class="project-lang">
+            <span class="language-color" style="background-color: #dea584;"></span>
+            <span class="language">Rust</span>
+          </div>
+          <a href="https://github.com/youni20/code-translation-engine" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-small">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
       </div>
-      <p class="project-description">
-        Bachelor thesis investigating whether Language Server Protocol (LSP) feedback improves LLM-driven code repair in agentic translation pipelines. Compares structured LSP diagnostics against raw comp...
-      </p>
-      <div class="project-footer">
-        <span class="language-color" style="background-color: #dea584;"></span>
-        <span class="language">Rust</span>
-      </div>
-    </div>
 
-    <!-- Project 5: ClearScan-OCR-Pipeline -->
-    <div class="project-card">
-      <div class="project-header">
-        <h3><a href="https://github.com/youni20/ClearScan-OCR-Pipeline" target="_blank" rel="noopener noreferrer">ClearScan-OCR-Pipeline</a></h3>
-        <span class="badge">Public</span>
+      <!-- Project 5: ClearScan-OCR-Pipeline -->
+      <div class="project-card">
+        <div class="project-header">
+          <h3 class="project-name">ClearScan-OCR-Pipeline</h3>
+          <span class="badge">Public</span>
+        </div>
+        <p class="project-description">
+          OCR pipeline for digitising historical Swedish investigation documents using Qwen3-VL with adaptive preprocessing and evaluation.
+        </p>
+        <div class="project-footer">
+          <div class="project-lang">
+            <span class="language-color" style="background-color: #3572A5;"></span>
+            <span class="language">Python</span>
+          </div>
+          <a href="https://github.com/youni20/ClearScan-OCR-Pipeline" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-small">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
       </div>
-      <p class="project-description">
-        OCR pipeline for digitising historical Swedish investigation documents using Qwen3-VL with adaptive preprocessing and evaluation.
-      </p>
-      <div class="project-footer">
-        <span class="language-color" style="background-color: #3572A5;"></span>
-        <span class="language">Python</span>
-      </div>
-    </div>
 
-    <!-- Project 6: api-forge -->
-    <div class="project-card">
-      <div class="project-header">
-        <h3><a href="https://github.com/youni20/api-forge" target="_blank" rel="noopener noreferrer">api-forge</a></h3>
-        <span class="badge">Public</span>
+      <!-- Project 6: api-forge -->
+      <div class="project-card">
+        <div class="project-header">
+          <h3 class="project-name">api-forge</h3>
+          <span class="badge">Public</span>
+        </div>
+        <p class="project-description">
+          A collection of scalable, commercial-grade APIs designed for SaaS integration and monetization.
+        </p>
+        <div class="project-footer">
+          <div class="project-lang">
+            <span class="language-color" style="background-color: #f1e05a;"></span>
+            <span class="language">JavaScript</span>
+          </div>
+          <a href="https://github.com/youni20/api-forge" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-small">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
       </div>
-      <p class="project-description">
-        A collection of scalable, commercial-grade APIs designed for SaaS integration and monetization.
-      </p>
-      <div class="project-footer">
-        <span class="language-color" style="background-color: #f1e05a;"></span>
-        <span class="language">JavaScript</span>
-      </div>
-    </div>
 
+    </div>
   </div>
 </section>
         
