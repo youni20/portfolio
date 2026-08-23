@@ -655,84 +655,78 @@ button {
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-    gap: var(--space-5); /* 20px gap for card spacing */
+    gap: var(--space-5);
 }
 
 .project-card {
-    background: var(--bg-secondary); /* Defined container since there are no images */
-    border-radius: 20px; /* Nike interactive container border-radius */
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: 20px;
+    padding: var(--space-6); /* This fixes the crushed look! */
     display: flex;
     flex-direction: column;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
-.project-image-placeholder {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    background: var(--bg-secondary);
+.project-card:hover {
+    border-color: var(--text-primary);
+}
+
+.project-header {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    font-weight: 500;
-    border-radius: 0; /* Fully sharp edge-to-edge images */
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.project-content {
-    padding: var(--space-6); /* Generous padding for the 20px rounded card */
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.project-name {
-    font-family: var(--font-heading);
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--text-primary);
-    margin-bottom: var(--space-1);
-    text-transform: uppercase;
-}
-
-.project-impact {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text-secondary);
+    justify-content: space-between;
     margin-bottom: var(--space-3);
 }
 
-.project-desc {
+.project-header h3 {
+    font-family: var(--font-heading);
     font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.project-header a {
     color: var(--text-primary);
-    margin-bottom: var(--space-4);
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2);
-    margin-bottom: var(--space-4);
-}
-
-.project-tags span {
-    font-size: 12px;
+.project-header a:hover {
     color: var(--text-secondary);
-    font-weight: 500;
 }
 
-.project-link {
-    margin-top: auto;
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
+.badge {
+    border: 1px solid var(--border-primary);
+    border-radius: 30px;
+    padding: 4px 12px;
+    font-size: 12px;
     font-weight: 500;
-    color: var(--text-primary);
-    border-bottom: 1px solid var(--text-primary);
-    padding-bottom: 2px;
-    align-self: flex-start;
-    transition: color 0.3s ease, border-color 0.3s ease;
+    color: var(--text-secondary);
+}
+
+.project-description {
+    font-size: 15px;
+    color: var(--text-secondary);
+    flex-grow: 1; /* Pushes the footer to the bottom to keep cards equal height */
+    margin-bottom: var(--space-5);
+}
+
+.project-footer {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-top: auto;
+}
+
+.language-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: var(--space-2);
+    display: inline-block;
 }
 
 /* --- Certifications ---------------------------------------- */
