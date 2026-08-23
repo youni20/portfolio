@@ -654,18 +654,34 @@ button {
 /* --- Projects Grid ----------------------------------------- */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-    gap: var(--space-5);
+    grid-template-columns: 1fr; /* 1 column on mobile */
+    gap: var(--space-6); /* Generous gap so they aren't packed together */
+    width: 100%;
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop: Max 3 columns */
+@media (min-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .project-card {
     background: var(--bg-secondary);
     border: 1px solid var(--border-primary);
     border-radius: 20px;
-    padding: var(--space-6); /* This fixes the crushed look! */
+    padding: var(--space-6); /* Forces padding inside the card */
     display: flex;
     flex-direction: column;
     transition: border-color 0.3s ease, background-color 0.3s ease;
+    box-sizing: border-box;
 }
 
 .project-card:hover {
@@ -674,26 +690,19 @@ button {
 
 .project-header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
+    gap: var(--space-3);
     margin-bottom: var(--space-3);
 }
 
-.project-header h3 {
+.project-name {
     font-family: var(--font-heading);
-    font-size: 16px;
-    font-weight: 500;
-    margin: 0;
-}
-
-.project-header a {
+    font-size: 18px;
+    font-weight: 600;
     color: var(--text-primary);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.project-header a:hover {
-    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.2;
 }
 
 .badge {
@@ -703,22 +712,32 @@ button {
     font-size: 12px;
     font-weight: 500;
     color: var(--text-secondary);
+    white-space: nowrap;
 }
 
 .project-description {
     font-size: 15px;
     color: var(--text-secondary);
-    flex-grow: 1; /* Pushes the footer to the bottom to keep cards equal height */
-    margin-bottom: var(--space-5);
+    flex-grow: 1; /* Pushes footer down so all cards match height */
+    margin-bottom: var(--space-6);
+    line-height: 1.6;
 }
 
 .project-footer {
     display: flex;
     align-items: center;
-    font-size: 13px;
+    justify-content: space-between; /* Separates the lang and button */
+    margin-top: auto;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border-primary); /* Nice separator line */
+}
+
+.project-lang {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
     font-weight: 500;
     color: var(--text-secondary);
-    margin-top: auto;
 }
 
 .language-color {
@@ -727,6 +746,13 @@ button {
     border-radius: 50%;
     margin-right: var(--space-2);
     display: inline-block;
+}
+
+/* Button Modifier for Cards */
+.btn-small {
+    padding: 8px 16px;
+    font-size: 13px;
+    gap: 6px;
 }
 
 /* --- Certifications ---------------------------------------- */
