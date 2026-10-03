@@ -4,19 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Younus Mashoor | ML Systems Engineer</title>
+    <title>Younus Mashoor | Edge AI Systems Engineer</title>
     <meta name="description"
-        content="ML Systems Engineer working between machine learning models and the hardware that runs them. GPU performance, inference optimisation, C++ and CUDA.">
-        
+        content="Edge AI Systems Engineer. Running machine learning models on constrained hardware: embedded GPUs, ARM SoCs, and devices with fixed memory and power budgets. Quantisation, CUDA and SIMD kernels, profiling.">
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0b0d10" media="(prefers-color-scheme: dark)">
+
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Younus Mashoor | ML Systems Engineer">
-    <meta property="og:description" content="ML Systems Engineer working between machine learning models and the hardware that runs them. GPU performance, inference optimisation, C++ and CUDA.">
+    <meta property="og:title" content="Younus Mashoor | Edge AI Systems Engineer">
+    <meta property="og:description" content="Running machine learning models on constrained hardware: embedded GPUs, ARM SoCs, and devices with fixed memory and power budgets.">
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Younus Mashoor | ML Systems Engineer">
-    <meta name="twitter:description" content="ML Systems Engineer working between machine learning models and the hardware that runs them. GPU performance, inference optimisation, C++ and CUDA.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Younus Mashoor | Edge AI Systems Engineer">
+    <meta name="twitter:description" content="Running machine learning models on constrained hardware: embedded GPUs, ARM SoCs, and devices with fixed memory and power budgets.">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230d9488'/%3E%3Ctext x='32' y='44' font-family='monospace' font-size='30' font-weight='700' fill='%23fff' text-anchor='middle'%3EYM%3C/text%3E%3C/svg%3E">
 
     <!-- Structured data -->
     <script type="application/ld+json">
@@ -24,13 +29,15 @@
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Younus Mashoor",
-        "jobTitle": "ML Systems Engineer",
+        "jobTitle": "Edge AI Systems Engineer",
         "knowsAbout": [
+            "edge AI",
+            "on-device inference",
+            "model quantisation",
             "CUDA",
-            "GPU performance optimisation",
+            "GPU kernel optimisation",
+            "embedded systems",
             "C++",
-            "inference optimisation",
-            "high performance computing",
             "computer architecture"
         ],
         "sameAs": [
@@ -40,31 +47,70 @@
     }
     </script>
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <script>
+        // Set theme before first paint to avoid a flash of the wrong theme.
+        (function () {
+            document.documentElement.classList.add('js');
+            try {
+                var stored = localStorage.getItem('theme');
+                var dark = stored ? stored === 'dark'
+                    : window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+            } catch (e) { /* storage blocked — fall back to light */ }
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+    <!-- Icon sprite -->
+    <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+        <symbol id="i-github" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12 .5C5.73.5.9 5.33.9 11.6c0 4.9 3.17 9.06 7.57 10.53.55.1.76-.24.76-.53v-2.06c-3.08.67-3.73-1.3-3.73-1.3-.5-1.29-1.23-1.63-1.23-1.63-1.01-.69.08-.67.08-.67 1.11.08 1.7 1.15 1.7 1.15.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.46-.28-5.05-1.23-5.05-5.48 0-1.21.43-2.2 1.14-2.98-.11-.28-.5-1.41.11-2.94 0 0 .93-.3 3.05 1.14a10.6 10.6 0 0 1 5.56 0c2.12-1.44 3.05-1.14 3.05-1.14.61 1.53.22 2.66.11 2.94.71.78 1.14 1.77 1.14 2.98 0 4.26-2.6 5.2-5.07 5.47.4.35.76 1.03.76 2.08v3.08c0 .3.2.64.77.53 4.4-1.47 7.56-5.63 7.56-10.53C23.1 5.33 18.27.5 12 .5Z"/>
+        </symbol>
+        <symbol id="i-linkedin" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/>
+        </symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24">
+            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 6.5h18v11H3zM3 7l9 6 9-6"/>
+        </symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24">
+            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 4.2V2m0 20v-2.2M19.8 12H22M2 12h2.2m12.5-5.5 1.6-1.6M5.7 18.3l1.6-1.6m0-9.4L5.7 5.7m12.6 12.6-1.6-1.6"/>
+            <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        </symbol>
+        <symbol id="i-moon" viewBox="0 0 24 24">
+            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.2 8.2 0 1 0 10.2 10.2Z"/>
+        </symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24">
+            <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M8 7h9v9"/>
+        </symbol>
+    </svg>
+
+    <a href="#main" class="skip-link">Skip to content</a>
+
     <header>
         <nav class="nav" id="nav">
             <div class="nav-inner">
-                <a href="#home" class="nav-logo" aria-label="Home">YM</a>
-                
-                <ul class="nav-links" id="navLinks" role="menubar">
-                    <li role="none"><a href="#home" class="nav-link active" role="menuitem">Home</a></li>
-                    <li role="none"><a href="#about" class="nav-link" role="menuitem">About</a></li>
-                    <li role="none"><a href="#experience" class="nav-link" role="menuitem">Experience</a></li>
-                    <li role="none"><a href="#projects" class="nav-link" role="menuitem">Projects</a></li>
-                    <li role="none"><a href="#contact" class="nav-link" role="menuitem">Contact</a></li>
+                <a href="#home" class="nav-logo" aria-label="Home">YM<span class="nav-logo-dot">.</span></a>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home" class="nav-link active">home</a></li>
+                    <li><a href="#about" class="nav-link">about</a></li>
+                    <li><a href="#experience" class="nav-link">experience</a></li>
+                    <li><a href="#projects" class="nav-link">work</a></li>
+                    <li><a href="#contact" class="nav-link">contact</a></li>
                 </ul>
-                
+
                 <div class="nav-actions">
-                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme" type="button">
-                        <i class="fas fa-sun theme-icon-sun"></i>
-                        <i class="fas fa-moon theme-icon-moon"></i>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme" type="button">
+                        <svg class="theme-icon-sun" width="18" height="18" aria-hidden="true"><use href="#i-sun"/></svg>
+                        <svg class="theme-icon-moon" width="18" height="18" aria-hidden="true"><use href="#i-moon"/></svg>
                     </button>
-                    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-                        <span></span>
+                    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" type="button">
                         <span></span>
                         <span></span>
                     </button>
@@ -73,215 +119,168 @@
         </nav>
     </header>
 
-    <main>
-        <!-- Hero -->
-        <section id="home" class="hero fade-in">
-            <div class="hero-bg-wrapper">
-                <img src="hero-bg.png" alt="Data Infrastructure Architecture" class="hero-bg-image">
-                <div class="hero-bg-overlay"></div>
-            </div>
-
+    <main id="main">
+        <!-- 01 — Index -->
+        <section id="home" class="hero">
             <div class="container">
-                <div class="hero-content">
-                    <p class="hero-greeting">Hi there, I'm</p>
-                    <h1 class="hero-name display-text">
-                        <span class="hero-name-first">Younus</span> <span class="hero-name-last">Mashoor</span>
-                    </h1>
-                    <p class="hero-title">ML Systems Engineer | GPU Performance &amp; Inference Optimisation | C++ &middot; CUDA</p>
-                    
-                    <div class="hero-socials">
-                        <a href="https://github.com/youni20" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/younus-mashoor-6a48aa360" target="_blank"
-                            rel="noopener noreferrer" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="mailto:younusmashoor@gmail.com" aria-label="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
+                <p class="sec-label fade-in"><span class="sec-num">01</span> / index</p>
+
+                <div class="hero-body fade-in">
+                    <h1 class="hero-name">Younus<br>Mashoor</h1>
+                    <p class="hero-role">Edge AI Systems Engineer</p>
+                    <p class="hero-lede">
+                        Running machine learning models on constrained hardware &mdash; embedded GPUs,
+                        ARM SoCs, and devices with fixed memory and power budgets.
+                    </p>
+
+                    <ul class="linkrow">
+                        <li>
+                            <a href="https://github.com/youni20" target="_blank" rel="noopener noreferrer">
+                                <span>github</span>
+                                <svg width="12" height="12" aria-hidden="true"><use href="#i-arrow"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/younus-mashoor-6a48aa360" target="_blank" rel="noopener noreferrer">
+                                <span>linkedin</span>
+                                <svg width="12" height="12" aria-hidden="true"><use href="#i-arrow"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:younusmashoor@gmail.com">
+                                <span>email</span>
+                                <svg width="12" height="12" aria-hidden="true"><use href="#i-arrow"/></svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02 — About -->
+        <section id="about" class="section">
+            <div class="container">
+                <p class="sec-label fade-in"><span class="sec-num">02</span> / about</p>
+
+                <div class="about fade-in">
+                    <div class="about-media">
+                        <img src="pfp.jpg" alt="Younus Mashoor" class="profile-pic" width="200" height="200" loading="lazy">
+                    </div>
+                    <div class="about-body">
+                        <p>I work on running machine learning models on constrained hardware: embedded GPUs, ARM SoCs, devices with fixed memory and power budgets. In practice that means quantisation, operator fusion, hand-written CUDA and SIMD kernels, and memory layouts chosen for the cache they actually run against.</p>
+                        <p>Most of it is measurement. Whether a kernel is bandwidth-bound or compute-bound, what p99 latency looks like under sustained load rather than a cold benchmark, and what a quantisation step costs in accuracy.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- About -->
-        <section id="about" class="section section-alt">
-            <div class="container">
-                <h2 class="section-title fade-in">About</h2>
-                
-                <div class="about-flex fade-in">
-                    <img src="pfp.jpg" alt="Younus Mashoor" class="profile-pic" loading="lazy">
-                    
-                    <div class="about-content">
-                        <p class="about-lead">I work at the layer between machine learning models and the hardware that runs them. C++ and CUDA, GPU kernel optimisation, memory-aware data structures, and profiling that reports distributions rather than averages. The questions that interest me are the ones that decide real throughput: whether a workload is bound by memory bandwidth or arithmetic intensity, and what the p99 looks like under load rather than on a benchmark.</p>
-                        <p class="about-lead">My background is in Mathematics, Computer Science and Economics. The economics is not incidental. Inference is a cost problem before it is a performance problem, and the engineering case and the commercial case are usually held by different people. I want to hold both.</p>
-
-                        <div class="focus-pills stagger">
-                            <span class="focus-pill">GPU Kernel Optimisation</span>
-                            <span class="focus-pill">Inference Optimisation</span>
-                            <span class="focus-pill">CUDA</span>
-                            <span class="focus-pill">High-Performance C++</span>
-                            <span class="focus-pill">Computer Architecture</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Tech Stack -->
+        <!-- 03 — Stack -->
         <section id="stack" class="section">
             <div class="container">
-                <h2 class="section-title fade-in">Tech Stack</h2>
-                
-                <div class="tech-stack-grid stagger">
-                    <article class="tech-card">
-                        <h3 class="tech-card-title">Cloud &amp; Infrastructure</h3>
-                        <div class="tech-chips">
-                            <span class="tech-chip">AWS</span>
-                            <span class="tech-chip">Azure</span>
-                            <span class="tech-chip">Kubernetes</span>
-                            <span class="tech-chip">Docker</span>
-                            <span class="tech-chip">Terraform</span>
-                            <span class="tech-chip">GitHub Actions</span>
-                        </div>
-                    </article>
+                <p class="sec-label fade-in"><span class="sec-num">03</span> / stack</p>
 
-                    <article class="tech-card">
-                        <h3 class="tech-card-title">AI &amp; ML Infrastructure</h3>
-                        <div class="tech-chips">
-                            <span class="tech-chip">PyTorch</span>
-                            <span class="tech-chip">CUDA</span>
-                            <span class="tech-chip">vLLM</span>
-                            <span class="tech-chip">SageMaker</span>
-                            <span class="tech-chip">MLflow</span>
-                            <span class="tech-chip">Hugging Face</span>
-                        </div>
-                    </article>
-
-                    <article class="tech-card">
-                        <h3 class="tech-card-title">Performance &amp; Systems</h3>
-                        <div class="tech-chips">
-                            <span class="tech-chip">Linux</span>
-                            <span class="tech-chip">perf</span>
-                            <span class="tech-chip">Valgrind</span>
-                            <span class="tech-chip">GDB</span>
-                            <span class="tech-chip">CMake</span>
-                            <span class="tech-chip">Assembly</span>
-                        </div>
-                    </article>
-
-                    <article class="tech-card">
-                        <h3 class="tech-card-title">Hardware &amp; Embedded</h3>
-                        <div class="tech-chips">
-                            <span class="tech-chip">VHDL</span>
-                            <span class="tech-chip">Verilog</span>
-                            <span class="tech-chip">FPGA</span>
-                            <span class="tech-chip">Embedded C</span>
-                            <span class="tech-chip">RTOS</span>
-                            <span class="tech-chip">ARM</span>
-                        </div>
-                    </article>
-
-                    <article class="tech-card">
-                        <h3 class="tech-card-title">Languages</h3>
-                        <div class="tech-chips">
-                            <span class="tech-chip">C++</span>
-                            <span class="tech-chip">C</span>
-                            <span class="tech-chip">Rust</span>
-                            <span class="tech-chip">Python</span>
-                            <span class="tech-chip">SQL</span>
-                            <span class="tech-chip">Bash</span>
-                        </div>
-                    </article>
-
-                    <article class="tech-card">
-                        <h3 class="tech-card-title">Backend &amp; APIs</h3>
-                        <div class="tech-chips">
-                            <span class="tech-chip">FastAPI</span>
-                            <span class="tech-chip">REST API</span>
-                            <span class="tech-chip">PostgreSQL</span>
-                        </div>
-                    </article>
-                </div>
+                <dl class="spec stagger">
+                    <div class="spec-row">
+                        <dt>Languages</dt>
+                        <dd>C++ &middot; C &middot; Assembly &middot; Rust &middot; Python &middot; SQL &middot; Bash</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt>Performance &amp; Systems</dt>
+                        <dd>CUDA &middot; Linux &middot; Nsight &middot; perf &middot; GDB &middot; Valgrind &middot; CMake</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt>Edge Hardware</dt>
+                        <dd>ARM &middot; x86-64 &middot; NVIDIA GPU &middot; FPGA &middot; VHDL &middot; Verilog &middot; Embedded C &middot; RTOS</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt>Inference &amp; Deployment</dt>
+                        <dd>PyTorch &middot; TensorRT &middot; ONNX Runtime &middot; Hugging Face &middot; MLflow &middot; SageMaker</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt>Cloud &amp; Tooling</dt>
+                        <dd>AWS &middot; Azure &middot; Docker &middot; Kubernetes &middot; Terraform &middot; GitHub Actions</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt>Backend</dt>
+                        <dd>FastAPI &middot; REST &middot; PostgreSQL</dd>
+                    </div>
+                </dl>
             </div>
         </section>
 
-        <!-- Experience -->
-        <section id="experience" class="section section-alt">
+        <!-- 04 — Experience -->
+        <section id="experience" class="section">
             <div class="container">
-                <h2 class="section-title fade-in">Experience</h2>
-                
+                <p class="sec-label fade-in"><span class="sec-num">04</span> / experience</p>
+
                 <div class="timeline stagger">
-                    <!-- Current Role -->
-                    <article class="timeline-entry">
-                        <time class="tl-date">Sep 2026 &ndash; Present</time>
-                        <div class="tl-content">
-                            <h3 class="tl-company">Softwerk AB</h3>
-                            <p class="tl-role">Machine Learning Systems Engineer</p>
-                            <ul class="tl-bullets">
+                    <article class="entry">
+                        <time class="entry-date">Sep 2026 &mdash; Present</time>
+                        <div class="entry-body">
+                            <h3 class="entry-org">Softwerk AB</h3>
+                            <p class="entry-role">Machine Learning Systems Engineer</p>
+                            <ul class="entry-points">
                                 <li>Develop performance-critical C++ and Python components for ML workloads, focusing on memory, concurrency, and computational efficiency.</li>
                                 <li>Optimise compute-intensive pipelines, reducing execution time by up to 30% through algorithmic, memory, and system-level optimisation.</li>
                                 <li>Analyse system bottlenecks and integrate high-performance C++ components with Python ML workflows across multi-core environment.</li>
                             </ul>
                         </div>
                     </article>
-                
-                    <article class="timeline-entry">
-                        <time class="tl-date">Mar 2026 &ndash; Jul 2026</time>
-                        <div class="tl-content">
-                            <h3 class="tl-company">Softwerk AB</h3>
-                            <p class="tl-role">Bachelor Thesis Researcher</p>
-                            <ul class="tl-bullets">
+
+                    <article class="entry">
+                        <time class="entry-date">Mar 2026 &mdash; Jul 2026</time>
+                        <div class="entry-body">
+                            <h3 class="entry-org">Softwerk AB</h3>
+                            <p class="entry-role">Bachelor Thesis Researcher</p>
+                            <ul class="entry-points">
                                 <li>Investigating the impact of Language Server Protocol (LSP) access on output quality in agentic code translation pipelines</li>
                                 <li>Comparing LLM-driven repair loops using raw compiler output versus structured LSP feedback across multiple language ecosystems</li>
                             </ul>
                         </div>
                     </article>
-                </div>
 
-                    <article class="timeline-entry">
-                        <time class="tl-date">Feb 2026 &ndash; Present</time>
-                        <div class="tl-content">
-                            <h3 class="tl-company">Rankad.ai</h3>
-                            <p class="tl-role">AI &amp; Backend Engineer Intern</p>
-                            <ul class="tl-bullets">
+                    <article class="entry">
+                        <time class="entry-date">Feb 2026 &mdash; Present</time>
+                        <div class="entry-body">
+                            <h3 class="entry-org">Rankad.ai</h3>
+                            <p class="entry-role">AI &amp; Backend Engineer Intern</p>
+                            <ul class="entry-points">
                                 <li>Building backend systems and AI infrastructure for an autonomous platform that helps businesses get recommended by AI services</li>
                                 <li>Engineering backend services and pipelines that power real-time brand visibility tracking and automated AI search optimisation</li>
                             </ul>
                         </div>
                     </article>
 
-                    <article class="timeline-entry">
-                        <time class="tl-date">Apr 2025 &ndash; Present</time>
-                        <div class="tl-content">
-                            <h3 class="tl-company">LNU AI Society</h3>
-                            <p class="tl-role">Founder &amp; Head of IT</p>
-                            <ul class="tl-bullets">
+                    <article class="entry">
+                        <time class="entry-date">Apr 2025 &mdash; Present</time>
+                        <div class="entry-body">
+                            <h3 class="entry-org">LNU AI Society</h3>
+                            <p class="entry-role">Founder &amp; Head of IT</p>
+                            <ul class="entry-points">
                                 <li>Co-founded a student-led AI society at Linnaeus University, leading both the Marketing and IT departments</li>
                                 <li>Designed, developed, and deployed the official website to support events, member engagement, and internal operations</li>
                             </ul>
                         </div>
                     </article>
 
-                    <article class="timeline-entry">
-                        <time class="tl-date">Nov 2025 &ndash; Feb 2026</time>
-                        <div class="tl-content">
-                            <h3 class="tl-company">Brinna AI</h3>
-                            <p class="tl-role">AI/ML Research &amp; Engineering Intern</p>
-                            <ul class="tl-bullets">
+                    <article class="entry">
+                        <time class="entry-date">Nov 2025 &mdash; Feb 2026</time>
+                        <div class="entry-body">
+                            <h3 class="entry-org">Brinna AI</h3>
+                            <p class="entry-role">AI/ML Research &amp; Engineering Intern</p>
+                            <ul class="entry-points">
                                 <li>Contributing to applied AI research and engineering for next-generation Brand Intelligence at a fast-moving technology startup</li>
                                 <li>Building and refining machine learning prototypes that enhance consistency, effectiveness, and decision-making for enterprise branding</li>
                             </ul>
                         </div>
                     </article>
 
-                    <article class="timeline-entry">
-                        <time class="tl-date">Oct 2025 &ndash; Feb 2026</time>
-                        <div class="tl-content">
-                            <h3 class="tl-company">XR Solutions</h3>
-                            <p class="tl-role">Data &amp; Machine Learning Engineer Intern</p>
-                            <ul class="tl-bullets">
+                    <article class="entry">
+                        <time class="entry-date">Oct 2025 &mdash; Feb 2026</time>
+                        <div class="entry-body">
+                            <h3 class="entry-org">XR Solutions</h3>
+                            <p class="entry-role">Data &amp; Machine Learning Engineer Intern</p>
+                            <ul class="entry-points">
                                 <li>Built and maintained scalable data pipelines and backend systems supporting ML-driven AR applications for industrial use cases</li>
                                 <li>Developed RESTful APIs using Node.js, Express.js, and PostgreSQL to serve data and model predictions, deployed ML pipelines and services on AWS</li>
                             </ul>
@@ -289,25 +288,25 @@
                     </article>
                 </div>
 
-                <div class="timeline timeline-collapsed" id="moreExperience">
-                    <article class="timeline-entry">
-                        <time class="tl-date">Sep 2025 &ndash; Feb 2026</time>
-                        <div class="tl-content">
-                            <h3 class="tl-company">Linnaeus University</h3>
-                            <p class="tl-role">Teaching Assistant &mdash; Cloud Native Applications &amp; OS</p>
-                            <ul class="tl-bullets">
+                <div class="timeline is-collapsed" id="moreExperience">
+                    <article class="entry">
+                        <time class="entry-date">Sep 2025 &mdash; Feb 2026</time>
+                        <div class="entry-body">
+                            <h3 class="entry-org">Linnaeus University</h3>
+                            <p class="entry-role">Teaching Assistant &mdash; Cloud Native Applications &amp; OS</p>
+                            <ul class="entry-points">
                                 <li>Designed and managed scalable infrastructure using IaC, Ansible, Docker, and Kubernetes on OpenStack</li>
                                 <li>Mentored students on CI/CD pipelines, distributed systems, process synchronisation, memory management, and kernel-level programming</li>
                             </ul>
                         </div>
                     </article>
 
-                    <article class="timeline-entry">
-                        <time class="tl-date">Jul &ndash; Sep 2024</time>
-                        <div class="tl-content">
-                            <h3 class="tl-company">Mannai Corporation QPSC</h3>
-                            <p class="tl-role">Machine Learning Intern</p>
-                            <ul class="tl-bullets">
+                    <article class="entry">
+                        <time class="entry-date">Jul &mdash; Sep 2024</time>
+                        <div class="entry-body">
+                            <h3 class="entry-org">Mannai Corporation QPSC</h3>
+                            <p class="entry-role">Machine Learning Intern</p>
+                            <ul class="entry-points">
                                 <li>Developed and optimised machine learning models end to end, covering data preprocessing, feature engineering, model training, evaluation, and deployment</li>
                                 <li>Built scalable, production-ready solutions using Python, TensorFlow, PyTorch, and Scikit-learn</li>
                             </ul>
@@ -315,250 +314,163 @@
                     </article>
                 </div>
 
-                <button class="btn-text-toggle" id="toggleExperience" aria-expanded="false">
-                    <span>Show more</span>
+                <button class="toggle-more" id="toggleExperience" aria-expanded="false" aria-controls="moreExperience" type="button">
+                    <span>Show earlier roles</span>
                 </button>
             </div>
         </section>
 
-        
-        <!-- Featured Work -->
-        <section id="projects" class="portfolio-projects section">
-  <div class="container">
-    <h2 class="section-title fade-in">Pinned Projects</h2>
-    
-    <div class="projects-grid stagger">
-      
-      <!-- Project 1: sgemm-autotuner -->
-      <div class="project-card">
-        <div class="project-header">
-          <h3 class="project-name">sgemm-autotuner</h3>
-          <span class="badge">Public</span>
-        </div>
-        <p class="project-description">
-          A high-performance C++ SGEMM implementation evolving from a naive loop to near-peak CPU performance, featuring empirical autotuning and OpenBLAS benchmarking.
-        </p>
-        <div class="project-footer">
-          <div class="project-lang">
-            <span class="language-color" style="background-color: #f34b7d;"></span>
-            <span class="language">C++</span>
-          </div>
-          <a href="https://github.com/youni20/sgemm-autotuner" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-small">
-            <i class="fab fa-github"></i> GitHub
-          </a>
-        </div>
-      </div>
-
-      <!-- Project 2: sherlock-RAG -->
-      <div class="project-card">
-        <div class="project-header">
-          <h3 class="project-name">sherlock-RAG</h3>
-          <span class="badge">Public</span>
-        </div>
-        <p class="project-description">
-          A Retrieval-Augmented Generation (RAG) assistant designed to ingest documents and provide verified answers based strictly on the provided evidence. Built as a technical assessment.
-        </p>
-        <div class="project-footer">
-          <div class="project-lang">
-            <span class="language-color" style="background-color: #3572A5;"></span>
-            <span class="language">Python</span>
-          </div>
-          <a href="https://github.com/youni20/sherlock-RAG" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-small">
-            <i class="fab fa-github"></i> GitHub
-          </a>
-        </div>
-      </div>
-
-      <!-- Project 3: match-vision-ai -->
-      <div class="project-card">
-        <div class="project-header">
-          <h3 class="project-name">match-vision-ai</h3>
-          <span class="badge">Public</span>
-        </div>
-        <p class="project-description">
-          An AI-powered video data analysis system built with YOLO and OpenCV that detects players, tracks ball movement, and extracts match insights in real time.
-        </p>
-        <div class="project-footer">
-          <div class="project-lang">
-            <span class="language-color" style="background-color: #DA5B0B;"></span>
-            <span class="language">Jupyter Notebook</span>
-          </div>
-          <a href="https://github.com/youni20/match-vision-ai" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-small">
-            <i class="fab fa-github"></i> GitHub
-          </a>
-        </div>
-      </div>
-
-      <!-- Project 4: code-translation-engine -->
-      <div class="project-card">
-        <div class="project-header">
-          <h3 class="project-name">code-translation-engine</h3>
-          <span class="badge">Public</span>
-        </div>
-        <p class="project-description">
-          Bachelor thesis investigating whether Language Server Protocol (LSP) feedback improves LLM-driven code repair in agentic translation pipelines. 
-        </p>
-        <div class="project-footer">
-          <div class="project-lang">
-            <span class="language-color" style="background-color: #dea584;"></span>
-            <span class="language">Rust</span>
-          </div>
-          <a href="https://github.com/youni20/code-translation-engine" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-small">
-            <i class="fab fa-github"></i> GitHub
-          </a>
-        </div>
-      </div>
-
-      <!-- Project 5: ClearScan-OCR-Pipeline -->
-      <div class="project-card">
-        <div class="project-header">
-          <h3 class="project-name">ClearScan-OCR-Pipeline</h3>
-          <span class="badge">Public</span>
-        </div>
-        <p class="project-description">
-          OCR pipeline for digitising historical Swedish investigation documents using Qwen3-VL with adaptive preprocessing and evaluation.
-        </p>
-        <div class="project-footer">
-          <div class="project-lang">
-            <span class="language-color" style="background-color: #3572A5;"></span>
-            <span class="language">Python</span>
-          </div>
-          <a href="https://github.com/youni20/ClearScan-OCR-Pipeline" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-small">
-            <i class="fab fa-github"></i> GitHub
-          </a>
-        </div>
-      </div>
-
-      <!-- Project 6: api-forge -->
-      <div class="project-card">
-        <div class="project-header">
-          <h3 class="project-name">api-forge</h3>
-          <span class="badge">Public</span>
-        </div>
-        <p class="project-description">
-          A collection of scalable, commercial-grade APIs designed for SaaS integration and monetization.
-        </p>
-        <div class="project-footer">
-          <div class="project-lang">
-            <span class="language-color" style="background-color: #f1e05a;"></span>
-            <span class="language">JavaScript</span>
-          </div>
-          <a href="https://github.com/youni20/api-forge" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-small">
-            <i class="fab fa-github"></i> GitHub
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-        
-
-        <!-- Certifications -->
-        <section class="section section-alt">
+        <!-- 05 — Work -->
+        <section id="projects" class="section">
             <div class="container">
-                <h2 class="section-title fade-in">Certifications</h2>
-                
-                <div class="certs-grid stagger">
-                    <div class="cert-card">
-                        <div class="cert-logo"><i class="fas fa-graduation-cap"></i></div>
-                        <div>
-                            <h3>CS50's AI with Python</h3>
-                            <p>Harvard University</p>
+                <p class="sec-label fade-in"><span class="sec-num">05</span> / work</p>
+
+                <div class="work-grid stagger">
+                    <a class="work" href="https://github.com/youni20/sgemm-autotuner" target="_blank" rel="noopener noreferrer">
+                        <div class="work-top">
+                            <h3 class="work-name">sgemm-autotuner</h3>
+                            <svg class="work-arrow" width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg>
                         </div>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-logo"><i class="fab fa-aws"></i></div>
-                        <div>
-                            <h3>AWS Certified Cloud Practitioner</h3>
-                            <p>Amazon Web Services</p>
+                        <p class="work-desc">A high-performance C++ SGEMM implementation evolving from a naive loop to near-peak CPU performance, featuring empirical autotuning and OpenBLAS benchmarking.</p>
+                        <p class="work-lang"><span class="dot" style="background:#f34b7d"></span>C++</p>
+                    </a>
+
+                    <a class="work" href="https://github.com/youni20/sherlock-RAG" target="_blank" rel="noopener noreferrer">
+                        <div class="work-top">
+                            <h3 class="work-name">sherlock-RAG</h3>
+                            <svg class="work-arrow" width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg>
                         </div>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-logo"><i class="fab fa-aws"></i></div>
-                        <div>
-                            <h3>AWS Certified AI Practitioner</h3>
-                            <p>Amazon Web Services</p>
+                        <p class="work-desc">A Retrieval-Augmented Generation (RAG) assistant designed to ingest documents and provide verified answers based strictly on the provided evidence. Built as a technical assessment.</p>
+                        <p class="work-lang"><span class="dot" style="background:#3572A5"></span>Python</p>
+                    </a>
+
+                    <a class="work" href="https://github.com/youni20/match-vision-ai" target="_blank" rel="noopener noreferrer">
+                        <div class="work-top">
+                            <h3 class="work-name">match-vision-ai</h3>
+                            <svg class="work-arrow" width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg>
                         </div>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-logo"><i class="fas fa-robot"></i></div>
-                        <div>
-                            <h3>IBM RAG &amp; Agentic AI</h3>
-                            <p>IBM</p>
+                        <p class="work-desc">An AI-powered video data analysis system built with YOLO and OpenCV that detects players, tracks ball movement, and extracts match insights in real time.</p>
+                        <p class="work-lang"><span class="dot" style="background:#DA5B0B"></span>Jupyter Notebook</p>
+                    </a>
+
+                    <a class="work" href="https://github.com/youni20/code-translation-engine" target="_blank" rel="noopener noreferrer">
+                        <div class="work-top">
+                            <h3 class="work-name">code-translation-engine</h3>
+                            <svg class="work-arrow" width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg>
                         </div>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-logo"><i class="fab fa-microsoft"></i></div>
-                        <div>
-                            <h3>Backend APIs &amp; Microservices</h3>
-                            <p>Microsoft</p>
+                        <p class="work-desc">Bachelor thesis investigating whether Language Server Protocol (LSP) feedback improves LLM-driven code repair in agentic translation pipelines.</p>
+                        <p class="work-lang"><span class="dot" style="background:#dea584"></span>Rust</p>
+                    </a>
+
+                    <a class="work" href="https://github.com/youni20/ClearScan-OCR-Pipeline" target="_blank" rel="noopener noreferrer">
+                        <div class="work-top">
+                            <h3 class="work-name">ClearScan-OCR-Pipeline</h3>
+                            <svg class="work-arrow" width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg>
                         </div>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-logo"><i class="fas fa-cloud"></i></div>
-                        <div>
-                            <h3>DevOps &amp; Cloud Fundamentals</h3>
-                            <p>IBM</p>
+                        <p class="work-desc">OCR pipeline for digitising historical Swedish investigation documents using Qwen3-VL with adaptive preprocessing and evaluation.</p>
+                        <p class="work-lang"><span class="dot" style="background:#3572A5"></span>Python</p>
+                    </a>
+
+                    <a class="work" href="https://github.com/youni20/api-forge" target="_blank" rel="noopener noreferrer">
+                        <div class="work-top">
+                            <h3 class="work-name">api-forge</h3>
+                            <svg class="work-arrow" width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg>
                         </div>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-logo"><i class="fas fa-network-wired"></i></div>
-                        <div>
-                            <h3>Fundamentals of Networking</h3>
-                            <p>University of Colorado</p>
-                        </div>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-logo"><i class="fab fa-python"></i></div>
-                        <div>
-                            <h3>Python for Data Science &amp; AI</h3>
-                            <p>IBM</p>
-                        </div>
-                    </div>
+                        <p class="work-desc">A collection of scalable, commercial-grade APIs designed for SaaS integration and monetization.</p>
+                        <p class="work-lang"><span class="dot" style="background:#f1e05a"></span>JavaScript</p>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- Contact -->
+        <!-- 06 — Certifications -->
+        <section id="certifications" class="section">
+            <div class="container">
+                <p class="sec-label fade-in"><span class="sec-num">06</span> / certifications</p>
+
+                <ul class="certs stagger">
+                    <li class="cert">
+                        <span class="cert-name">CS50&rsquo;s AI with Python</span>
+                        <span class="cert-issuer">Harvard University</span>
+                    </li>
+                    <li class="cert">
+                        <span class="cert-name">AWS Certified Cloud Practitioner</span>
+                        <span class="cert-issuer">Amazon Web Services</span>
+                    </li>
+                    <li class="cert">
+                        <span class="cert-name">AWS Certified AI Practitioner</span>
+                        <span class="cert-issuer">Amazon Web Services</span>
+                    </li>
+                    <li class="cert">
+                        <span class="cert-name">IBM RAG &amp; Agentic AI</span>
+                        <span class="cert-issuer">IBM</span>
+                    </li>
+                    <li class="cert">
+                        <span class="cert-name">Backend APIs &amp; Microservices</span>
+                        <span class="cert-issuer">Microsoft</span>
+                    </li>
+                    <li class="cert">
+                        <span class="cert-name">DevOps &amp; Cloud Fundamentals</span>
+                        <span class="cert-issuer">IBM</span>
+                    </li>
+                    <li class="cert">
+                        <span class="cert-name">Fundamentals of Networking</span>
+                        <span class="cert-issuer">University of Colorado</span>
+                    </li>
+                    <li class="cert">
+                        <span class="cert-name">Python for Data Science &amp; AI</span>
+                        <span class="cert-issuer">IBM</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 07 — Contact -->
         <section id="contact" class="section">
             <div class="container">
-                <h2 class="section-title fade-in">Let's connect</h2>
-                
-                <div class="contact-grid fade-in">
-                    <div class="contact-info">
-                        <a href="mailto:younusmashoor@gmail.com" class="contact-info-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>younusmashoor@gmail.com</span>
-                        </a>
-                        <a href="https://github.com/youni20" target="_blank" rel="noopener noreferrer"
-                            class="contact-info-item">
-                            <i class="fab fa-github"></i>
-                            <span>github.com/youni20</span>
-                        </a>
-                        <a href="https://www.linkedin.com/in/younus-mashoor-6a48aa360" target="_blank"
-                            rel="noopener noreferrer" class="contact-info-item">
-                            <i class="fab fa-linkedin"></i>
-                            <span>linkedin.com/in/younus-mashoor</span>
-                        </a>
+                <p class="sec-label fade-in"><span class="sec-num">07</span> / contact</p>
+
+                <div class="contact fade-in">
+                    <div class="contact-direct">
+                        <p class="contact-intro">Open to edge AI and systems engineering work. The fastest route is email.</p>
+
+                        <ul class="contact-list">
+                            <li>
+                                <a href="mailto:younusmashoor@gmail.com">
+                                    <svg width="16" height="16" aria-hidden="true"><use href="#i-mail"/></svg>
+                                    <span>younusmashoor@gmail.com</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/youni20" target="_blank" rel="noopener noreferrer">
+                                    <svg width="16" height="16" aria-hidden="true"><use href="#i-github"/></svg>
+                                    <span>github.com/youni20</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/younus-mashoor-6a48aa360" target="_blank" rel="noopener noreferrer">
+                                    <svg width="16" height="16" aria-hidden="true"><use href="#i-linkedin"/></svg>
+                                    <span>linkedin.com/in/younus-mashoor</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
+
                     <form id="contactForm" class="contact-form" action="https://formspree.io/f/xqepzjwy" method="POST">
-                        <div class="form-group">
+                        <div class="field">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" autocomplete="email" required>
                         </div>
-                        <div class="form-group">
+                        <div class="field">
                             <label for="subject">Subject</label>
                             <input type="text" id="subject" name="subject" required>
                         </div>
-                        <div class="form-group">
+                        <div class="field">
                             <label for="message">Message</label>
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-full">
-                            Send Message
-                        </button>
-                        
+                        <button type="submit" class="btn btn-full">Send message</button>
+
                         <div id="contactNotification" class="contact-notification" role="status" aria-live="polite"></div>
                     </form>
                 </div>
@@ -569,15 +481,7 @@
     <footer class="footer">
         <div class="container footer-inner">
             <p>&copy; 2026 Younus Mashoor</p>
-            <div class="footer-links">
-                <a href="https://github.com/youni20" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/younus-mashoor-6a48aa360" target="_blank"
-                    rel="noopener noreferrer" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-            </div>
+            <p class="footer-meta">Built without a framework</p>
         </div>
     </footer>
 

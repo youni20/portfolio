@@ -1,209 +1,190 @@
 // ============================================================
-// Portfolio — Younus Mashoor (Nike Podium CDS Inspired)
-// Navigation, scroll animations
+// Younus Mashoor — portfolio
+// Theme toggle, navigation, scroll reveal, collapsible sections.
+// Theme is applied pre-paint by the inline script in <head>;
+// this file only wires up the toggle.
 // ============================================================
 
-// --- Theme Toggle -----------------------------------------
-const themeToggle = document.getElementById('themeToggle');
-const rootEl = document.documentElement;
+(function () {
+    'use strict';
 
-function setTheme(theme) {
-    if (theme === 'dark') {
-        rootEl.setAttribute('data-theme', 'dark');
-    } else {
-        rootEl.removeAttribute('data-theme');
+    var root = document.documentElement;
+    var MOBILE_BREAKPOINT = 900;
+
+    // --- Theme ------------------------------------------------
+
+    var themeToggle = document.getElementById('themeToggle');
+
+    function currentTheme() {
+        return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
     }
-    localStorage.setItem('theme', theme);
+
+    function setTheme(theme) {
+        if (theme === 'dark') {
+            root.setAttribute('data-theme', 'dark');
+        } else {
+            root.removeAttribute('data-theme');
+        }
+        try {
+            localStorage.setItem('theme', theme);
+        } catch (e) { /* storage blocked — theme still applies for this page view */ }
+        if (themeToggle) {
+            themeToggle.setAttribute(
+                'aria-label',
+                theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'
+            );
+        }
+    }
+
     if (themeToggle) {
-        themeToggle.setAttribute('aria-label',
-            theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
-    }
-}
-
-if (themeToggle) {
-    const stored = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    // Initial theme
-    if (stored === 'dark' || (!stored && prefersDark)) {
-        setTheme('dark');
-    } else {
-        setTheme('light');
-    }
-
-    themeToggle.addEventListener('click', () => {
-        const current = rootEl.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-        setTheme(current === 'dark' ? 'light' : 'dark');
-    });
-}
-
-// --- Navigation -------------------------------------------
-
-const nav = document.getElementById('nav');
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
-let overlay = null;
-
-let ticking = false;
-window.addEventListener('scroll', () => {
-    if (!ticking) {
-        requestAnimationFrame(() => {
-            nav.classList.toggle('scrolled', window.scrollY > 0);
-            ticking = false;
-        });
-        ticking = true;
-    }
-});
-
-// Active link tracking
-const sections = document.querySelectorAll('section[id]');
-const links = document.querySelectorAll('.nav-link');
-
-function updateActiveLink() {
-    let current = '';
-    const atBottom = (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2;
-    if (atBottom && sections.length) {
-        current = sections[sections.length - 1].id;
-    } else {
-        sections.forEach(section => {
-            if (window.scrollY >= section.offsetTop - 100) {
-                current = section.id;
-            }
+        setTheme(currentTheme());
+        themeToggle.addEventListener('click', function () {
+            setTheme(currentTheme() === 'dark' ? 'light' : 'dark');
         });
     }
-    links.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
-    });
-}
 
-window.addEventListener('scroll', () => {
-    requestAnimationFrame(updateActiveLink);
-});
+    // Follow the OS only while the visitor has made no explicit choice.
+    if (window.matchMedia) {
+        var scheme = window.matchMedia('(prefers-color-scheme: dark)');
+        var onSchemeChange = function (e) {
+            var stored = null;
+            try { stored = localStorage.getItem('theme'); } catch (err) { /* ignore */ }
+            if (!stored) setTheme(e.matches ? 'dark' : 'light');
+        };
+        if (scheme.addEventListener) {
+            scheme.addEventListener('change', onSchemeChange);
+        } else if (scheme.addListener) {
+            scheme.addListener(onSchemeChange);
+        }
+    }
 
-// Mobile menu
-const navActions = document.querySelector('.nav-actions');
+    // --- Mobile navigation ------------------------------------
 
-function openMenu() {
-    navLinks.classList.remove('closing');
-    navLinks.classList.add('open');
-    if (navToggle) {
+    var nav = document.getElementById('nav');
+    var navToggle = document.getElementById('navToggle');
+    var navLinks = document.getElementById('navLinks');
+
+    function openMenu() {
+        navLinks.classList.add('open');
         navToggle.classList.add('active');
         navToggle.setAttribute('aria-expanded', 'true');
+        nav.classList.add('menu-open');
+        document.body.classList.add('no-scroll');
     }
-    nav.classList.add('menu-open');
-    document.body.classList.add('no-scroll');
 
-    if (!overlay) {
-        overlay = document.createElement('div');
-        overlay.className = 'nav-overlay';
-        overlay.addEventListener('click', closeMenu);
-        document.body.appendChild(overlay);
-    }
-    overlay.classList.remove('closing');
-
-    if (navLinks.parentNode !== document.body) {
-        document.body.appendChild(navLinks);
-    }
-}
-
-function closeMenu() {
-    if (!navLinks.classList.contains('open')) return;
-
-    navLinks.classList.remove('open');
-    navLinks.classList.add('closing');
-    if (navToggle) {
+    function closeMenu() {
+        navLinks.classList.remove('open');
         navToggle.classList.remove('active');
         navToggle.setAttribute('aria-expanded', 'false');
-    }
-    nav.classList.remove('menu-open');
-    document.body.classList.remove('no-scroll');
-    
-    if (overlay) {
-        overlay.classList.add('closing');
+        nav.classList.remove('menu-open');
+        document.body.classList.remove('no-scroll');
     }
 
-    setTimeout(() => {
-        if (!navLinks.classList.contains('open')) {
-            navLinks.classList.remove('closing');
-            if (navActions && navActions.parentNode && navLinks.parentNode !== navActions.parentNode) {
-                navActions.parentNode.insertBefore(navLinks, navActions);
-            }
-            if (overlay && overlay.parentNode) {
-                overlay.parentNode.removeChild(overlay);
-                overlay = null;
-            }
-        }
-    }, 300);
-}
+    if (navToggle && navLinks && nav) {
+        navToggle.addEventListener('click', function () {
+            if (navLinks.classList.contains('open')) closeMenu();
+            else openMenu();
+        });
 
-if (navToggle) {
-    navToggle.addEventListener('click', () => {
-        if (navLinks.classList.contains('open')) {
-            closeMenu();
+        navLinks.addEventListener('click', function (e) {
+            if (e.target.closest('.nav-link')) closeMenu();
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+                closeMenu();
+                navToggle.focus();
+            }
+        });
+
+        window.addEventListener('resize', function () {
+            if (window.innerWidth >= MOBILE_BREAKPOINT) closeMenu();
+        });
+    }
+
+    // --- Scrolled state + active link -------------------------
+
+    var sections = Array.prototype.slice.call(document.querySelectorAll('main section[id]'));
+    var links = Array.prototype.slice.call(document.querySelectorAll('.nav-link'));
+    var ticking = false;
+
+    function updateOnScroll() {
+        if (nav) nav.classList.toggle('scrolled', window.scrollY > 8);
+
+        if (!sections.length) return;
+
+        var current = sections[0].id;
+        var atBottom = window.innerHeight + window.scrollY >=
+            document.documentElement.scrollHeight - 2;
+
+        if (atBottom) {
+            current = sections[sections.length - 1].id;
         } else {
-            openMenu();
+            for (var i = 0; i < sections.length; i++) {
+                if (sections[i].getBoundingClientRect().top <= 120) {
+                    current = sections[i].id;
+                }
+            }
         }
-    });
-}
 
-navLinks.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', closeMenu);
-});
-
-document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && navLinks.classList.contains('open')) {
-        closeMenu();
+        links.forEach(function (link) {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+        });
     }
-});
 
-window.addEventListener('resize', () => {
-    if (window.innerWidth > 960 && navLinks.classList.contains('open')) {
-        closeMenu();
+    window.addEventListener('scroll', function () {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () {
+            updateOnScroll();
+            ticking = false;
+        });
+    }, { passive: true });
+
+    updateOnScroll();
+
+    // --- Scroll reveal ----------------------------------------
+
+    var revealTargets = document.querySelectorAll('.fade-in, .stagger');
+
+    if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+        revealTargets.forEach(function (el) { observer.observe(el); });
+    } else {
+        // No observer support — show everything rather than hide it.
+        revealTargets.forEach(function (el) { el.classList.add('visible'); });
     }
-});
 
-// --- Smooth scrolling -------------------------------------
+    // --- Collapsible sections ---------------------------------
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href === '#') return;
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    });
-});
+    function setupToggle(buttonId, targetId, expandedLabel, collapsedLabel) {
+        var button = document.getElementById(buttonId);
+        var target = document.getElementById(targetId);
+        if (!button || !target) return;
 
-// --- Fade-in on scroll ------------------------------------
+        button.addEventListener('click', function () {
+            var expanded = target.classList.toggle('visible');
+            button.classList.toggle('expanded', expanded);
+            button.setAttribute('aria-expanded', String(expanded));
+            button.querySelector('span').textContent = expanded ? expandedLabel : collapsedLabel;
 
-const fadeObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            fadeObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+            if (expanded) {
+                // Newly shown entries were never observed, so reveal them directly.
+                target.classList.add('visible');
+                Array.prototype.forEach.call(
+                    target.querySelectorAll('.fade-in, .stagger'),
+                    function (el) { el.classList.add('visible'); }
+                );
+            }
+        });
+    }
 
-document.querySelectorAll('.fade-in, .stagger').forEach(el => {
-    fadeObserver.observe(el);
-});
-
-// --- Toggle sections --------------------------------------
-
-function setupToggle(buttonId, targetId, labelExpanded, labelCollapsed) {
-    const button = document.getElementById(buttonId);
-    const target = document.getElementById(targetId);
-    if (!button || !target) return;
-
-    button.addEventListener('click', () => {
-        const isExpanded = target.classList.toggle('visible');
-        button.classList.toggle('expanded', isExpanded);
-        button.setAttribute('aria-expanded', isExpanded);
-        button.querySelector('span').textContent = isExpanded ? labelExpanded : labelCollapsed;
-    });
-}
-
-setupToggle('toggleExperience', 'moreExperience', 'Show less', 'Show more');
+    setupToggle('toggleExperience', 'moreExperience', 'Hide earlier roles', 'Show earlier roles');
+})();
